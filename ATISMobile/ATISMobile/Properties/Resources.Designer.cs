@@ -61,7 +61,7 @@ namespace ATISMobile.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ftp://172.26.29.16:1354/ATISMobile/ATISMobile.apk.
+        ///   Looks up a localized string similar to ftp://37.255.209.4:1354/ATISMobile/ATISMobile.apk.
         /// </summary>
         public static string APKFtpURL {
             get {
@@ -70,7 +70,7 @@ namespace ATISMobile.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to http://172.26.29.16:3001.
+        ///   Looks up a localized string similar to http://37.255.209.4:3001.
         /// </summary>
         public static string RestfulWebServiceURL {
             get {
