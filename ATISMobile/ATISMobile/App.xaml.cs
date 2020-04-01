@@ -9,8 +9,10 @@ namespace ATISMobile
         public App()
         {
             InitializeComponent();
-
-            MainPage = new NavigationPage(new MainPage());
+            NavigationPage StartNavPage = new NavigationPage(new StartPage());
+            StartNavPage.BarTextColor = Color.White    ;
+            StartNavPage.BarBackgroundColor  = Color.Black    ;
+            MainPage = StartNavPage;
         }
 
         protected override void OnStart()

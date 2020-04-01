@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ATISMobile.AnnouncementHallsSelectionPage"
+            Title="مشاهده بار و تخصیص بار"
+            Padding="30">
+    <ContentPage Title="تریلی" FlowDirection="RightToLeft"   Padding="10">
+        <ContentPage.Content>
+            <StackLayout>
+                <ScrollView BackgroundColor="Transparent">
+                    <StackLayout>
+                        <Label Text="" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" ></Label>
+                        <Button  BorderWidth="4" BorderColor="White"  CornerRadius="15" FontSize="Large"   Text="سالنی" BackgroundColor="RoyalBlue"    TextColor="White"   HorizontalOptions="Center"  VerticalOptions="CenterAndExpand" WidthRequest="150" HeightRequest="150" BorderRadius="75"  Clicked="_AnnouncementHalls_ClickedEvent" >
+                            <Button.FontFamily>
+                                <OnPlatform x:TypeArguments="x:String">
+                                    <On Platform="iOS" Value="Samim" />
+                                    <On Platform="Android" Value="Samim-Bold.otf#Samim" />
+                                    <On Platform="UWP" Value="Assets/Fonts/Lobster-Regular.ttf#Lobster" />
+                                </OnPlatform>
+                            </Button.FontFamily>
+                        </Button>
+                        <Button  BorderWidth="4" BorderColor="White"  CornerRadius="15" FontSize="Large"   Text="انباری" BackgroundColor="RoyalBlue"    TextColor="White"   HorizontalOptions="Center"  VerticalOptions="CenterAndExpand" WidthRequest="150" HeightRequest="150" BorderRadius="75" Clicked="_Warehouse_ClickedEvent" >
+                            <Button.FontFamily>
+                                <OnPlatform x:TypeArguments="x:String">
+                                    <On Platform="iOS" Value="Samim" />
+                                    <On Platform="Android" Value="Samim-Bold.otf#Samim" />
+                                    <On Platform="UWP" Value="Assets/Fonts/Lobster-Regular.ttf#Lobster" />
+                                </OnPlatform>
+                            </Button.FontFamily>
+                        </Button>
+                        <Label Text="" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" ></Label>
+                    </StackLayout>
+                </ScrollView>
+            </StackLayout>
+        </ContentPage.Content>
+    </ContentPage>
+    <ContentPage Title="اطاقدار" FlowDirection="RightToLeft" Padding="10">
+        <ContentPage.Content>
+            <StackLayout>
+                <ScrollView BackgroundColor="Transparent">
+                    <StackLayout>
+                        <Label Text="" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" ></Label>
+                        <Button BorderWidth="4" BorderColor="White"  CornerRadius="15" FontSize="Large"   Text="خاور" BackgroundColor="RoyalBlue"    TextColor="White"   HorizontalOptions="Center"  VerticalOptions="CenterAndExpand" WidthRequest="150" HeightRequest="150" BorderRadius="75"   Clicked="_RoomyKhavar_ClickedEvent" >
+                            <Button.FontFamily>
+                                <OnPlatform x:TypeArguments="x:String">
+                                    <On Platform="iOS" Value="Samim" />
+                                    <On Platform="Android" Value="Samim-Bold.otf#Samim" />
+                                    <On Platform="UWP" Value="Assets/Fonts/Lobster-Regular.ttf#Lobster" />
+                                </OnPlatform>
+                            </Button.FontFamily>
+                        </Button>
+                        <Button BorderWidth="4" BorderColor="White"  CornerRadius="15" FontSize="Large"   Text="6 چرخ" BackgroundColor="RoyalBlue"    TextColor="White"   HorizontalOptions="Center"  VerticalOptions="CenterAndExpand" WidthRequest="150" HeightRequest="150" BorderRadius="75"  Clicked="_Roomy6Wheel_ClickedEvent" >
+                            <Button.FontFamily>
+                                <OnPlatform x:TypeArguments="x:String">
+                                    <On Platform="iOS" Value="Samim" />
+                                    <On Platform="Android" Value="Samim-Bold.otf#Samim" />
+                                    <On Platform="UWP" Value="Assets/Fonts/Lobster-Regular.ttf#Lobster" />
+                                </OnPlatform>
+                            </Button.FontFamily>
+                        </Button>
+                        <Button BorderWidth="4" BorderColor="White"  CornerRadius="15" FontSize="Large"   Text="10 چرخ" BackgroundColor="RoyalBlue"    TextColor="White"   HorizontalOptions="Center"  VerticalOptions="CenterAndExpand" WidthRequest="150" HeightRequest="150" BorderRadius="75"   Clicked="_Roomy10Wheel_ClickedEvent" >
+                            <Button.FontFamily>
+                                <OnPlatform x:TypeArguments="x:String">
+                                    <On Platform="iOS" Value="Samim" />
+                                    <On Platform="Android" Value="Samim-Bold.otf#Samim" />
+                                    <On Platform="UWP" Value="Assets/Fonts/Lobster-Regular.ttf#Lobster" />
+                                </OnPlatform>
+                            </Button.FontFamily>
+                        </Button>
+                        <Label Text="" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" ></Label>
+                    </StackLayout>
+                </ScrollView>
+            </StackLayout>
+        </ContentPage.Content>
+    </ContentPage>
+</TabbedPage>

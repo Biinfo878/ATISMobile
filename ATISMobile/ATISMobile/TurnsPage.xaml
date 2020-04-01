@@ -1,22 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ATISMobile.LoadsPage"
-             Title="بار موجود">
-
+             x:Class="ATISMobile.TurnsPage"
+             Title="نوبت های صادر شده">
     <ContentPage.Content>
         <StackLayout BackgroundColor="White" >
-            <StackLayout x:Name="_StackLayoutEmptyAnnounce" IsVisible="False"  BackgroundColor="White" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" >
-                <Label Text="باری در سامانه موجود نیست" TextColor="Red" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontSize="Large" >
-                    <Label.FontFamily>
-                        <OnPlatform x:TypeArguments="x:String">
-                            <On Platform="iOS" Value="Samim" />
-                            <On Platform="Android" Value="Samim-Bold.otf#Samim" />
-                            <On Platform="UWP" Value="Assets/Fonts/Lobster-Regular.ttf#Lobster" />
-                        </OnPlatform>
-                    </Label.FontFamily>
-                </Label>
-                <Label Text="کلیه بارها جذب یا رسوب شده است" TextColor="DarkRed" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontSize="Medium" >
+            <StackLayout x:Name="_StackLayoutEmptyTurns" IsVisible="False"  BackgroundColor="White" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" >
+                <Label Text="نوبتی در سامانه موجود نیست" TextColor="Red" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontSize="Large" >
                     <Label.FontFamily>
                         <OnPlatform x:TypeArguments="x:String">
                             <On Platform="iOS" Value="Samim" />
@@ -30,21 +20,9 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell  >
-                            <Frame HasShadow="true" Margin="5" BorderColor="Red" CornerRadius="15" BackgroundColor="OrangeRed" >
-                                <StackLayout Orientation="Vertical" BackgroundColor="OrangeRed" Padding="1,0,1,0"  >
-                                    <Label  BackgroundColor="OrangeRed"  TextColor="GreenYellow"   FontSize="Large" FontAttributes="Bold" Text = "{Binding LoadnEstelamId}" >
-                                        <Label.FontFamily>
-                                            <OnPlatform x:TypeArguments="x:String">
-                                                <On Platform="iOS" Value="Samim" />
-                                                <On Platform="Android" Value="Samim-Bold.otf#Samim" />
-                                                <On Platform="UWP" Value="Assets/Fonts/Lobster-Regular.ttf#Lobster" />
-                                            </OnPlatform>
-                                        </Label.FontFamily>
-                                        <Label.GestureRecognizers>
-                                            <TapGestureRecognizer Tapped="OnTapGestureRecognizerTapped"/>
-                                        </Label.GestureRecognizers>
-                                    </Label>
-                                    <Label  BackgroundColor="OrangeRed"  TextColor="White"  FontSize="Large" FontAttributes="Bold" Text = "{Binding LoadCapacitorLoadTitleTargetCityTotalAmount}" >
+                            <Frame HasShadow="true" Margin="1" BorderColor="Red" CornerRadius="15" BackgroundColor="DodgerBlue" >
+                                <StackLayout Orientation="Vertical" BackgroundColor="DodgerBlue"  Padding="1,0,1,0"  >
+                                    <Label  BackgroundColor="DodgerBlue"  TextColor="GreenYellow"   FontSize="Large" FontAttributes="Bold" Text = "{Binding OtaghdarTurnNumber}" >
                                         <Label.FontFamily>
                                             <OnPlatform x:TypeArguments="x:String">
                                                 <On Platform="iOS" Value="Samim" />
@@ -53,7 +31,7 @@
                                             </OnPlatform>
                                         </Label.FontFamily>
                                     </Label>
-                                    <Label   BackgroundColor="OrangeRed"  TextColor="Yellow" FontSize="Small" FontAttributes="Bold"   Text = "{Binding TransportCompanyTarrifPrice}">
+                                    <Label  BackgroundColor="DodgerBlue"  TextColor="White"   FontSize="Medium"   FontAttributes="Bold" Text = "{Binding TurnDateTime}" >
                                         <Label.FontFamily>
                                             <OnPlatform x:TypeArguments="x:String">
                                                 <On Platform="iOS" Value="Samim" />
@@ -62,7 +40,7 @@
                                             </OnPlatform>
                                         </Label.FontFamily>
                                     </Label>
-                                    <Label   BackgroundColor="OrangeRed"  TextColor="Blue"  FontSize="Medium" FontAttributes="Bold"  Text = "{Binding Description}" >
+                                    <Label   BackgroundColor="DodgerBlue"  TextColor="Black"  FontSize="Medium"   FontAttributes="Bold"   Text = "{Binding TurnStatusTitle}">
                                         <Label.FontFamily>
                                             <OnPlatform x:TypeArguments="x:String">
                                                 <On Platform="iOS" Value="Samim" />
@@ -71,6 +49,25 @@
                                             </OnPlatform>
                                         </Label.FontFamily>
                                     </Label>
+                                    <Label   BackgroundColor="DodgerBlue"  TextColor="Yellow"  FontSize="Large"  FontAttributes="Bold"  Text = "{Binding LPPString}" >
+                                        <Label.FontFamily>
+                                            <OnPlatform x:TypeArguments="x:String">
+                                                <On Platform="iOS" Value="Samim" />
+                                                <On Platform="Android" Value="Samim-Bold.otf#Samim" />
+                                                <On Platform="UWP" Value="Assets/Fonts/Lobster-Regular.ttf#Lobster" />
+                                            </OnPlatform>
+                                        </Label.FontFamily>
+                                    </Label>
+                                    <Label   BackgroundColor="DodgerBlue"  TextColor="White"  FontSize="Small"  FontAttributes="Bold"  Text = "{Binding TruckDriver}" >
+                                        <Label.FontFamily>
+                                            <OnPlatform x:TypeArguments="x:String">
+                                                <On Platform="iOS" Value="Samim" />
+                                                <On Platform="Android" Value="Samim-Bold.otf#Samim" />
+                                                <On Platform="UWP" Value="Assets/Fonts/Lobster-Regular.ttf#Lobster" />
+                                            </OnPlatform>
+                                        </Label.FontFamily>
+                                    </Label>
+
                                 </StackLayout>
                             </Frame>
                         </ViewCell>

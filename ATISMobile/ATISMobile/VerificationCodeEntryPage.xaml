@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ATISMobile.VerificationCodeEntryPage"      
+             BackgroundColor="White"
+             BackgroundImage="@drawable/BlueBackGround"
+             Title="سامانه اطلاع رسانی بار آتیس - استان اصفهان">
+    <ContentPage.Content>
+        <StackLayout Padding="20,10,20,10" BackgroundColor="Transparent">
+            <Label Text="" TextColor="Yellow"   HorizontalOptions="CenterAndExpand"  VerticalOptions="CenterAndExpand"   FontSize="Large" />
+            <Label Text="کد ارسال شده را وارد نمایید" TextColor="White"   HorizontalOptions="Center" VerticalOptions="Start"  FontSize="Large" >
+                <Label.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="iOS" Value="Samim" />
+                        <On Platform="Android" Value="Samim-Bold.otf#Samim" />
+                        <On Platform="UWP" Value="Assets/Fonts/Lobster-Regular.ttf#Lobster" />
+                    </OnPlatform>
+                </Label.FontFamily>
+            </Label>
+            <Entry x:Name="_EntryVerificatinCode"  IsPassword="False"  Placeholder="VerificatinCode" TextColor="White" HorizontalTextAlignment="Center"  HorizontalOptions="Center" VerticalOptions="Start" FontSize="Large"   >
+                <Entry.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="iOS" Value="Samim" />
+                        <On Platform="Android" Value="Samim-Bold.otf#Samim" />
+                        <On Platform="UWP" Value="Assets/Fonts/Lobster-Regular.ttf#Lobster" />
+                    </OnPlatform>
+                </Entry.FontFamily>
+            </Entry>
+            <Label x:Name="_LabelMobileNumber" Text="" TextColor="Gray"    HorizontalOptions="Center" VerticalOptions="Start"  FontSize="Large" >
+                <Label.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="iOS" Value="Samim" />
+                        <On Platform="Android" Value="Samim-Bold.otf#Samim" />
+                        <On Platform="UWP" Value="Assets/Fonts/Lobster-Regular.ttf#Lobster" />
+                    </OnPlatform>
+                </Label.FontFamily>
+            </Label>
+            <Button x:Name="_Button" BorderWidth="2" BorderColor="Black"  CornerRadius="15" FontSize="Medium"  Text="ارسال" BackgroundColor="Green" TextColor="White" HorizontalOptions="Center" VerticalOptions="Start"  WidthRequest="100" HeightRequest="100" BorderRadius="50" Clicked="_Button_ClickedEvent" >
+                <Button.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="iOS" Value="Samim" />
+                        <On Platform="Android" Value="Samim-Bold.otf#Samim" />
+                        <On Platform="UWP" Value="Assets/Fonts/Lobster-Regular.ttf#Lobster" />
+                    </OnPlatform>
+                </Button.FontFamily>
+            </Button>
+            <Label Text="" TextColor="Yellow"   HorizontalOptions="CenterAndExpand"  VerticalOptions="CenterAndExpand"   FontSize="Large" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

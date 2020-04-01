@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Resources;
 using System.Net;
 using System.IO;
 using System.Net.Http;
+using System.Diagnostics;
 
 using Android.App;
 using Android.Content;
@@ -11,6 +13,7 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 using Newtonsoft.Json;
+using Xamarin.Android;
 
 
 namespace ATISMobile.Droid
@@ -28,9 +31,7 @@ namespace ATISMobile.Droid
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());
-
             UpdateAPP();
-
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
@@ -47,18 +48,20 @@ namespace ATISMobile.Droid
                 Xamarin.Essentials.VersionTracking.Track();
                 string VersionNumber = Xamarin.Essentials.VersionTracking.CurrentVersion;
                 string VersionName = Xamarin.Essentials.VersionTracking.CurrentBuild;
-                
-                var responseVersion = await _Client.GetAsync(ATISMobile.Properties.Resources.RestfulWebServiceURL +"/api/VersionControl?YourVersionNumber=" + VersionNumber + "&YourVersionName=" + VersionName);
+
+                var responseVersion = await _Client.GetAsync(ATISMobile.Properties.Resources.RestfulWebServiceURL + "/api/VersionControl?YourVersionNumber=" + VersionNumber + "&YourVersionName=" + VersionName);
                 if (responseVersion.IsSuccessStatusCode)
                 {
                     var content = await responseVersion.Content.ReadAsStringAsync();
                     if (!JsonConvert.DeserializeObject<bool>(content)) return;
                 }
 
+                //ATISMobile.Droid.PublicProcedures.ATISMobileMClassPublicProcedures.ViewMessage(this, "آپدیت اپلیکیشن - لطفا تا پایان آپدیت ورژن جدید اپلیکیشن منتظر بمانید");
+
                 String RemoteFtpPath = ATISMobile.Properties.Resources.APKFtpURL;
                 //String TargetPath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments), "ATISMobile.apk");
                 String TargetPath = Path.Combine(Android.OS.Environment.GetExternalStoragePublicDirectory(Android.OS.Environment.DirectoryDownloads).ToString(), "ATISMobile.apk");
-
+                //String TargetPath = System.Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
                 FtpWebRequest request = (FtpWebRequest)WebRequest.Create(RemoteFtpPath);
                 request.Method = WebRequestMethods.Ftp.DownloadFile;
                 request.KeepAlive = false; request.UsePassive = true; request.UseBinary = true;
@@ -95,6 +98,7 @@ namespace ATISMobile.Droid
             }
             catch (Exception ex)
             { await Xamarin.Forms.Application.Current.MainPage.DisplayAlert("خطا در فرآیند آپدیت اپلیکیشن", ex.Message, "تایید"); }
+
         }
 
     }

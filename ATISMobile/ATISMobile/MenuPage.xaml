@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ATISMobile.MenuPage"
+             BackgroundColor="White"
+             BackgroundImage="@drawable/BlueBackGround"
+             Title="سامانه اطلاع رسانی بار آتیس - استان اصفهان"
+             Padding="50">
+    <ContentPage.Content>
+        <ScrollView BackgroundColor="Transparent">
+            <StackLayout Padding="20,20,20,10" BackgroundColor="Transparent"  >
+                <Button x:Name="ViewTruckDriver" BorderWidth="2" BorderColor="White"   CornerRadius="15" FontSize="Medium"    Text="مشاهده مشخصات راننده" BackgroundColor="Transparent"    TextColor="White"  Clicked="_ViewTruckDriver_ClickedEvent" >
+                    <Button.FontFamily>
+                        <OnPlatform x:TypeArguments="x:String">
+                            <On Platform="iOS" Value="Samim" />
+                            <On Platform="Android" Value="Samim-Bold.otf#Samim" />
+                            <On Platform="UWP" Value="Assets/Fonts/Lobster-Regular.ttf#Lobster" />
+                        </OnPlatform>
+                    </Button.FontFamily>
+                </Button>
+                <Button x:Name="ViewTruck"  BorderWidth="2"  BorderColor="White"    CornerRadius="15"  FontSize="Medium"  Text="مشاهده مشخصات ناوگان" BackgroundColor="Transparent"     TextColor="White"   Clicked="_ViewTruck_ClickedEvent">
+                    <Button.FontFamily>
+                        <OnPlatform x:TypeArguments="x:String">
+                            <On Platform="iOS" Value="Samim" />
+                            <On Platform="Android" Value="Samim-Bold.otf#Samim" />
+                            <On Platform="UWP" Value="Assets/Fonts/Lobster-Regular.ttf#Lobster" />
+                        </OnPlatform>
+                    </Button.FontFamily>
+                </Button>
+                <Button x:Name="ViewTurn"  BorderWidth="2"  BorderColor="White"    CornerRadius="15"  FontSize="Medium"  Text="مشاهده نوبت های صادر شده" BackgroundColor="Transparent"     TextColor="White"  Clicked="_ViewTurn_ClickedEvent"  >
+                    <Button.FontFamily>
+                        <OnPlatform x:TypeArguments="x:String">
+                            <On Platform="iOS" Value="Samim" />
+                            <On Platform="Android" Value="Samim-Bold.otf#Samim" />
+                            <On Platform="UWP" Value="Assets/Fonts/Lobster-Regular.ttf#Lobster" />
+                        </OnPlatform>
+                    </Button.FontFamily>
+                </Button>
+                <Button x:Name="LoadCapacitor"  BorderWidth="2"  BorderColor="White"   CornerRadius="15"  FontSize="Medium" Text="مخزن بار" BackgroundColor="Transparent"      TextColor="White"  Clicked="_LoadCapacitor_ClickedEvent">
+                    <Button.FontFamily>
+                        <OnPlatform x:TypeArguments="x:String">
+                            <On Platform="iOS" Value="Samim" />
+                            <On Platform="Android" Value="Samim-Bold.otf#Samim" />
+                            <On Platform="UWP" Value="Assets/Fonts/Lobster-Regular.ttf#Lobster" />
+                        </OnPlatform>
+                    </Button.FontFamily>
+                </Button>
+                <Button x:Name="LoadAllocation"  BorderWidth="2"  BorderColor="White"   CornerRadius="15"  FontSize="Medium" Text="تخصیص بار" BackgroundColor="Transparent"     TextColor="White"  Clicked="_LoadAllocation_ClickedEvent">
+                    <Button.FontFamily>
+                        <OnPlatform x:TypeArguments="x:String">
+                            <On Platform="iOS" Value="Samim" />
+                            <On Platform="Android" Value="Samim-Bold.otf#Samim" />
+                            <On Platform="UWP" Value="Assets/Fonts/Lobster-Regular.ttf#Lobster" />
+                        </OnPlatform>
+                    </Button.FontFamily>
+                </Button>
+                <Button x:Name="ViewLoadAllocations"  BorderWidth="2"  BorderColor="White"   CornerRadius="15"  FontSize="Medium" Text="مشاهده لیست بارهای انتخاب شده &#10; مجوزهای صادر شده" BackgroundColor="Transparent"     TextColor="White" Clicked="_ViewLoadAllocations_ClickedEvent"  >
+                    <Button.FontFamily>
+                        <OnPlatform x:TypeArguments="x:String">
+                            <On Platform="iOS" Value="Samim" />
+                            <On Platform="Android" Value="Samim-Bold.otf#Samim" />
+                            <On Platform="UWP" Value="Assets/Fonts/Lobster-Regular.ttf#Lobster" />
+                        </OnPlatform>
+                    </Button.FontFamily>
+                </Button>
+                <Button x:Name="MoneyWalletAndCharge"  BorderWidth="2"  BorderColor="White"   CornerRadius="15"  FontSize="Medium"  Text="کیف پول  &#10; شارژ موجودی" HeightRequest="100" BackgroundColor="Transparent"  TextColor="White"   >
+                    <Button.FontFamily>
+                        <OnPlatform x:TypeArguments="x:String">
+                            <On Platform="iOS" Value="Samim" />
+                            <On Platform="Android" Value="Samim-Bold.otf#Samim" />
+                            <On Platform="UWP" Value="Assets/Fonts/Lobster-Regular.ttf#Lobster" />
+                        </OnPlatform>
+                    </Button.FontFamily>
+                </Button>
+                <Button x:Name="TurnRegistering"  BorderWidth="2"  BorderColor="White"   CornerRadius="15"  FontSize="Medium" Text="صدور نوبت" BackgroundColor="Transparent"    TextColor="White"   >
+                    <Button.FontFamily>
+                        <OnPlatform x:TypeArguments="x:String">
+                            <On Platform="iOS" Value="Samim" />
+                            <On Platform="Android" Value="Samim-Bold.otf#Samim" />
+                            <On Platform="UWP" Value="Assets/Fonts/Lobster-Regular.ttf#Lobster" />
+                        </OnPlatform>
+                    </Button.FontFamily>
+                </Button>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
