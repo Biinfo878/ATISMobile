@@ -25,7 +25,10 @@ namespace ATISMobile
         public StartPage()
         {
             InitializeComponent();
-            
+            try
+            { Mange_ExitApplicationButton(); }
+            catch (Exception ex)
+            { Debug.WriteLine("\t\tERROR {0}", ex.Message); }
         }
 
         private void Mange_ExitApplicationButton()

@@ -89,7 +89,7 @@ namespace ATISMobile
                 var MUId = PublicProcedures.ATISMobileMClassPublicProcedures.GetCurrentMobileUserId();
                 var nEstelamId = ((Label)sender).Text.Split(':')[1].Trim();
                 HttpClient _Client = new HttpClient();
-                var response = await _Client.GetAsync(Properties.Resources.RestfulWebServiceURL + "/api/LoadAllocations/LoadAllocation/?YourMUId=" + MUId + "&YournEstelamId=" + nEstelamId);
+                var response = await _Client.GetAsync(Properties.Resources.RestfulWebServiceURL + "/api/LoadAllocations/LoadAllocationAgent/?YourMUId=" + MUId + "&YournEstelamId=" + nEstelamId);
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();

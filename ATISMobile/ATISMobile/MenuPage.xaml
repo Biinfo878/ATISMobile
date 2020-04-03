@@ -45,7 +45,7 @@
                         </OnPlatform>
                     </Button.FontFamily>
                 </Button>
-                <Button x:Name="LoadAllocation"  BorderWidth="2"  BorderColor="White"   CornerRadius="15"  FontSize="Medium" Text="تخصیص بار" BackgroundColor="Transparent"     TextColor="White"  Clicked="_LoadAllocation_ClickedEvent">
+                <Button x:Name="LoadAllocation"  IsVisible="True"  BorderWidth="2"  BorderColor="White"   CornerRadius="15"  FontSize="Medium" Text="تخصیص بار" BackgroundColor="Transparent"     TextColor="White"  Clicked="_LoadAllocation_ClickedEvent">
                     <Button.FontFamily>
                         <OnPlatform x:TypeArguments="x:String">
                             <On Platform="iOS" Value="Samim" />
@@ -54,7 +54,7 @@
                         </OnPlatform>
                     </Button.FontFamily>
                 </Button>
-                <Button x:Name="ViewLoadAllocations"  BorderWidth="2"  BorderColor="White"   CornerRadius="15"  FontSize="Medium" Text="مشاهده لیست بارهای انتخاب شده &#10; مجوزهای صادر شده" BackgroundColor="Transparent"     TextColor="White" Clicked="_ViewLoadAllocations_ClickedEvent"  >
+                <Button x:Name="ViewLoadAllocations" IsVisible="True"  BorderWidth="2"  BorderColor="White"   CornerRadius="15"  FontSize="Small"  Text="مشاهده لیست بارهای انتخاب شده &#10; مجوزهای صادر شده" BackgroundColor="Transparent"     TextColor="White" Clicked="_ViewLoadAllocations_ClickedEvent"  >
                     <Button.FontFamily>
                         <OnPlatform x:TypeArguments="x:String">
                             <On Platform="iOS" Value="Samim" />
@@ -72,7 +72,7 @@
                         </OnPlatform>
                     </Button.FontFamily>
                 </Button>
-                <Button x:Name="TurnRegistering"  BorderWidth="2"  BorderColor="White"   CornerRadius="15"  FontSize="Medium" Text="صدور نوبت" BackgroundColor="Transparent"    TextColor="White"   >
+                <Button x:Name="TurnRegistering"  IsVisible="True"  BorderWidth="2"  BorderColor="White"   CornerRadius="15"  FontSize="Medium" Text="صدور نوبت" BackgroundColor="Transparent"    TextColor="White"   >
                     <Button.FontFamily>
                         <OnPlatform x:TypeArguments="x:String">
                             <On Platform="iOS" Value="Samim" />

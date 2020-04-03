@@ -78,8 +78,7 @@ namespace ATISMobile
             {
                 var LoadAllocationId = (((StackLayout)((ImageButton)sender).Parent.Parent.FindByName("_StackLayoutInformation")).FindByName("_LabelLAId") as Label).Text.Split('-')[0].Split(':')[1].Trim();
                 HttpClient _Client = new HttpClient();
-                var response = await _Client.GetAsync(Properties.Resources.RestfulWebServiceURL + "/api/LoadAllocations/IncreasePriority/?YourLoadAllocationId=" + LoadAllocationId + "");
-                if (response.IsSuccessStatusCode)
+                var response = await _Client.GetAsync(Properties.Resources.RestfulWebServiceURL + "/api/LoadAllocations/IncreasePriority/?YourLoadAllocationId=" + LoadAllocationId + ""); if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();
                     var myMS = JsonConvert.DeserializeObject<MessageStruct>(content);

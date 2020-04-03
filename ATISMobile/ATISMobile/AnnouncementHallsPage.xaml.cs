@@ -56,7 +56,7 @@ namespace ATISMobile
         private void UrbanIron_ClickedEvent(Object sender, EventArgs e)
         { try { ViewLoads(5, 12); } catch (Exception ex) { Debug.WriteLine("\t\tERROR {0}", ex.Message); } }
         private void UrbanCoil_ClickedEvent(Object sender, EventArgs e)
-        { try { ViewLoads(2, 13); } catch (Exception ex) { Debug.WriteLine("\t\tERROR {0}", ex.Message); } }
+        { try { ViewLoads(5, 13); } catch (Exception ex) { Debug.WriteLine("\t\tERROR {0}", ex.Message); } }
         private void WarehouseLoadIron_ClickedEvent(Object sender, EventArgs e)
         { try { ViewProvinces(3, 4); } catch (Exception ex) { Debug.WriteLine("\t\tERROR {0}", ex.Message); } }
         private void WarehouseLoadIngots_ClickedEvent(Object sender, EventArgs e)
