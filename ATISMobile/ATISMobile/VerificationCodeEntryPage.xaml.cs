@@ -29,10 +29,11 @@ namespace ATISMobile
             _LabelMobileNumber.Text = YourMobileNumber;
         }
 
-        private async void _Button_ClickedEvent(Object sender, EventArgs e)
+        private async void _ButtonSend_ClickedEvent(Object sender, EventArgs e)
         {
             try
             {
+                _ButtonSend.IsEnabled = false; _ButtonSend.BackgroundColor = Color.Gray;
                 string myMobileNumber = _LabelMobileNumber.Text.Trim();
                 string myVerificationCode = _EntryVerificatinCode.Text.Trim();
                 HttpClient _Client = new HttpClient();
@@ -49,15 +50,18 @@ namespace ATISMobile
                         { await DisplayAlert("ATISMobile", "بروز خطا - مجددا تلاش نمایید", "OK"); }
                         else
                         {
-                            System.IO.File.WriteAllText(TargetPath,"login;" + myMS.Message1.Trim() + ";" + _LabelMobileNumber.Text.Trim());
-                            MenuPage _MenuPage = new MenuPage();
+                            System.IO.File.WriteAllText(TargetPath, "login;" + myMS.Message1.Trim() + ";" + _LabelMobileNumber.Text.Trim());
+                            NavigationPage _MenuPage = new NavigationPage(new MenuPage());
+                            NavigationPage.SetHasNavigationBar(_MenuPage, false);
+                            _MenuPage.BarBackgroundColor = Color.Black;
                             await Navigation.PushAsync(_MenuPage);
                         }
                     }
                     else { await DisplayAlert("ATISMobile", myMS.Message1, "OK"); }
                 }
             }
-            catch (Exception ex) { await DisplayAlert("ATISMobile", ex.Message , "OK"); }
+            catch (Exception ex) { await DisplayAlert("ATISMobile", ex.Message, "OK"); }
+            _ButtonSend.IsEnabled = true; _ButtonSend.BackgroundColor = Color.Green;
         }
 
     }

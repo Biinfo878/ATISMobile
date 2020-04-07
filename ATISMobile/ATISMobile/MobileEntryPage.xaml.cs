@@ -23,10 +23,11 @@ namespace ATISMobile
             InitializeComponent();
         }
 
-        private async void _Button_ClickedEvent(Object sender, EventArgs e)
+        private async void _ButtonSend_ClickedEvent(Object sender, EventArgs e)
         {
             try
             {
+                _ButtonSend.IsEnabled = false; _ButtonSend.BackgroundColor = Color.Gray;
                 string myMobileNumber = _EntryMobileNumber.Text.Trim();
                 string myNameFamily = _EntryNameFamily.Text.Trim();
                 HttpClient _Client = new HttpClient();
@@ -45,7 +46,9 @@ namespace ATISMobile
                     { await DisplayAlert("ATISMobile", myMS.Message1, "OK"); }
                 }
             }
-            catch (Exception ex) { Debug.WriteLine("\t\tERROR {0}", ex.Message); }
+            catch (Exception ex)
+            { Debug.WriteLine("\t\tERROR {0}", ex.Message); }
+            _ButtonSend.IsEnabled = true; _ButtonSend.BackgroundColor = Color.Green;
         }
     }
 }

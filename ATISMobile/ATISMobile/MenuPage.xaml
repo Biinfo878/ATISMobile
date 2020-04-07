@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ATISMobile.MenuPage"
              BackgroundColor="White"
-             BackgroundImage="@drawable/BlueBackGround"
+             BackgroundImage="@drawable/BG4"
              Title="سامانه اطلاع رسانی بار آتیس - استان اصفهان"
              Padding="50">
     <ContentPage.Content>
@@ -72,7 +72,7 @@
                         </OnPlatform>
                     </Button.FontFamily>
                 </Button>
-                <Button x:Name="TurnRegistering"  IsVisible="True"  BorderWidth="2"  BorderColor="White"   CornerRadius="15"  FontSize="Medium" Text="صدور نوبت" BackgroundColor="Transparent"    TextColor="White"   >
+                <Button x:Name="TurnRegistering"  IsVisible="False"   BorderWidth="2"  BorderColor="White"   CornerRadius="15"  FontSize="Medium" Text="صدور نوبت" BackgroundColor="Transparent"    TextColor="White"   >
                     <Button.FontFamily>
                         <OnPlatform x:TypeArguments="x:String">
                             <On Platform="iOS" Value="Samim" />

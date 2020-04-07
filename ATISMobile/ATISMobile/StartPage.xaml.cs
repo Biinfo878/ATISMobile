@@ -10,7 +10,6 @@ using System.Net.Http;
 using System.Diagnostics;
 using Newtonsoft.Json;
 
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -26,19 +25,39 @@ namespace ATISMobile
         {
             InitializeComponent();
             try
-            { Mange_ExitApplicationButton(); }
+            { Manage_ExitApplicationButton(); ShowApplicationVersion(); }
             catch (Exception ex)
             { Debug.WriteLine("\t\tERROR {0}", ex.Message); }
         }
 
-        private void Mange_ExitApplicationButton()
+        private async void ShowApplicationVersion()
+        {
+            try
+            {
+                HttpClient _Client = new HttpClient();
+                var response = await _Client.GetAsync(Properties.Resources.RestfulWebServiceURL + "/api/VersionControl/GetLastVersionNumber");
+                if (response.IsSuccessStatusCode)
+                {
+                    var content = await response.Content.ReadAsStringAsync();
+                    MessageStruct _Version = JsonConvert.DeserializeObject<MessageStruct>(content);
+                    if (_Version.ErrorCode == false)
+                    { _ApplicationVersion.Text =  "نسخه اپلیکیشن : "+ _Version.Message1; }
+                    else
+                    { }
+                }
+            }
+            catch (Exception ex)
+            { Debug.WriteLine("\t\tERROR {0}", ex.Message); }
+        }
+
+        private void Manage_ExitApplicationButton()
         {
             try
             {
                 if (ATISMobileMClassPublicProcedures.GetAMUStatus() == "logout")
-                { _ExitApplication.IsEnabled = false; _ExitApplication.BackgroundColor = Color.Gray; }
+                { _ExitApplication.IsEnabled = false; }
                 else
-                { _ExitApplication.IsEnabled = true; _ExitApplication.BackgroundColor = Color.Red; }
+                { _ExitApplication.IsEnabled = true ; }
             }
             catch (Exception ex)
             { Debug.WriteLine("\t\tERROR {0}", ex.Message); }
@@ -49,11 +68,10 @@ namespace ATISMobile
         {
             base.OnAppearing();
             try
-            { Mange_ExitApplicationButton(); }
+            { Manage_ExitApplicationButton(); }
             catch (Exception ex)
             { Debug.WriteLine("\t\tERROR {0}", ex.Message); }
         }
-
 
         private async void _ExitApplication_ClickedEvent(Object sender, EventArgs e)
         {
@@ -75,7 +93,7 @@ namespace ATISMobile
                         if (myMS.ErrorCode == false)
                         {
                             System.IO.File.WriteAllText(TargetPath, "logout;;");
-                            Mange_ExitApplicationButton();
+                            Manage_ExitApplicationButton();
                         }
                         else
                         { await DisplayAlert("ATISMobile", myMS.Message1, "OK"); }
@@ -112,6 +130,8 @@ namespace ATISMobile
                     else
                     {
                         MenuPage _MenuPage = new MenuPage();
+                        //NavigationPage _MenuPage = new NavigationPage(new MenuPage());
+                        //_MenuPage.BarBackgroundColor = Color.Black;
                         await Navigation.PushAsync(_MenuPage);
                     }
                 }

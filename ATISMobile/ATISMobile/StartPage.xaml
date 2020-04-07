@@ -4,12 +4,12 @@
              x:Class="ATISMobile.StartPage"
              FlowDirection="RightToLeft"
              BackgroundColor="White"
-             BackgroundImage="@drawable/BlueBackGround"
+             BackgroundImage="@drawable/BG4"
              Title="سامانه اطلاع رسانی بار آتیس - استان اصفهان"
              Padding="30">
     <ContentPage.Content>
         <StackLayout Padding="20,10,20,10" BackgroundColor="Transparent" >
-            <Button x:Name="_StartApplication" BorderWidth="4" BorderColor="White"  CornerRadius="15" FontSize="Large"   Text="ورود" BackgroundColor="RoyalBlue"    TextColor="White"   HorizontalOptions="Center"  VerticalOptions="CenterAndExpand" WidthRequest="200" HeightRequest="200" BorderRadius="100" Clicked="_StartApplication_ClickedEvent" >
+            <Button x:Name="_StartApplication" BorderWidth="4" BorderColor="GreenYellow"    CornerRadius="15" FontSize="Large"   Text="ورود" BackgroundColor="Transparent"     TextColor="White"   HorizontalOptions="Center"  VerticalOptions="CenterAndExpand" WidthRequest="150" HeightRequest="150" BorderRadius="75" Clicked="_StartApplication_ClickedEvent" >
                 <Button.FontFamily>
                     <OnPlatform x:TypeArguments="x:String">
                         <On Platform="iOS" Value="Samim" />
@@ -18,7 +18,7 @@
                     </OnPlatform>
                 </Button.FontFamily>
             </Button>
-            <Button x:Name="_ExitApplication" BorderWidth="2" BorderColor="White"  CornerRadius="15" FontSize="Small"   Text="خروج" BackgroundColor="Red"    TextColor="White"   HorizontalOptions="Center"  VerticalOptions="CenterAndExpand" WidthRequest="100" HeightRequest="100" BorderRadius="50" Clicked="_ExitApplication_ClickedEvent" >
+            <Button x:Name="_ExitApplication" BorderWidth="3" BorderColor="DarkRed"   CornerRadius="15" FontSize="Small"   Text="خروج" BackgroundColor="Transparent"     TextColor="White"   HorizontalOptions="Center"  VerticalOptions="CenterAndExpand" WidthRequest="100" HeightRequest="100" BorderRadius="50" Clicked="_ExitApplication_ClickedEvent" >
                 <Button.FontFamily>
                     <OnPlatform x:TypeArguments="x:String">
                         <On Platform="iOS" Value="Samim" />
@@ -27,7 +27,7 @@
                     </OnPlatform>
                 </Button.FontFamily>
             </Button>
-            <Button x:Name="_UpdateApplication" BorderWidth="1" BorderColor="Red"   CornerRadius="15" FontSize="Medium"  Text="بروز رسانی اپلیکیشن" BackgroundColor="BlueViolet"    TextColor="White"    HorizontalOptions="CenterAndExpand"   VerticalOptions="End"  Clicked="_UpdateApplication_ClickedEvent" >
+            <Button x:Name="_ApplicationVersion" BorderWidth="1" BorderColor="RED"   CornerRadius="15" FontSize="Medium"  Text="" BackgroundColor="Black"     TextColor="White"    HorizontalOptions="CenterAndExpand"   VerticalOptions="End"   >
                 <Button.FontFamily>
                     <OnPlatform x:TypeArguments="x:String">
                         <On Platform="iOS" Value="Samim" />
