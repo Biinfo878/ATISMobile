@@ -56,7 +56,7 @@ namespace ATISMobile
             try
             {
                 LoadsPage _LoadsPage = new LoadsPage();
-                _LoadsPage.ViewLoads(_AHId, _AHSGId, Convert.ToInt64(((Label)sender).Text.Split(':')[1]));
+                _LoadsPage.ViewLoads(_AHId, _AHSGId, Convert.ToInt64( (((Label)sender).Parent.FindByName("_ProvinceId") as Label).Text.Split(':')[1]));
                 await Navigation.PushAsync(_LoadsPage);
             }
             catch (Exception ex)

@@ -50,5 +50,9 @@ namespace ATISMobile
             { Debug.WriteLine("\t\tERROR {0}", ex.Message); }
             _ButtonSend.IsEnabled = true; _ButtonSend.BackgroundColor = Color.Green;
         }
+
+        protected override bool OnBackButtonPressed()
+        { return true; }
+
     }
 }

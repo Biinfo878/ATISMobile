@@ -41,7 +41,7 @@ namespace ATISMobile
                     var content = await response.Content.ReadAsStringAsync();
                     MessageStruct _Version = JsonConvert.DeserializeObject<MessageStruct>(content);
                     if (_Version.ErrorCode == false)
-                    { _ApplicationVersion.Text =  "نسخه اپلیکیشن : "+ _Version.Message1; }
+                    { _ApplicationVersion.Text = "نسخه اپلیکیشن : " + _Version.Message1; }
                     else
                     { }
                 }
@@ -57,7 +57,7 @@ namespace ATISMobile
                 if (ATISMobileMClassPublicProcedures.GetAMUStatus() == "logout")
                 { _ExitApplication.IsEnabled = false; }
                 else
-                { _ExitApplication.IsEnabled = true ; }
+                { _ExitApplication.IsEnabled = true; }
             }
             catch (Exception ex)
             { Debug.WriteLine("\t\tERROR {0}", ex.Message); }
@@ -129,7 +129,7 @@ namespace ATISMobile
                     }
                     else
                     {
-                        MenuPage _MenuPage = new MenuPage();
+                        MenuPage _MenuPage = new MenuPage(true);
                         //NavigationPage _MenuPage = new NavigationPage(new MenuPage());
                         //_MenuPage.BarBackgroundColor = Color.Black;
                         await Navigation.PushAsync(_MenuPage);

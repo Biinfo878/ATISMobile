@@ -14,11 +14,13 @@ namespace ATISMobile
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MenuPage : ContentPage
     {
-        public MenuPage()
+        private Boolean _IsBackButtonActive = true;
+
+        public MenuPage(Boolean YourIsBackButtonActive)
         {
             InitializeComponent();
+            _IsBackButtonActive = YourIsBackButtonActive;
         }
-
 
         private async void _ViewLoadAllocations_ClickedEvent(Object sender, EventArgs e)
         {
@@ -62,6 +64,13 @@ namespace ATISMobile
             await Navigation.PushAsync(_AnnouncementHallsSelectionPage);
         }
 
+        protected override bool OnBackButtonPressed()
+        {
+            if (_IsBackButtonActive)
+            { return false; }
+            else
+            { return true ; }
+        }
 
 
     }

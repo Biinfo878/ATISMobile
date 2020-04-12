@@ -51,7 +51,7 @@ namespace ATISMobile
                         else
                         {
                             System.IO.File.WriteAllText(TargetPath, "login;" + myMS.Message1.Trim() + ";" + _LabelMobileNumber.Text.Trim());
-                            NavigationPage _MenuPage = new NavigationPage(new MenuPage());
+                            NavigationPage _MenuPage = new NavigationPage(new MenuPage(false));
                             NavigationPage.SetHasNavigationBar(_MenuPage, false);
                             _MenuPage.BarBackgroundColor = Color.Black;
                             await Navigation.PushAsync(_MenuPage);
@@ -63,6 +63,9 @@ namespace ATISMobile
             catch (Exception ex) { await DisplayAlert("ATISMobile", ex.Message, "OK"); }
             _ButtonSend.IsEnabled = true; _ButtonSend.BackgroundColor = Color.Green;
         }
+
+        protected override bool OnBackButtonPressed()
+        { return true; }
 
     }
 }
