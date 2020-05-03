@@ -24,7 +24,6 @@ namespace ATISMobile
 
         private async void _ViewLoadAllocations_ClickedEvent(Object sender, EventArgs e)
         {
-            return;
             LoadAllocationsPage _LoadAllocationsPage = new LoadAllocationsPage();
             _LoadAllocationsPage.ViewLoadAllocations(ATISMobileMClassPublicProcedures.GetCurrentMobileUserId());
             await Navigation.PushAsync(_LoadAllocationsPage);
@@ -53,7 +52,6 @@ namespace ATISMobile
 
         private async void _LoadAllocation_ClickedEvent(Object sender, EventArgs e)
         {
-            return;
             AnnouncementHallsSelectionPage _AnnouncementHallsSelectionPage = new AnnouncementHallsSelectionPage();
             await Navigation.PushAsync(_AnnouncementHallsSelectionPage);
         }

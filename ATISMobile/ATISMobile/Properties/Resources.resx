@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="APKFtpURL" xml:space="preserve">
-    <value>ftp://37.255.224.250:1354/ATISMobile/ATISMobile.apk</value>
+    <value>ftp://37.255.224.250:21/ATISMobile.apk</value>
   </data>
   <data name="RestfulWebServiceURL" xml:space="preserve">
     <value>http://37.255.224.250:3001</value>
