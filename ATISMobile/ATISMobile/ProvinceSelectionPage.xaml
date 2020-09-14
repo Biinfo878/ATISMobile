@@ -2,10 +2,23 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ATISMobile.ProvinceSelectionPage"  
-             FlowDirection="RightToLeft"
              BackgroundColor="White"
-             Title="استان های دارای بار"
              Padding="20">
+
+    <NavigationPage.TitleView>
+        <StackLayout>
+            <Label Text="استان های دارای بار" TextColor="White" HorizontalTextAlignment="Center">
+                <Label.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="iOS" Value="Samim" />
+                        <On Platform="Android" Value="Samim-Bold.otf#Samim" />
+                        <On Platform="UWP" Value="Assets/Fonts/Lobster-Regular.ttf#Lobster" />
+                    </OnPlatform>
+                </Label.FontFamily>
+            </Label>
+        </StackLayout>
+    </NavigationPage.TitleView>
+
     <ContentPage.Content>
         <StackLayout BackgroundColor="White" >
             <StackLayout x:Name="_StackLayoutEmptyProvince" IsVisible="False"  BackgroundColor="White" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" >
@@ -46,7 +59,7 @@
                                             <TapGestureRecognizer Tapped="OnTapGestureRecognizerTapped"/>
                                         </Label.GestureRecognizers>
                                     </Label>
-                                    <Label  BackgroundColor="OrangeRed"  TextColor="GreenYellow"   FontSize="Large" FontAttributes="Bold" Text = "{Binding ProvinceTitle}" >
+                                    <Label x:Name="_ProvinceTitle" BackgroundColor="OrangeRed"  TextColor="GreenYellow"   FontSize="Large" FontAttributes="Bold" Text = "{Binding ProvinceTitle}" >
                                         <Label.FontFamily>
                                             <OnPlatform x:TypeArguments="x:String">
                                                 <On Platform="iOS" Value="Samim" />

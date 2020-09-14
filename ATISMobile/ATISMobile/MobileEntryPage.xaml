@@ -4,8 +4,20 @@
              x:Class="ATISMobile.MobileEntryPage"
              BackgroundColor="White"
              BackgroundImage="@drawable/BG4"
-             NavigationPage.HasNavigationBar="false"
-             Title="سامانه اطلاع رسانی بار آتیس - استان اصفهان">
+             NavigationPage.HasNavigationBar="false">
+    <NavigationPage.TitleView>
+        <StackLayout>
+            <Label Text="سامانه اطلاع رسانی بار آتیس - استان اصفهان" TextColor="White" HorizontalTextAlignment="Center">
+                <Label.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="iOS" Value="Samim" />
+                        <On Platform="Android" Value="Samim-Bold.otf#Samim" />
+                        <On Platform="UWP" Value="Assets/Fonts/Lobster-Regular.ttf#Lobster" />
+                    </OnPlatform>
+                </Label.FontFamily>
+            </Label>
+        </StackLayout>
+    </NavigationPage.TitleView>
     <ContentPage.Content>
         <StackLayout Padding="20,10,20,10" BackgroundColor="Transparent" >
             <Label Text="" TextColor="Yellow"   HorizontalOptions="CenterAndExpand"  VerticalOptions="CenterAndExpand"   FontSize="Large" />

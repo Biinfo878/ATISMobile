@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net.Http;
 using System.Diagnostics;
+using ATISMobile.Enums;
 using Newtonsoft.Json;
 
 using Xamarin.Forms;
@@ -24,15 +25,17 @@ namespace ATISMobile
 
         private Int64 _AHId;
         private Int64 _AHSGId;
-            
-        public async void ViewInformation(Int64  YourAHId, Int64  YourAHSGId)
+        private LoadCapacitorLoadsListType _LoadCapacitorLoadsListType;
+
+        public async void ViewInformation(Int64 YourAHId, Int64 YourAHSGId, LoadCapacitorLoadsListType YourLoadCapacitorLoadsListType)
         {
-            _AHId = YourAHId;_AHSGId = YourAHSGId;
+            _AHId = YourAHId; _AHSGId = YourAHSGId;
+            _LoadCapacitorLoadsListType = YourLoadCapacitorLoadsListType;
             try
             {
                 List<Province> _List = new List<Province>();
                 HttpClient _Client = new HttpClient();
-                var response = await _Client.GetAsync(Properties.Resources.RestfulWebServiceURL + "/api/Provinces/GetProvinces/?YourAHId=" + YourAHId.ToString() + "&YourAHSGId=" + YourAHSGId.ToString());
+                var response = await _Client.GetAsync(Properties.Resources.RestfulWebServiceURL + "/api/Provinces/GetProvinces/?YourAHId=" + YourAHId.ToString() + "&YourAHSGId=" + YourAHSGId.ToString()+ "&YourLoadCapacitorLoadsListType="+YourLoadCapacitorLoadsListType.ToString());
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();
@@ -56,7 +59,7 @@ namespace ATISMobile
             try
             {
                 LoadsPage _LoadsPage = new LoadsPage();
-                _LoadsPage.ViewLoads(_AHId, _AHSGId, Convert.ToInt64( (((Label)sender).Parent.FindByName("_ProvinceId") as Label).Text.Split(':')[1]));
+                _LoadsPage.ViewLoads(_AHId, _AHSGId, Convert.ToInt64((((Label)sender).Parent.FindByName("_ProvinceId") as Label).Text.Split(':')[1]), (((Label)sender).Parent.FindByName("_ProvinceTitle") as Label).Text.Split(':')[0]);
                 await Navigation.PushAsync(_LoadsPage);
             }
             catch (Exception ex)

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
-
+using ATISMobile.Enums;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -22,9 +22,9 @@ namespace ATISMobile
         {
             try
             {
-                ProvinceSelectionPage _ProvinceSelectionPage = new ProvinceSelectionPage();
-                _ProvinceSelectionPage.ViewInformation(YourAHId, YourAHSGId);
-                await Navigation.PushAsync(_ProvinceSelectionPage);
+                LoadCapacitorLoadsListTypeSelectionPage _LoadCapacitorLoadsListTypeSelectionPage = new LoadCapacitorLoadsListTypeSelectionPage();
+                _LoadCapacitorLoadsListTypeSelectionPage.ViewInformation(YourAHId,YourAHSGId);
+                await Navigation.PushAsync(_LoadCapacitorLoadsListTypeSelectionPage);
             }
             catch (Exception ex)
             { Debug.WriteLine("\t\tERROR {0}", ex.Message); }

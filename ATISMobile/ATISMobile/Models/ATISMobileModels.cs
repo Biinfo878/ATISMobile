@@ -67,6 +67,18 @@ namespace ATISMobile.Models
         public string ProvinceTitle { get; set; }
     }
 
+    public class MoneyWalletAccounting
+    {
+        public string AccountName { get; set; }
+        public string AccountDateTime { get; set; }
+        public string CurrentCharge { get; set; }
+        public string Mblgh { get; set; }
+        public string ReminderCharge { get; set; }
+        public string ComputerName { get; set; }
+        public string UserName { get; set; }
+        public string BackGroundColorName { get; set; }
+        public string ForeGroundColorName { get; set; }
+    }
 
 
 }

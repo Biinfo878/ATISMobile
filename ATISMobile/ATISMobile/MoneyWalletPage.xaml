@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ATISMobile.MoneyWalletPage">
+    <NavigationPage.TitleView>
+        <StackLayout>
+            <Label Text="کیف پول و شارژ موجودی" TextColor="White" HorizontalTextAlignment="Center">
+                <Label.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="iOS" Value="Samim" />
+                        <On Platform="Android" Value="Samim-Bold.otf#Samim" />
+                        <On Platform="UWP" Value="Assets/Fonts/Lobster-Regular.ttf#Lobster" />
+                    </OnPlatform>
+                </Label.FontFamily>
+            </Label>
+        </StackLayout>
+    </NavigationPage.TitleView>
+
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="White">
+            <Frame HasShadow="true" Margin="20" CornerRadius="10" BackgroundColor="Yellow" >
+                <StackLayout BackgroundColor="Transparent" Padding="0,0,0,0" Margin="0">
+                    <Button x:Name="BtnMoneyWalletCharge" BackgroundColor="Transparent" TextColor="Black"   FontSize="Medium" FontAttributes="Bold" Text = "شارژ کیف پول از طریق درگاه پرداخت"  >
+                        <Button.FontFamily>
+                            <OnPlatform x:TypeArguments="x:String">
+                                <On Platform="iOS" Value="Samim" />
+                                <On Platform="Android" Value="Samim-Bold.otf#Samim" />
+                                <On Platform="UWP" Value="Assets/Fonts/Lobster-Regular.ttf#Lobster" />
+                            </OnPlatform>
+                        </Button.FontFamily>
+                    </Button>
+                </StackLayout>
+            </Frame>
+            <Frame HasShadow="False" Margin="5" CornerRadius="15" BackgroundColor="Transparent" >
+                <StackLayout BackgroundColor="Transparent" Padding="0,0,0,0" Margin="0">
+                    <Label x:Name="LblMoneyWalletTitle" BackgroundColor="Transparent"  TextColor="Blue"   FontSize="Small" FontAttributes="Bold" HorizontalTextAlignment="Center" Text = "آخرین تراکنش های کیف پول - اکانتینگ"  >
+                        <Label.FontFamily>
+                            <OnPlatform x:TypeArguments="x:String">
+                                <On Platform="iOS" Value="Samim" />
+                                <On Platform="Android" Value="Samim-Bold.otf#Samim" />
+                                <On Platform="UWP" Value="Assets/Fonts/Lobster-Regular.ttf#Lobster" />
+                            </OnPlatform>
+                        </Label.FontFamily>
+                    </Label>
+                </StackLayout>
+            </Frame>
+            <ListView x:Name="LstViewMoneyWalletAccounting" BackgroundColor="White"  Margin="15" HasUnevenRows = "True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell  >
+                            <Frame HasShadow="true" Margin="5" BorderColor="White" CornerRadius="15" BackgroundColor="{Binding BackGroundColorName}" >
+                                <StackLayout Orientation="Vertical" BackgroundColor="Transparent" Padding="1,0,1,0"  >
+                                    <Label  BackgroundColor="Transparent"  TextColor="{Binding ForeGroundColorName}"   FontSize="Large" FontAttributes="Bold" Text = "{Binding AccountName}" >
+                                        <Label.FontFamily>
+                                            <OnPlatform x:TypeArguments="x:String">
+                                                <On Platform="iOS" Value="Samim" />
+                                                <On Platform="Android" Value="Samim-Bold.otf#Samim" />
+                                                <On Platform="UWP" Value="Assets/Fonts/Lobster-Regular.ttf#Lobster" />
+                                            </OnPlatform>
+                                        </Label.FontFamily>
+                                    </Label>
+                                    <Label  BackgroundColor="Transparent"  TextColor="{Binding ForeGroundColorName}"  FontSize="Small" FontAttributes="Bold" Text = "{Binding AccountDateTime}" >
+                                        <Label.FontFamily>
+                                            <OnPlatform x:TypeArguments="x:String">
+                                                <On Platform="iOS" Value="Samim" />
+                                                <On Platform="Android" Value="Samim-Bold.otf#Samim" />
+                                                <On Platform="UWP" Value="Assets/Fonts/Lobster-Regular.ttf#Lobster" />
+                                            </OnPlatform>
+                                        </Label.FontFamily>
+                                    </Label>
+                                    <Label   BackgroundColor="Transparent"  TextColor="{Binding ForeGroundColorName}" FontSize="Small" FontAttributes="Bold"   Text = "{Binding CurrentCharge}">
+                                        <Label.FontFamily>
+                                            <OnPlatform x:TypeArguments="x:String">
+                                                <On Platform="iOS" Value="Samim" />
+                                                <On Platform="Android" Value="Samim-Bold.otf#Samim" />
+                                                <On Platform="UWP" Value="Assets/Fonts/Lobster-Regular.ttf#Lobster" />
+                                            </OnPlatform>
+                                        </Label.FontFamily>
+                                    </Label>
+                                    <Label   BackgroundColor="Transparent"  TextColor="{Binding ForeGroundColorName}"  FontSize="Small" FontAttributes="Bold"  Text = "{Binding Mblgh}" >
+                                        <Label.FontFamily>
+                                            <OnPlatform x:TypeArguments="x:String">
+                                                <On Platform="iOS" Value="Samim" />
+                                                <On Platform="Android" Value="Samim-Bold.otf#Samim" />
+                                                <On Platform="UWP" Value="Assets/Fonts/Lobster-Regular.ttf#Lobster" />
+                                            </OnPlatform>
+                                        </Label.FontFamily>
+                                    </Label>
+                                    <Label   BackgroundColor="Transparent"  TextColor="{Binding ForeGroundColorName}"  FontSize="Medium" FontAttributes="Bold"  Text = "{Binding ReminderCharge}" >
+                                        <Label.FontFamily>
+                                            <OnPlatform x:TypeArguments="x:String">
+                                                <On Platform="iOS" Value="Samim" />
+                                                <On Platform="Android" Value="Samim-Bold.otf#Samim" />
+                                                <On Platform="UWP" Value="Assets/Fonts/Lobster-Regular.ttf#Lobster" />
+                                            </OnPlatform>
+                                        </Label.FontFamily>
+                                    </Label>
+                                    <Label   BackgroundColor="Transparent"  TextColor="{Binding ForeGroundColorName}"  FontSize="Small" FontAttributes="None"  Text = "{Binding ComputerName}" >
+                                        <Label.FontFamily>
+                                            <OnPlatform x:TypeArguments="x:String">
+                                                <On Platform="iOS" Value="Samim" />
+                                                <On Platform="Android" Value="Samim-Bold.otf#Samim" />
+                                                <On Platform="UWP" Value="Assets/Fonts/Lobster-Regular.ttf#Lobster" />
+                                            </OnPlatform>
+                                        </Label.FontFamily>
+                                    </Label>
+                                    <Label   BackgroundColor="Transparent"  TextColor="{Binding ForeGroundColorName}"  FontSize="Small" FontAttributes="None"  Text = "{Binding UserName}" >
+                                        <Label.FontFamily>
+                                            <OnPlatform x:TypeArguments="x:String">
+                                                <On Platform="iOS" Value="Samim" />
+                                                <On Platform="Android" Value="Samim-Bold.otf#Samim" />
+                                                <On Platform="UWP" Value="Assets/Fonts/Lobster-Regular.ttf#Lobster" />
+                                            </OnPlatform>
+                                        </Label.FontFamily>
+                                    </Label>
+                                </StackLayout>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

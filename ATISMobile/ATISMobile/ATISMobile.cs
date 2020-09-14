@@ -13,6 +13,18 @@ using ATISMobile.Exceptions;
 
 namespace ATISMobile
 {
+    namespace Enums
+    {
+        public enum LoadCapacitorLoadsListType
+        {
+            None = 0,
+            NotSedimented = 1,
+            Sedimented = 2,
+            TommorowLoad = 3
+        }
+
+    }
+
     namespace PublicProcedures
     {
         public class ATISMobileMClassPublicProcedures

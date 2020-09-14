@@ -54,7 +54,7 @@ namespace ATISMobile
             { Debug.WriteLine("\t\tERROR {0}", ex.Message); }
         }
 
-        public async void ViewLoads(Int64  YourAHId, Int64  YourAHSGId, Int64 YourProvinceId)
+        public async void ViewLoads(Int64  YourAHId, Int64  YourAHSGId, Int64 YourProvinceId,string YourProvinceTitle)
         {
             try
             {
@@ -72,6 +72,7 @@ namespace ATISMobile
                     }
                     else
                     {
+                        _LblProvinceTitle.Text = " استان "+ YourProvinceTitle;
                         _ListView.ItemsSource = _List;
 
                     }

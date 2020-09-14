@@ -70,7 +70,7 @@ namespace ATISMobile.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to http://37.255.224.250:3001.
+        ///   Looks up a localized string similar to http://192.168.20.14:3001.
         /// </summary>
         public static string RestfulWebServiceURL {
             get {

@@ -4,8 +4,20 @@
              x:Class="ATISMobile.MenuPage"
              BackgroundColor="White"
              BackgroundImage="@drawable/BG4"
-             Title="سامانه اطلاع رسانی بار آتیس - استان اصفهان"
              Padding="50">
+    <NavigationPage.TitleView>
+        <StackLayout>
+            <Label Text="سامانه اطلاع رسانی بار آتیس - استان اصفهان" TextColor="White" HorizontalTextAlignment="Center">
+                <Label.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="iOS" Value="Samim" />
+                        <On Platform="Android" Value="Samim-Bold.otf#Samim" />
+                        <On Platform="UWP" Value="Assets/Fonts/Lobster-Regular.ttf#Lobster" />
+                    </OnPlatform>
+                </Label.FontFamily>
+            </Label>
+        </StackLayout>
+    </NavigationPage.TitleView>
     <ContentPage.Content>
         <ScrollView BackgroundColor="Transparent">
             <StackLayout Padding="20,20,20,10" BackgroundColor="Transparent"  >
@@ -63,7 +75,7 @@
                         </OnPlatform>
                     </Button.FontFamily>
                 </Button>
-                <Button x:Name="MoneyWalletAndCharge"  BorderWidth="2"  BorderColor="White"   CornerRadius="15"  FontSize="Medium"  Text="کیف پول  &#10; شارژ موجودی" HeightRequest="100" BackgroundColor="Transparent"  TextColor="White"   >
+                <Button x:Name="MoneyWalletAccounting"  BorderWidth="2"  BorderColor="White"   CornerRadius="15"  FontSize="Medium"  Text="کیف پول  &#10; شارژ موجودی" HeightRequest="100" BackgroundColor="Transparent"  TextColor="White"   Clicked="_MoneyWalletAccounting_ClickedEvent" >
                     <Button.FontFamily>
                         <OnPlatform x:TypeArguments="x:String">
                             <On Platform="iOS" Value="Samim" />
