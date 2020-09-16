@@ -33,9 +33,9 @@ namespace ATISMobile
                     var content = await response.Content.ReadAsStringAsync();
                     _List = JsonConvert.DeserializeObject<List<MoneyWalletAccounting>>(content);
                     if (_List.Count == 0)
-                    { LstViewMoneyWalletAccounting.IsVisible = false; }
+                    { _ListView.IsVisible = false; }
                     else
-                    { LstViewMoneyWalletAccounting.ItemsSource = _List; }
+                    { _ListView.ItemsSource = _List; }
                 }
             }
             catch (Exception ex)

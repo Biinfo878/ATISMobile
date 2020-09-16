@@ -121,6 +121,6 @@
     <value>ftp://37.255.224.250:21/ATISMobile.apk</value>
   </data>
   <data name="RestfulWebServiceURL" xml:space="preserve">
-    <value>http://192.168.20.14:3001</value>
+    <value>http://192.168.20.3:3001</value>
   </data>
 </root>
