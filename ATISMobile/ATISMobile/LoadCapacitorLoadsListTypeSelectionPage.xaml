@@ -30,7 +30,7 @@
                             </OnPlatform>
                         </Button.FontFamily>
                     </Button>
-                    <Button x:Name="BtnSedimented"  BorderWidth="2"  BorderColor="Black"    CornerRadius="15"  FontSize="Medium"  Text="بار رسوب شده" BackgroundColor="Orange"   TextColor="Black" Clicked="BtnSedimented_ClickedEvent">
+                    <Button x:Name="BtnSedimented"  BorderWidth="2"  BorderColor="Black"    CornerRadius="15"  FontSize="Small"  Text="بار رسوب شده(بارجذب نشده توسط رانندگان)" BackgroundColor="Orange"   TextColor="Black" Clicked="BtnSedimented_ClickedEvent">
                         <Button.FontFamily>
                             <OnPlatform x:TypeArguments="x:String">
                                 <On Platform="iOS" Value="Samim" />

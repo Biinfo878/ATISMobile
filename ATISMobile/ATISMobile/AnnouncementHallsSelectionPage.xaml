@@ -22,7 +22,7 @@
                 <ScrollView BackgroundColor="Transparent">
                     <StackLayout>
                         <Label Text="" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" ></Label>
-                        <Button  BorderWidth="4" BorderColor="White"  CornerRadius="15" FontSize="Large"   Text="سالنی" BackgroundColor="RoyalBlue"    TextColor="White"   HorizontalOptions="Center"  VerticalOptions="CenterAndExpand" WidthRequest="150" HeightRequest="150" BorderRadius="75"  Clicked="_AnnouncementHalls_ClickedEvent" >
+                        <Button  BorderWidth="4" BorderColor="White"  CornerRadius="15" FontSize="Small"   Text="تیرآهن و میلگرد سالنی" BackgroundColor="RoyalBlue"    TextColor="White"   HorizontalOptions="Center"  VerticalOptions="CenterAndExpand" WidthRequest="150" HeightRequest="150" BorderRadius="75"  Clicked="_AnnouncementHalls_ClickedEvent" >
                             <Button.FontFamily>
                                 <OnPlatform x:TypeArguments="x:String">
                                     <On Platform="iOS" Value="Samim" />
@@ -31,7 +31,7 @@
                                 </OnPlatform>
                             </Button.FontFamily>
                         </Button>
-                        <Button  BorderWidth="4" BorderColor="White"  CornerRadius="15" FontSize="Large"   Text="انباری" BackgroundColor="RoyalBlue"    TextColor="White"   HorizontalOptions="Center"  VerticalOptions="CenterAndExpand" WidthRequest="150" HeightRequest="150" BorderRadius="75" Clicked="_Warehouse_ClickedEvent" >
+                        <Button  BorderWidth="4" BorderColor="White"  CornerRadius="15" FontSize="Small"   Text="تیرآهن و میلگرد انباری" BackgroundColor="RoyalBlue"    TextColor="White"   HorizontalOptions="Center"  VerticalOptions="CenterAndExpand" WidthRequest="150" HeightRequest="150" BorderRadius="75" Clicked="_Warehouse_ClickedEvent" >
                             <Button.FontFamily>
                                 <OnPlatform x:TypeArguments="x:String">
                                     <On Platform="iOS" Value="Samim" />
