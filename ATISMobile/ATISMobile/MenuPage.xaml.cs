@@ -66,9 +66,8 @@ namespace ATISMobile
 
         private async void _MoneyWalletAccounting_ClickedEvent(Object sender, EventArgs e)
         {
-            MoneyWalletPage _MoneyWalletPage = new MoneyWalletPage();
-            _MoneyWalletPage.ViewInformation(ATISMobileMClassPublicProcedures.GetCurrentMobileUserId());
-            await Navigation.PushAsync(_MoneyWalletPage);
+            MoneyWalletMenuPage _MoneyWalletMenuPage = new MoneyWalletMenuPage();
+            await Navigation.PushAsync(_MoneyWalletMenuPage);
         }
 
         protected override bool OnBackButtonPressed()
