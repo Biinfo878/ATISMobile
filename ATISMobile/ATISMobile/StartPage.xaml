@@ -4,7 +4,7 @@
              x:Class="ATISMobile.StartPage"
              FlowDirection="RightToLeft"
              BackgroundColor="White"
-             BackgroundImage="@drawable/BG4"
+             BackgroundImage="@drawable/BG993"
              Padding="30">
     <NavigationPage.TitleView>
         <StackLayout>
@@ -21,6 +21,7 @@
     </NavigationPage.TitleView>
     <ContentPage.Content>
         <StackLayout Padding="20,10,20,10" BackgroundColor="Transparent" >
+            <Label Text="" TextColor="Yellow"   HorizontalOptions="CenterAndExpand"  VerticalOptions="CenterAndExpand"   FontSize="Large" />
             <Button x:Name="_StartApplication" BorderWidth="4" BorderColor="GreenYellow"    CornerRadius="15" FontSize="Large"   Text="ورود" BackgroundColor="Transparent"     TextColor="White"   HorizontalOptions="Center"  VerticalOptions="CenterAndExpand" WidthRequest="150" HeightRequest="150" BorderRadius="75" Clicked="_StartApplication_ClickedEvent" >
                 <Button.FontFamily>
                     <OnPlatform x:TypeArguments="x:String">

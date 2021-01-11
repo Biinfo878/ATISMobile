@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Net.Http;
 using System.Diagnostics;
 using System.Windows.Input;
+using ATISMobile.Enums;
 using Microsoft.Win32;
 using Newtonsoft.Json;
 
@@ -54,13 +55,13 @@ namespace ATISMobile
             { Debug.WriteLine("\t\tERROR {0}", ex.Message); }
         }
 
-        public async void ViewLoads(Int64  YourAHId, Int64  YourAHSGId, Int64 YourProvinceId,string YourProvinceTitle)
+        public async void ViewLoads(Int64  YourAHId, Int64  YourAHSGId, Int64 YourProvinceId,string YourProvinceTitle, LoadCapacitorLoadsListType YourLoadCapacitorLoadsListType) 
         {
             try
             {
                 List<LoadCapacitorLoad> _List = new List<LoadCapacitorLoad>();
                 HttpClient _Client = new HttpClient();
-                var response = await _Client.GetAsync(Properties.Resources.RestfulWebServiceURL + "/api/LoadCapacitor/GetLoadCapacitorLoads/?YourAHId=" + YourAHId.ToString() + "&YourAHSGId=" + YourAHSGId.ToString()+ "&YourProvinceId=" +YourProvinceId.ToString());
+                var response = await _Client.GetAsync(Properties.Resources.RestfulWebServiceURL + "/api/LoadCapacitor/GetLoadCapacitorLoads/?YourAHId=" + YourAHId.ToString() + "&YourAHSGId=" + YourAHSGId.ToString()+ "&YourProvinceId=" +YourProvinceId.ToString()+ "&_LoadCapacitorLoadsListType");
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();

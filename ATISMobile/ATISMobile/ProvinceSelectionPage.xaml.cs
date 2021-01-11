@@ -35,7 +35,7 @@ namespace ATISMobile
             {
                 List<Province> _List = new List<Province>();
                 HttpClient _Client = new HttpClient();
-                var response = await _Client.GetAsync(Properties.Resources.RestfulWebServiceURL + "/api/Provinces/GetProvinces/?YourAHId=" + YourAHId.ToString() + "&YourAHSGId=" + YourAHSGId.ToString()+ "&YourLoadCapacitorLoadsListType="+YourLoadCapacitorLoadsListType.ToString());
+                var response = await _Client.GetAsync(Properties.Resources.RestfulWebServiceURL + "/api/Provinces/GetProvinces/?YourAHId=" + YourAHId.ToString() + "&YourAHSGId=" + YourAHSGId.ToString()+ "&YourLoadCapacitorLoadsListType=" + YourLoadCapacitorLoadsListType.ToString());
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();
@@ -59,7 +59,7 @@ namespace ATISMobile
             try
             {
                 LoadsPage _LoadsPage = new LoadsPage();
-                _LoadsPage.ViewLoads(_AHId, _AHSGId, Convert.ToInt64((((Label)sender).Parent.FindByName("_ProvinceId") as Label).Text.Split(':')[1]), (((Label)sender).Parent.FindByName("_ProvinceTitle") as Label).Text.Split(':')[0]);
+                _LoadsPage.ViewLoads(_AHId, _AHSGId, Convert.ToInt64((((Label)sender).Parent.FindByName("_ProvinceId") as Label).Text.Split(':')[1]), (((Label)sender).Parent.FindByName("_ProvinceTitle") as Label).Text.Split(':')[0], _LoadCapacitorLoadsListType);
                 await Navigation.PushAsync(_LoadsPage);
             }
             catch (Exception ex)

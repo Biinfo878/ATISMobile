@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ATISMobile.VerificationCodeEntryPage"      
              BackgroundColor="White"
-             BackgroundImage="@drawable/BG4"
+             BackgroundImage="@drawable/BG993"
              NavigationPage.HasNavigationBar="false">
     <NavigationPage.TitleView>
         <StackLayout>
@@ -20,6 +20,7 @@
     </NavigationPage.TitleView>
     <ContentPage.Content>
         <StackLayout Padding="20,10,20,10" BackgroundColor="Transparent">
+            <Label Text="" TextColor="Yellow"   HorizontalOptions="CenterAndExpand"  VerticalOptions="CenterAndExpand"   FontSize="Large" />
             <Label Text="" TextColor="Yellow"   HorizontalOptions="CenterAndExpand"  VerticalOptions="CenterAndExpand"   FontSize="Large" />
             <Label Text="کد ارسال شده را وارد نمایید" TextColor="Yellow"    HorizontalOptions="Center" VerticalOptions="Start"  FontSize="Large" >
                 <Label.FontFamily>
