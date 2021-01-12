@@ -22,9 +22,9 @@
 
   <ContentPage.Content>
     <StackLayout BackgroundColor="White" >
-      <Frame HasShadow="true" Margin="20" CornerRadius="15" BackgroundColor="Firebrick" >
-        <StackLayout BackgroundColor="Firebrick" Padding="0,0,0,0" Margin="0">
-          <Label x:Name="_LblProvinceTitle"   BackgroundColor="Firebrick"  TextColor="White"   FontSize="Large" FontAttributes="Bold" Text = "" HorizontalTextAlignment="Center">
+      <Frame HasShadow="true" Margin="20" CornerRadius="15" BackgroundColor="YellowGreen" >
+        <StackLayout BackgroundColor="YellowGreen" Padding="0,0,0,0" Margin="0">
+          <Label x:Name="_LblProvinceTitle"   BackgroundColor="YellowGreen"  TextColor="Black"   FontSize="Large" FontAttributes="Bold" Text = "" HorizontalTextAlignment="Center">
             <Label.FontFamily>
               <OnPlatform x:TypeArguments="x:String">
                 <On Platform="iOS" Value="Samim" />

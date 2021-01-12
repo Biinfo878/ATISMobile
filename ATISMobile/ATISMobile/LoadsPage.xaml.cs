@@ -61,7 +61,7 @@ namespace ATISMobile
             {
                 List<LoadCapacitorLoad> _List = new List<LoadCapacitorLoad>();
                 HttpClient _Client = new HttpClient();
-                var response = await _Client.GetAsync(Properties.Resources.RestfulWebServiceURL + "/api/LoadCapacitor/GetLoadCapacitorLoads/?YourAHId=" + YourAHId.ToString() + "&YourAHSGId=" + YourAHSGId.ToString()+ "&YourProvinceId=" +YourProvinceId.ToString()+ "&_LoadCapacitorLoadsListType");
+                var response = await _Client.GetAsync(Properties.Resources.RestfulWebServiceURL + "/api/LoadCapacitor/GetLoadCapacitorLoads/?YourAHId=" + YourAHId.ToString() + "&YourAHSGId=" + YourAHSGId.ToString()+ "&YourProvinceId=" +YourProvinceId.ToString()+ "&YourLoadCapacitorLoadsListType="+ YourLoadCapacitorLoadsListType.ToString());
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();

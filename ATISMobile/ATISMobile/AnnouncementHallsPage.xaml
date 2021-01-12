@@ -18,9 +18,10 @@
     </NavigationPage.TitleView>
     <ContentPage.Content>
         <StackLayout>
+            <Label BackgroundColor="White"  TextColor="Blue"   FontSize="Medium"  FontAttributes="Bold" Text = "" VerticalOptions="CenterAndExpand"    HorizontalOptions="CenterAndExpand" />
             <ScrollView BackgroundColor="Transparent">
                 <StackLayout Padding="40,10,40,10" BackgroundColor="Transparent"  >
-                    <Button x:Name="RoadIron" BorderWidth="2" BorderColor="Black"  CornerRadius="15" FontSize="Medium"   Text="جاده ای - آهن آلات" BackgroundColor="Green" TextColor="White"  Clicked="RoadIron_ClickedEvent" >
+                    <Button x:Name="RoadIron" BorderWidth="2" BorderColor="Black"  CornerRadius="15" FontSize="Medium"   Text="جاده ای - آهن آلات" BackgroundColor="GreenYellow" TextColor="Black"  Clicked="RoadIron_ClickedEvent" >
                         <Button.FontFamily>
                             <OnPlatform x:TypeArguments="x:String">
                                 <On Platform="iOS" Value="Samim" />
@@ -29,7 +30,7 @@
                             </OnPlatform>
                         </Button.FontFamily>
                     </Button>
-                    <Button x:Name="RoadIngots"  BorderWidth="2"  BorderColor="Black"    CornerRadius="15"  FontSize="Medium"  Text="جاده ای - شمش" BackgroundColor="Green"   TextColor="White" Clicked="RoadIngots_ClickedEvent"  >
+                    <Button x:Name="RoadIngots"  BorderWidth="2"  BorderColor="Black"    CornerRadius="15"  FontSize="Medium"  Text="جاده ای - شمش" BackgroundColor="GreenYellow"   TextColor="Black" Clicked="RoadIngots_ClickedEvent"  >
                         <Button.FontFamily>
                             <OnPlatform x:TypeArguments="x:String">
                                 <On Platform="iOS" Value="Samim" />
@@ -38,7 +39,7 @@
                             </OnPlatform>
                         </Button.FontFamily>
                     </Button>
-                    <Button x:Name="RoadExport"  BorderWidth="2"  BorderColor="Black"   CornerRadius="15"  FontSize="Medium" Text="جاده ای - صادراتی" BackgroundColor="Green"    TextColor="White" Clicked="RoadExport_ClickedEvent" >
+                    <Button x:Name="RoadExport"  BorderWidth="2"  BorderColor="Black"   CornerRadius="15"  FontSize="Medium" Text="جاده ای - صادراتی" BackgroundColor="GreenYellow"    TextColor="Black" Clicked="RoadExport_ClickedEvent" >
                         <Button.FontFamily>
                             <OnPlatform x:TypeArguments="x:String">
                                 <On Platform="iOS" Value="Samim" />
@@ -47,7 +48,7 @@
                             </OnPlatform>
                         </Button.FontFamily>
                     </Button>
-                    <Button x:Name="RoadCoil"  BorderWidth="2"  BorderColor="Black"   CornerRadius="15"  FontSize="Medium" Text="جاده ای - رول و ورق" BackgroundColor="Green"   TextColor="White" Clicked="RoadCoil_ClickedEvent" >
+                    <Button x:Name="RoadCoil"  BorderWidth="2"  BorderColor="Black"   CornerRadius="15"  FontSize="Medium" Text="جاده ای - رول و ورق" BackgroundColor="GreenYellow"   TextColor="Black" Clicked="RoadCoil_ClickedEvent" >
                         <Button.FontFamily>
                             <OnPlatform x:TypeArguments="x:String">
                                 <On Platform="iOS" Value="Samim" />
@@ -56,7 +57,7 @@
                             </OnPlatform>
                         </Button.FontFamily>
                     </Button>
-                    <Button x:Name="UrbanIron"  BorderWidth="2"  BorderColor="Black"   CornerRadius="15"  FontSize="Medium" Text="شهری - آهن آلات" BackgroundColor="Magenta"    TextColor="White" Clicked="UrbanIron_ClickedEvent" >
+                    <Button x:Name="UrbanIron"  BorderWidth="2"  BorderColor="Black"   CornerRadius="15"  FontSize="Medium" Text="شهری - آهن آلات" BackgroundColor="Magenta"    TextColor="Black" Clicked="UrbanIron_ClickedEvent" >
                         <Button.FontFamily>
                             <OnPlatform x:TypeArguments="x:String">
                                 <On Platform="iOS" Value="Samim" />
@@ -65,7 +66,7 @@
                             </OnPlatform>
                         </Button.FontFamily>
                     </Button>
-                    <Button x:Name="UrbanCoil"  BorderWidth="2"  BorderColor="Black"   CornerRadius="15"  FontSize="Medium" Text="شهری - رول و ورق" BackgroundColor="Magenta"  TextColor="White"  Clicked="UrbanCoil_ClickedEvent" >
+                    <Button x:Name="UrbanCoil"  BorderWidth="2"  BorderColor="Black"   CornerRadius="15"  FontSize="Medium" Text="شهری - رول و ورق" BackgroundColor="Magenta"  TextColor="Black"  Clicked="UrbanCoil_ClickedEvent" >
                         <Button.FontFamily>
                             <OnPlatform x:TypeArguments="x:String">
                                 <On Platform="iOS" Value="Samim" />
@@ -76,6 +77,7 @@
                     </Button>
                 </StackLayout>
             </ScrollView>
+            <Label BackgroundColor="White"  TextColor="Blue"   FontSize="Medium"  FontAttributes="Bold" Text = "" VerticalOptions="CenterAndExpand"    HorizontalOptions="CenterAndExpand" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

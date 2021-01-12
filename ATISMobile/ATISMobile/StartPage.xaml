@@ -22,7 +22,8 @@
     <ContentPage.Content>
         <StackLayout Padding="20,10,20,10" BackgroundColor="Transparent" >
             <Label Text="" TextColor="Yellow"   HorizontalOptions="CenterAndExpand"  VerticalOptions="CenterAndExpand"   FontSize="Large" />
-            <Button x:Name="_StartApplication" BorderWidth="4" BorderColor="GreenYellow"    CornerRadius="15" FontSize="Large"   Text="ورود" BackgroundColor="Transparent"     TextColor="White"   HorizontalOptions="Center"  VerticalOptions="CenterAndExpand" WidthRequest="150" HeightRequest="150" BorderRadius="75" Clicked="_StartApplication_ClickedEvent" >
+            <Label Text="" TextColor="Yellow"   HorizontalOptions="CenterAndExpand"  VerticalOptions="CenterAndExpand"   FontSize="Large" />
+            <Button x:Name="_StartApplication" BorderWidth="4" BorderColor="GreenYellow"    CornerRadius="15" FontSize="Large"   Text="ورود" BackgroundColor="YellowGreen"     TextColor="Black" HorizontalOptions="CenterAndExpand"  VerticalOptions="CenterAndExpand"  WidthRequest="200" HeightRequest="80" BorderRadius="15" Clicked="_StartApplication_ClickedEvent" >
                 <Button.FontFamily>
                     <OnPlatform x:TypeArguments="x:String">
                         <On Platform="iOS" Value="Samim" />
@@ -31,7 +32,7 @@
                     </OnPlatform>
                 </Button.FontFamily>
             </Button>
-            <Button x:Name="_ExitApplication" BorderWidth="3" BorderColor="DarkRed"   CornerRadius="15" FontSize="Small"   Text="خروج" BackgroundColor="Transparent"     TextColor="White"   HorizontalOptions="Center"  VerticalOptions="CenterAndExpand" WidthRequest="100" HeightRequest="100" BorderRadius="50" Clicked="_ExitApplication_ClickedEvent" >
+            <Button x:Name="_ExitApplication" BorderWidth="3" BorderColor="DarkRed"   CornerRadius="15" FontSize="Large"   Text="خروج" BackgroundColor="Transparent"     TextColor="Black"   HorizontalOptions="CenterAndExpand"  VerticalOptions="CenterAndExpand" WidthRequest="200" HeightRequest="80" BorderRadius="15" Clicked="_ExitApplication_ClickedEvent" >
                 <Button.FontFamily>
                     <OnPlatform x:TypeArguments="x:String">
                         <On Platform="iOS" Value="Samim" />

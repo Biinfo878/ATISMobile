@@ -19,10 +19,11 @@
     <ContentPage Title="تریلی" FlowDirection="RightToLeft"   Padding="10" >
         <ContentPage.Content>
             <StackLayout>
+                <Label BackgroundColor="White"  TextColor="Blue"   FontSize="Medium"  FontAttributes="Bold" Text = "" VerticalOptions="CenterAndExpand"    HorizontalOptions="CenterAndExpand" />
                 <ScrollView BackgroundColor="Transparent">
-                    <StackLayout>
+                    <StackLayout Padding="40,10,40,10">
                         <Label Text="" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" ></Label>
-                        <Button  BorderWidth="4" BorderColor="White"  CornerRadius="15" FontSize="Small"   Text="تیرآهن و میلگرد سالنی" BackgroundColor="RoyalBlue"    TextColor="White"   HorizontalOptions="Center"  VerticalOptions="CenterAndExpand" WidthRequest="150" HeightRequest="150" BorderRadius="75"  Clicked="_AnnouncementHalls_ClickedEvent" >
+                        <Button  BorderWidth="2" BorderColor="BLACK"  CornerRadius="15" FontSize="Medium"   Text="تیرآهن و میلگرد سالنی" BackgroundColor="DeepSkyBlue"    TextColor="Black" BorderRadius="15"  HeightRequest="80" Clicked="_AnnouncementHalls_ClickedEvent" >
                             <Button.FontFamily>
                                 <OnPlatform x:TypeArguments="x:String">
                                     <On Platform="iOS" Value="Samim" />
@@ -31,7 +32,10 @@
                                 </OnPlatform>
                             </Button.FontFamily>
                         </Button>
-                        <Button  BorderWidth="4" BorderColor="White"  CornerRadius="15" FontSize="Small"   Text="تیرآهن و میلگرد انباری" BackgroundColor="RoyalBlue"    TextColor="White"   HorizontalOptions="Center"  VerticalOptions="CenterAndExpand" WidthRequest="150" HeightRequest="150" BorderRadius="75" Clicked="_Warehouse_ClickedEvent" >
+                        <Label BackgroundColor="White"  TextColor="Blue"   FontSize="Medium"  FontAttributes="Bold" Text = "" VerticalOptions="CenterAndExpand"    HorizontalOptions="CenterAndExpand" />
+                        <Label BackgroundColor="White"  TextColor="Blue"   FontSize="Medium"  FontAttributes="Bold" Text = "" VerticalOptions="CenterAndExpand"    HorizontalOptions="CenterAndExpand" />
+                        <Label BackgroundColor="White"  TextColor="Blue"   FontSize="Medium"  FontAttributes="Bold" Text = "" VerticalOptions="CenterAndExpand"    HorizontalOptions="CenterAndExpand" />
+                        <Button  BorderWidth="2" BorderColor="BLACK"  CornerRadius="15" FontSize="Medium"   Text="تیرآهن و میلگرد انباری" BackgroundColor="DeepSkyBlue"    TextColor="Black"   HeightRequest="80"   Clicked="_Warehouse_ClickedEvent" >
                             <Button.FontFamily>
                                 <OnPlatform x:TypeArguments="x:String">
                                     <On Platform="iOS" Value="Samim" />
@@ -43,6 +47,7 @@
                         <Label Text="" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" ></Label>
                     </StackLayout>
                 </ScrollView>
+                <Label BackgroundColor="White"  TextColor="Blue"   FontSize="Medium"  FontAttributes="Bold" Text = "" VerticalOptions="CenterAndExpand"    HorizontalOptions="CenterAndExpand" />
             </StackLayout>
         </ContentPage.Content>
     </ContentPage>
@@ -52,7 +57,7 @@
                 <ScrollView BackgroundColor="Transparent">
                     <StackLayout>
                         <Label Text="" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" ></Label>
-                        <Button BorderWidth="4" BorderColor="White"  CornerRadius="15" FontSize="Large"   Text="خاور" BackgroundColor="RoyalBlue"    TextColor="White"   HorizontalOptions="Center"  VerticalOptions="CenterAndExpand" WidthRequest="150" HeightRequest="150" BorderRadius="75"   Clicked="_RoomyKhavar_ClickedEvent" >
+                        <Button BorderWidth="4" BorderColor="White"  CornerRadius="15" FontSize="Large"   Text="خاور" BackgroundColor="DeepSkyBlue"    TextColor="Black"   VerticalOptions="CenterAndExpand" HeightRequest="80" BorderRadius="15"   Clicked="_RoomyKhavar_ClickedEvent" >
                             <Button.FontFamily>
                                 <OnPlatform x:TypeArguments="x:String">
                                     <On Platform="iOS" Value="Samim" />
@@ -61,7 +66,9 @@
                                 </OnPlatform>
                             </Button.FontFamily>
                         </Button>
-                        <Button BorderWidth="4" BorderColor="White"  CornerRadius="15" FontSize="Large"   Text="6 چرخ" BackgroundColor="RoyalBlue"    TextColor="White"   HorizontalOptions="Center"  VerticalOptions="CenterAndExpand" WidthRequest="150" HeightRequest="150" BorderRadius="75"  Clicked="_Roomy6Wheel_ClickedEvent" >
+                        <Label Text="" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" ></Label>
+                        <Label Text="" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" ></Label>
+                        <Button BorderWidth="4" BorderColor="White"  CornerRadius="15" FontSize="Large"   Text="6 چرخ" BackgroundColor="DeepSkyBlue"    TextColor="Black"   VerticalOptions="CenterAndExpand" HeightRequest="80" BorderRadius="15"  Clicked="_Roomy6Wheel_ClickedEvent" >
                             <Button.FontFamily>
                                 <OnPlatform x:TypeArguments="x:String">
                                     <On Platform="iOS" Value="Samim" />
@@ -70,7 +77,9 @@
                                 </OnPlatform>
                             </Button.FontFamily>
                         </Button>
-                        <Button BorderWidth="4" BorderColor="White"  CornerRadius="15" FontSize="Large"   Text="10 چرخ" BackgroundColor="RoyalBlue"    TextColor="White"   HorizontalOptions="Center"  VerticalOptions="CenterAndExpand" WidthRequest="150" HeightRequest="150" BorderRadius="75"   Clicked="_Roomy10Wheel_ClickedEvent" >
+                        <Label Text="" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" ></Label>
+                        <Label Text="" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" ></Label>
+                        <Button BorderWidth="4" BorderColor="White"  CornerRadius="15" FontSize="Large"   Text="10 چرخ" BackgroundColor="DeepSkyBlue"    TextColor="Black"  VerticalOptions="CenterAndExpand" HeightRequest="80" BorderRadius="15"   Clicked="_Roomy10Wheel_ClickedEvent" >
                             <Button.FontFamily>
                                 <OnPlatform x:TypeArguments="x:String">
                                     <On Platform="iOS" Value="Samim" />
@@ -85,4 +94,6 @@
             </StackLayout>
         </ContentPage.Content>
     </ContentPage>
+
+
 </TabbedPage>

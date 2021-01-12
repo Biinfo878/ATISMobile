@@ -18,11 +18,12 @@
 
     <ContentPage.Content>
         <StackLayout>
+            <Label BackgroundColor="White"  TextColor="Blue"   FontSize="Medium"  FontAttributes="Bold" Text = "" VerticalOptions="CenterAndExpand"    HorizontalOptions="CenterAndExpand" />
             <ScrollView BackgroundColor="Transparent">
-                <StackLayout>
+                <StackLayout Padding="40,10,40,10">
                     <Label Text="" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" ></Label>
-                    <Button x:Name="_BtnMoneyWalletTransactions" BorderWidth="1" BorderColor="Black"  CornerRadius="85" FontSize="Small"   Text="تراکنش های کیف پول" BackgroundColor="Yellow"    TextColor="Black"   HorizontalOptions="Center"  VerticalOptions="Fill"  WidthRequest="170" HeightRequest="170"   Clicked="_BtnMoneyWalletTransactions_ClickedEvent" >
-                        <Button.FontFamily>
+                    <Button x:Name="_BtnMoneyWalletTransactions" BorderWidth="2" BorderColor="Black"  CornerRadius="15" FontSize="Large" HeightRequest="80"  Text="تراکنش های کیف پول" BackgroundColor="Yellow"    TextColor="Black"     Clicked="_BtnMoneyWalletTransactions_ClickedEvent" >
+                            <Button.FontFamily>
                             <OnPlatform x:TypeArguments="x:String">
                                 <On Platform="iOS" Value="Samim" />
                                 <On Platform="Android" Value="Samim-Bold.otf#Samim" />
@@ -30,7 +31,10 @@
                             </OnPlatform>
                         </Button.FontFamily>
                     </Button>
-                    <Button  x:Name="_BtnMoneyWalletCharging" BorderWidth="1" BorderColor="Black"  CornerRadius="85" FontSize="Small"   Text="شارژ موجودی" BackgroundColor="Yellow"    TextColor="Black"   HorizontalOptions="Center"  VerticalOptions="Fill" WidthRequest="170" HeightRequest="170"  Clicked="_BtnMoneyWalletCharging_ClickedEvent" >
+                    <Label BackgroundColor="White"  TextColor="Blue"   FontSize="Medium"  FontAttributes="Bold" Text = "" VerticalOptions="CenterAndExpand"    HorizontalOptions="CenterAndExpand" />
+                    <Label BackgroundColor="White"  TextColor="Blue"   FontSize="Medium"  FontAttributes="Bold" Text = "" VerticalOptions="CenterAndExpand"    HorizontalOptions="CenterAndExpand" />
+                    <Label BackgroundColor="White"  TextColor="Blue"   FontSize="Medium"  FontAttributes="Bold" Text = "" VerticalOptions="CenterAndExpand"    HorizontalOptions="CenterAndExpand" />
+                    <Button  x:Name="_BtnMoneyWalletCharging" BorderWidth="2" BorderColor="Black"  CornerRadius="15" FontSize="Large"   Text="شارژ موجودی" BackgroundColor="Yellow"   HeightRequest="80"  TextColor="Black"   VerticalOptions="CenterAndExpand" Clicked="_BtnMoneyWalletCharging_ClickedEvent" >
                         <Button.FontFamily>
                             <OnPlatform x:TypeArguments="x:String">
                                 <On Platform="iOS" Value="Samim" />
@@ -42,6 +46,7 @@
                     <Label Text="" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" ></Label>
                 </StackLayout>
             </ScrollView>
+            <Label BackgroundColor="White"  TextColor="Blue"   FontSize="Medium"  FontAttributes="Bold" Text = "" VerticalOptions="CenterAndExpand"    HorizontalOptions="CenterAndExpand" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

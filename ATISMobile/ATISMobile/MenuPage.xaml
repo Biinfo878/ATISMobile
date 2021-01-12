@@ -84,7 +84,7 @@
                         </OnPlatform>
                     </Button.FontFamily>
                 </Button>
-                <Button x:Name="TurnRegistering"  IsVisible="True"   BorderWidth="2"  BorderColor="Black"   CornerRadius="15"  FontSize="Medium" Text="صدور نوبت" BackgroundColor="Transparent"    TextColor="Black"   >
+                <Button x:Name="TurnRegistering"  IsVisible="false"   BorderWidth="2"  BorderColor="Black"   CornerRadius="15"  FontSize="Medium" Text="صدور نوبت" BackgroundColor="Transparent"    TextColor="Black"   >
                     <Button.FontFamily>
                         <OnPlatform x:TypeArguments="x:String">
                             <On Platform="iOS" Value="Samim" />
