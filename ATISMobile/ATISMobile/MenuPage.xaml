@@ -3,10 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ATISMobile.MenuPage"
              BackgroundColor="White"
-             BackgroundImage="@drawable/BG992"
-             Padding="50">
+             BackgroundImage="@drawable/BG42108">
     <NavigationPage.TitleView>
-        <StackLayout>
+        <StackLayout >
             <Label Text="سامانه اطلاع رسانی بار آتیس - استان اصفهان" TextColor="White" HorizontalTextAlignment="Center">
                 <Label.FontFamily>
                     <OnPlatform x:TypeArguments="x:String">
@@ -19,82 +18,60 @@
         </StackLayout>
     </NavigationPage.TitleView>
     <ContentPage.Content>
-        <ScrollView BackgroundColor="Transparent">
-            <StackLayout Padding="20,20,20,10" BackgroundColor="Transparent"  >
-                <Button x:Name="ViewTruckDriver" BorderWidth="2" BorderColor="Black"   CornerRadius="15" FontSize="Medium"    Text="مشاهده مشخصات راننده" BackgroundColor="Transparent"    TextColor="Black"  Clicked="_ViewTruckDriver_ClickedEvent" >
-                    <Button.FontFamily>
-                        <OnPlatform x:TypeArguments="x:String">
-                            <On Platform="iOS" Value="Samim" />
-                            <On Platform="Android" Value="Samim-Bold.otf#Samim" />
-                            <On Platform="UWP" Value="Assets/Fonts/Lobster-Regular.ttf#Lobster" />
-                        </OnPlatform>
-                    </Button.FontFamily>
-                </Button>
-                <Button x:Name="ViewTruck"  BorderWidth="2"  BorderColor="Black"    CornerRadius="15"  FontSize="Medium"  Text="مشاهده مشخصات ناوگان" BackgroundColor="Transparent"     TextColor="Black"   Clicked="_ViewTruck_ClickedEvent">
-                    <Button.FontFamily>
-                        <OnPlatform x:TypeArguments="x:String">
-                            <On Platform="iOS" Value="Samim" />
-                            <On Platform="Android" Value="Samim-Bold.otf#Samim" />
-                            <On Platform="UWP" Value="Assets/Fonts/Lobster-Regular.ttf#Lobster" />
-                        </OnPlatform>
-                    </Button.FontFamily>
-                </Button>
-                <Button x:Name="ViewTurn"  BorderWidth="2"  BorderColor="Black"    CornerRadius="15"  FontSize="Medium"  Text="مشاهده نوبت های صادر شده" BackgroundColor="Transparent"     TextColor="Black"  Clicked="_ViewTurn_ClickedEvent"  >
-                    <Button.FontFamily>
-                        <OnPlatform x:TypeArguments="x:String">
-                            <On Platform="iOS" Value="Samim" />
-                            <On Platform="Android" Value="Samim-Bold.otf#Samim" />
-                            <On Platform="UWP" Value="Assets/Fonts/Lobster-Regular.ttf#Lobster" />
-                        </OnPlatform>
-                    </Button.FontFamily>
-                </Button>
-                <Button x:Name="LoadCapacitor"  BorderWidth="2"  BorderColor="Black"   CornerRadius="15"  FontSize="Medium" Text="مخزن بار" BackgroundColor="Transparent"      TextColor="Black"  Clicked="_LoadCapacitor_ClickedEvent">
-                    <Button.FontFamily>
-                        <OnPlatform x:TypeArguments="x:String">
-                            <On Platform="iOS" Value="Samim" />
-                            <On Platform="Android" Value="Samim-Bold.otf#Samim" />
-                            <On Platform="UWP" Value="Assets/Fonts/Lobster-Regular.ttf#Lobster" />
-                        </OnPlatform>
-                    </Button.FontFamily>
-                </Button>
-                <Button x:Name="LoadAllocation"  IsVisible="True"  BorderWidth="2"  BorderColor="Black"   CornerRadius="15"  FontSize="Medium" Text="تخصیص بار" BackgroundColor="Transparent"     TextColor="Black"  Clicked="_LoadAllocation_ClickedEvent">
-                    <Button.FontFamily>
-                        <OnPlatform x:TypeArguments="x:String">
-                            <On Platform="iOS" Value="Samim" />
-                            <On Platform="Android" Value="Samim-Bold.otf#Samim" />
-                            <On Platform="UWP" Value="Assets/Fonts/Lobster-Regular.ttf#Lobster" />
-                        </OnPlatform>
-                    </Button.FontFamily>
-                </Button>
-                <Button x:Name="ViewLoadAllocations" IsVisible="True"  BorderWidth="2"  BorderColor="Black"   CornerRadius="15"  FontSize="Small"  Text="مشاهده لیست بارهای انتخاب شده &#10; مجوزهای صادر شده" BackgroundColor="Transparent"     TextColor="Black" Clicked="_ViewLoadAllocations_ClickedEvent">
-                    <Button.FontFamily>
-                        <OnPlatform x:TypeArguments="x:String">
-                            <On Platform="iOS" Value="Samim" />
-                            <On Platform="Android" Value="Samim-Bold.otf#Samim" />
-                            <On Platform="UWP" Value="Assets/Fonts/Lobster-Regular.ttf#Lobster" />
-                        </OnPlatform>
-                    </Button.FontFamily>
-                </Button>
-                <Button x:Name="MoneyWalletAccounting"  BorderWidth="2"  BorderColor="Black"   CornerRadius="15"  FontSize="Medium"  Text="کیف پول  &#10; شارژ موجودی" HeightRequest="100" BackgroundColor="Transparent"  TextColor="Black"   Clicked="_MoneyWalletAccounting_ClickedEvent" >
-                    <Button.FontFamily>
-                        <OnPlatform x:TypeArguments="x:String">
-                            <On Platform="iOS" Value="Samim" />
-                            <On Platform="Android" Value="Samim-Bold.otf#Samim" />
-                            <On Platform="UWP" Value="Assets/Fonts/Lobster-Regular.ttf#Lobster" />
-                        </OnPlatform>
-                    </Button.FontFamily>
-                </Button>
-                <Button x:Name="TurnRegistering"  IsVisible="false"   BorderWidth="2"  BorderColor="Black"   CornerRadius="15"  FontSize="Medium" Text="صدور نوبت" BackgroundColor="Transparent"    TextColor="Black"   >
-                    <Button.FontFamily>
-                        <OnPlatform x:TypeArguments="x:String">
-                            <On Platform="iOS" Value="Samim" />
-                            <On Platform="Android" Value="Samim-Bold.otf#Samim" />
-                            <On Platform="UWP" Value="Assets/Fonts/Lobster-Regular.ttf#Lobster" />
-                        </OnPlatform>
-                    </Button.FontFamily>
-                </Button>
+        <StackLayout BackgroundColor="Transparent" Padding="20" >
+            <ListView x:Name="_ListView" BackgroundColor="Transparent"   Margin="30" HasUnevenRows = "True"   >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell >
+                            <Frame HasShadow="true" BorderColor="{Binding PBackColor}" Margin="0,20,0,20"  CornerRadius="15" BackgroundColor="Transparent"  >
+                                <StackLayout Orientation="Vertical" BackgroundColor="Transparent"  >
+                                    <Label  BackgroundColor="{Binding PBackColor}"   TextColor="{Binding PForeColor}"   FontSize="Large"   FontAttributes="Bold" Text = "{Binding PTitle}" >
+                                        <Label.FontFamily>
+                                            <OnPlatform x:TypeArguments="x:String">
+                                                <On Platform="iOS" Value="Samim" />
+                                                <On Platform="Android" Value="Samim-Bold.otf#Samim" />
+                                                <On Platform="UWP" Value="Assets/Fonts/Lobster-Regular.ttf#Lobster" />
+                                            </OnPlatform>
+                                        </Label.FontFamily>
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="OnTapGestureRecognizerTapped"/>
+                                        </Label.GestureRecognizers>
+                                    </Label>
+                                    <Label  BackgroundColor="Transparent"  TextColor="White"  FontSize="Small"   FontAttributes="Bold" Text = "{Binding Description}" >
+                                        <Label.FontFamily>
+                                            <OnPlatform x:TypeArguments="x:String">
+                                                <On Platform="iOS" Value="Samim" />
+                                                <On Platform="Android" Value="Samim-Bold.otf#Samim" />
+                                                <On Platform="UWP" Value="Assets/Fonts/Lobster-Regular.ttf#Lobster" />
+                                            </OnPlatform>
+                                        </Label.FontFamily>
+                                    </Label>
+                                    <Label x:Name="_TargetMobileProcess" IsVisible="False"     BackgroundColor="Transparent"  TextColor="Yellow" FontSize="Small" FontAttributes="Bold"   Text = "{Binding TargetMobilePage}">
+                                        <Label.FontFamily>
+                                            <OnPlatform x:TypeArguments="x:String">
+                                                <On Platform="iOS" Value="Samim" />
+                                                <On Platform="Android" Value="Samim-Bold.otf#Samim" />
+                                                <On Platform="UWP" Value="Assets/Fonts/Lobster-Regular.ttf#Lobster" />
+                                            </OnPlatform>
+                                        </Label.FontFamily>
+                                    </Label>
+                                    <Label x:Name="_TargetMobileProcessId" IsVisible="False"     BackgroundColor="Transparent"  TextColor="Yellow" FontSize="Small" FontAttributes="Bold"   Text = "{Binding PId}">
+                                        <Label.FontFamily>
+                                            <OnPlatform x:TypeArguments="x:String">
+                                                <On Platform="iOS" Value="Samim" />
+                                                <On Platform="Android" Value="Samim-Bold.otf#Samim" />
+                                                <On Platform="UWP" Value="Assets/Fonts/Lobster-Regular.ttf#Lobster" />
+                                            </OnPlatform>
+                                        </Label.FontFamily>
+                                    </Label>
+                                </StackLayout>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
 
-            </StackLayout>
-        </ScrollView>
+        </StackLayout>
+
     </ContentPage.Content>
 </ContentPage>

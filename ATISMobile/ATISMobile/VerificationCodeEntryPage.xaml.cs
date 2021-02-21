@@ -25,7 +25,7 @@ namespace ATISMobile
 
         public void SetInf(string YourVerificationCode, string YourMobileNumber)
         {
-            _EntryVerificatinCode.Text = YourVerificationCode;
+            //_EntryVerificatinCode.Text = YourVerificationCode;
             _LabelMobileNumber.Text = YourMobileNumber;
         }
 
@@ -37,7 +37,7 @@ namespace ATISMobile
                 string myMobileNumber = _LabelMobileNumber.Text.Trim();
                 string myVerificationCode = _EntryVerificatinCode.Text.Trim();
                 HttpClient _Client = new HttpClient();
-                var response = await _Client.GetAsync(Properties.Resources.RestfulWebServiceURL + "/api/MobileUsers/ActiveMobileUser/?YourMobileNumber=" + myMobileNumber + "&YourVerificationCode=" + myVerificationCode);
+                var response = await _Client.GetAsync(Properties.Resources.RestfulWebServiceURL + "/api/SoftwareUsers/LoginSoftwareUser/?YourMobileNumber=" + myMobileNumber + "&YourVerificationCode=" + myVerificationCode);
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();

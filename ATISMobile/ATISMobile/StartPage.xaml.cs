@@ -15,6 +15,7 @@ using Xamarin.Forms.Xaml;
 
 using ATISMobile.Models;
 using ATISMobile.PublicProcedures;
+using Xamarin.Essentials;
 
 namespace ATISMobile
 {
@@ -41,23 +42,39 @@ namespace ATISMobile
                     var content = await response.Content.ReadAsStringAsync();
                     MessageStruct _Version = JsonConvert.DeserializeObject<MessageStruct>(content);
                     if (_Version.ErrorCode == false)
-                    { _ApplicationVersion.Text = "نسخه اپلیکیشن : " + _Version.Message1; }
+                    {
+                        _ApplicationVersion.Text = "نسخه اپلیکیشن : " + _Version.Message1; _ApplicationVersion.BackgroundColor = Color.Green; _StartApplication.BackgroundColor = Color.Green; _StartApplication.BorderColor = Color.GreenYellow;
+                        Xamarin.Essentials.VersionTracking.Track();
+                        string VersionNumber = Xamarin.Essentials.VersionTracking.CurrentVersion;
+                        string VersionName = Xamarin.Essentials.VersionTracking.CurrentBuild;
+
+                        var responseVersion = await _Client.GetAsync(ATISMobile.Properties.Resources.RestfulWebServiceURL + "/api/VersionControl?YourVersionNumber=" + VersionNumber + "&YourVersionName=" + VersionName);
+                        if (responseVersion.IsSuccessStatusCode)
+                        {
+                            var contentt = await responseVersion.Content.ReadAsStringAsync();
+                            if (!JsonConvert.DeserializeObject<bool>(contentt)) return;
+                        }
+                        await DisplayAlert("بروز رسانی آتیس موبایل", "آتیس موبایل اخیرا تغییراتی داشته است", "OK");
+                        await Browser.OpenAsync("http://ATISMobile.ir/Downloads.aspx", BrowserLaunchMode.SystemPreferred);
+                    }
                     else
-                    { }
+                    { _ApplicationVersion.Text = "ارتباط با سرور آتیس برقرار نیست"; _ApplicationVersion.BackgroundColor = Color.Red; _StartApplication.IsEnabled = false; _StartApplication.BorderColor = Color.Gray; }
                 }
+                else
+                { _ApplicationVersion.Text = "ارتباط با سرور آتیس برقرار نیست"; _ApplicationVersion.BackgroundColor = Color.Red; _StartApplication.IsEnabled = false; _StartApplication.BorderColor = Color.Gray; }
             }
             catch (Exception ex)
-            { Debug.WriteLine("\t\tERROR {0}", ex.Message); }
+            { _ApplicationVersion.Text = "ارتباط با سرور آتیس برقرار نیست"; _ApplicationVersion.BackgroundColor = Color.Red; _StartApplication.IsEnabled = false; _StartApplication.BorderColor = Color.Gray; }
         }
 
         private void Manage_ExitApplicationButton()
         {
             try
             {
-                if (ATISMobileMClassPublicProcedures.GetAMUStatus() == "logout")
-                { _ExitApplication.IsEnabled = false; }
-                else
-                { _ExitApplication.IsEnabled = true; }
+                //if (ATISMobileMClassPublicProcedures.GetAMUStatus() == "logout")
+                //{ _ExitApplication.IsEnabled = false; }
+                //else
+                //{ _ExitApplication.IsEnabled = true; }
             }
             catch (Exception ex)
             { Debug.WriteLine("\t\tERROR {0}", ex.Message); }

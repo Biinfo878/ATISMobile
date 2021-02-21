@@ -11,6 +11,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 using ATISMobile.Models;
+using ATISMobile.PublicProcedures;
 
 namespace ATISMobile
 {
@@ -20,14 +21,15 @@ namespace ATISMobile
         public TruckDriverPage()
         {
             InitializeComponent();
+            ViewInformation(ATISMobileMClassPublicProcedures.GetCurrentSoftwareUserId());
         }
 
-        public async void ViewInformation(Int64 YourMUId)
+        public async void ViewInformation(Int64 YourUserId)
         {
             try
             {
                 HttpClient _Client = new HttpClient();
-                var response = await _Client.GetAsync(Properties.Resources.RestfulWebServiceURL + "/api/TruckDrivers/GetTruckDriver/?YourMUId=" + YourMUId + "");
+                var response = await _Client.GetAsync(Properties.Resources.RestfulWebServiceURL + "/api/TruckDrivers/GetTruckDriver/?YourUserId=" + YourUserId + "");
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();

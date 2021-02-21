@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using System.Net.Http;
+using Newtonsoft.Json;
+using System.Diagnostics;
 
 using ATISMobile.PublicProcedures;
+using ATISMobile.Models;
+
 
 namespace ATISMobile
 {
@@ -20,54 +24,59 @@ namespace ATISMobile
         {
             InitializeComponent();
             _IsBackButtonActive = YourIsBackButtonActive;
+            ShowProcesses();
         }
 
-        private async void _ViewLoadAllocations_ClickedEvent(Object sender, EventArgs e)
+        private async void ShowProcesses()
         {
-            //return;
-            LoadAllocationsPage _LoadAllocationsPage = new LoadAllocationsPage();
-            _LoadAllocationsPage.ViewLoadAllocations(ATISMobileMClassPublicProcedures.GetCurrentMobileUserId());
-            await Navigation.PushAsync(_LoadAllocationsPage);
+            try
+            {
+                List<MobileProcess> _Lst = new List<MobileProcess>();
+                HttpClient _Client = new HttpClient();
+                var response = await _Client.GetAsync(Properties.Resources.RestfulWebServiceURL + "/api/MobileProcesses/GetMobileProcesses/?YourSoftwareUserId=" + ATISMobileMClassPublicProcedures.GetCurrentSoftwareUserId());
+                if (response.IsSuccessStatusCode)
+                {
+                    var content = await response.Content.ReadAsStringAsync();
+                    _Lst = JsonConvert.DeserializeObject<List<MobileProcess>>(content);
+                    if (_Lst.Count == 0)
+                    {; }
+                    else
+                    { _ListView.ItemsSource = _Lst; }
+                }
+            }
+            catch (Exception ex)
+            { Debug.WriteLine("\t\tERROR {0}", ex.Message); }
         }
 
-        private async void _ViewTruckDriver_ClickedEvent(Object sender, EventArgs e)
+        async void OnTapGestureRecognizerTapped(object sender, EventArgs args)
         {
-            TruckDriverPage _TruckDriverPage = new TruckDriverPage();
-            _TruckDriverPage.ViewInformation(ATISMobileMClassPublicProcedures.GetCurrentMobileUserId());
-            await Navigation.PushAsync(_TruckDriverPage);
-        }
-
-        private async void _ViewTruck_ClickedEvent(Object sender, EventArgs e)
-        {
-            TruckPage _TruckPage = new TruckPage();
-            _TruckPage.ViewInformation(ATISMobileMClassPublicProcedures.GetCurrentMobileUserId());
-            await Navigation.PushAsync(_TruckPage);
-        }
-
-        private async void _ViewTurn_ClickedEvent(Object sender, EventArgs e)
-        {
-            TurnsPage _TurnsPage = new TurnsPage();
-            _TurnsPage.ViewInformation(ATISMobileMClassPublicProcedures.GetCurrentMobileUserId());
-            await Navigation.PushAsync(_TurnsPage);
-        }
-
-        private async void _LoadAllocation_ClickedEvent(Object sender, EventArgs e)
-        {
-            //return;
-            AnnouncementHallsSelectionPage _AnnouncementHallsSelectionPage = new AnnouncementHallsSelectionPage();
-            await Navigation.PushAsync(_AnnouncementHallsSelectionPage);
-        }
-
-        private async void _LoadCapacitor_ClickedEvent(Object sender, EventArgs e)
-        {
-            AnnouncementHallsSelectionPage _AnnouncementHallsSelectionPage = new AnnouncementHallsSelectionPage();
-            await Navigation.PushAsync(_AnnouncementHallsSelectionPage);
-        }
-
-        private async void _MoneyWalletAccounting_ClickedEvent(Object sender, EventArgs e)
-        {
-            MoneyWalletMenuPage _MoneyWalletMenuPage = new MoneyWalletMenuPage();
-            await Navigation.PushAsync(_MoneyWalletMenuPage);
+            try
+            {
+                string TargetMobileProcess = (((Label)sender).Parent.FindByName("_TargetMobileProcess") as Label).Text;
+                string TargetMobileProcessId = (((Label)sender).Parent.FindByName("_TargetMobileProcessId") as Label).Text;
+                HttpClient _Client = new HttpClient();
+                var response = await _Client.GetAsync(Properties.Resources.RestfulWebServiceURL + "/api/Permissions/ExistPermission/?YourPermissionTypeId=1&YourEntityIdFirst=" + ATISMobileMClassPublicProcedures.GetCurrentSoftwareUserId().ToString() + "&YourEntityIdSecond=" + TargetMobileProcessId.ToString() + "");
+                if (response.IsSuccessStatusCode)
+                {
+                    var content = await response.Content.ReadAsStringAsync();
+                    var myMS = JsonConvert.DeserializeObject<MessageStruct>(content);
+                    if (myMS.ErrorCode == false)
+                    {
+                        if (myMS.Message1 == "True")
+                        {
+                            var pageType = Type.GetType(TargetMobileProcess);
+                            var page = Activator.CreateInstance(pageType) as Page;
+                            await Navigation.PushAsync(page);
+                        }
+                        else
+                        { await DisplayAlert("ATISMobile", "مجوز دسترسی به این فرآیند را ندارید", "OK"); }
+                    }
+                    else
+                    { await DisplayAlert("ATISMobile",myMS.Message1 , "OK"); }
+                }
+            }
+            catch (Exception ex)
+            { Debug.WriteLine("\t\tERROR {0}", ex.Message); }
         }
 
         protected override bool OnBackButtonPressed()
@@ -75,7 +84,7 @@ namespace ATISMobile
             if (_IsBackButtonActive)
             { return false; }
             else
-            { return true ; }
+            { return true; }
         }
 
 

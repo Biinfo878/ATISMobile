@@ -20,7 +20,7 @@ namespace ATISMobile
         private async void _BtnMoneyWalletTransactions_ClickedEvent(object sender, EventArgs e)
         {
             MoneyWalletTransactionsPage _MoneyWallettTransactionsPage = new MoneyWalletTransactionsPage();
-            _MoneyWallettTransactionsPage.ViewInformation(ATISMobileMClassPublicProcedures.GetCurrentMobileUserId());
+            _MoneyWallettTransactionsPage.ViewInformation(ATISMobileMClassPublicProcedures.GetCurrentSoftwareUserId());
             await Navigation.PushAsync(_MoneyWallettTransactionsPage);
         }
 

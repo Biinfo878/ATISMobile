@@ -5,11 +5,13 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using ATISMobile.Models;
-using ATISMobile.PublicProcedures;
 using Newtonsoft.Json;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+
+using ATISMobile.Models;
+using ATISMobile.PublicProcedures;
+
 
 namespace ATISMobile
 {
@@ -19,15 +21,16 @@ namespace ATISMobile
         public MoneyWalletTransactionsPage()
         {
             InitializeComponent();
+            ViewInformation(ATISMobileMClassPublicProcedures.GetCurrentSoftwareUserId());
         }
 
-        public async void ViewInformation(Int64 YourMUId)
+        public async void ViewInformation(Int64 YourUserId)
         {
             try
             {
                 List<MoneyWalletAccounting> _List = new List<MoneyWalletAccounting>();
                 HttpClient _Client = new HttpClient();
-                var response = await _Client.GetAsync(Properties.Resources.RestfulWebServiceURL + "/api/MoneyWalletAccounting/GetMoneyWalletAccounting/?YourMUId=" + YourMUId + "");
+                var response = await _Client.GetAsync(Properties.Resources.RestfulWebServiceURL + "/api/MoneyWalletAccounting/GetMoneyWalletAccounting/?YourUserId=" + YourUserId + "");
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();
@@ -47,7 +50,7 @@ namespace ATISMobile
         private void _BtnRefreshTransactions_ClickedEvent(object sender, EventArgs e)
         {
             try
-            { ViewInformation(ATISMobileMClassPublicProcedures.GetCurrentMobileUserId()); }
+            { ViewInformation(ATISMobileMClassPublicProcedures.GetCurrentSoftwareUserId()); }
             catch (Exception ex)
             { Debug.WriteLine("\t\tERROR {0}", ex.Message); }
         }

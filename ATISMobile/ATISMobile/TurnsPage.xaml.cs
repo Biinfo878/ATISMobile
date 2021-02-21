@@ -11,6 +11,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 using ATISMobile.Models;
+using ATISMobile.PublicProcedures;
 
 namespace ATISMobile
 {
@@ -20,15 +21,16 @@ namespace ATISMobile
         public TurnsPage()
         {
             InitializeComponent();
+            ViewInformation(ATISMobileMClassPublicProcedures.GetCurrentSoftwareUserId());
         }
 
-        public async void ViewInformation(Int64 YourMUId)
+        public async void ViewInformation(Int64 YourUserId)
         {
             try
             {
                 List<Turns> _List = new List<Turns>();
                 HttpClient _Client = new HttpClient();
-                var response = await _Client.GetAsync(Properties.Resources.RestfulWebServiceURL + "/api/Turns/GetTurns/?YourMUId=" + YourMUId + "");
+                var response = await _Client.GetAsync(Properties.Resources.RestfulWebServiceURL + "/api/Turns/GetTurns/?YourUserId=" + YourUserId + "");
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();

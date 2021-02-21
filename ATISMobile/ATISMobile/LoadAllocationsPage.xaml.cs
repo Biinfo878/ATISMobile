@@ -11,27 +11,30 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 using ATISMobile.Models;
+using ATISMobile.PublicProcedures;
+
 
 namespace ATISMobile
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class LoadAllocationsPage : ContentPage
     {
-        private Int64 _CurrentMUId; 
+        private Int64 _CurrentUserId; 
 
         public LoadAllocationsPage()
         {
             InitializeComponent();
+            ViewLoadAllocations(ATISMobileMClassPublicProcedures.GetCurrentSoftwareUserId());
         }
 
-        public async void ViewLoadAllocations(Int64  YourMUId)
+        public async void ViewLoadAllocations(Int64  YourUserId)
         {
             try
             {
-                _CurrentMUId = YourMUId; 
+                _CurrentUserId = YourUserId; 
                 List<LoadAllocationsforTruckDriver> _List = new List<LoadAllocationsforTruckDriver>();
                 HttpClient _Client = new HttpClient();
-                var response = await _Client.GetAsync(Properties.Resources.RestfulWebServiceURL + "/api/LoadAllocations/GetLoadAllocationsforTruckDriver/?YourMUId=" + YourMUId + "");
+                var response = await _Client.GetAsync(Properties.Resources.RestfulWebServiceURL + "/api/LoadAllocations/GetLoadAllocationsforTruckDriver/?YourUserId=" + YourUserId + "");
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();
@@ -58,12 +61,12 @@ namespace ATISMobile
             {
                 var LoadAllocationId = (((StackLayout)((ImageButton)sender).Parent.Parent.FindByName("_StackLayoutInformation")).FindByName("_LabelLAId") as Label).Text.Split('-')[0].Split(':')[1].Trim();
                 HttpClient _Client = new HttpClient();
-                var response = await _Client.GetAsync(Properties.Resources.RestfulWebServiceURL + "/api/LoadAllocations/LoadAllocationCancelling/?YourLoadAllocationId=" + LoadAllocationId + "");
+                var response = await _Client.GetAsync(Properties.Resources.RestfulWebServiceURL + "/api/LoadAllocations/LoadAllocationCancelling/?YourUserId="+ ATISMobileMClassPublicProcedures.GetCurrentSoftwareUserId().ToString() + "&YourLoadAllocationId=" + LoadAllocationId + "");
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();
                     var myMS = JsonConvert.DeserializeObject<MessageStruct>(content);
-                    ViewLoadAllocations(_CurrentMUId);
+                    ViewLoadAllocations(_CurrentUserId);
                     await DisplayAlert("ATISMobile", myMS.Message1, "OK");
 
                 }
@@ -82,7 +85,7 @@ namespace ATISMobile
                 {
                     var content = await response.Content.ReadAsStringAsync();
                     var myMS = JsonConvert.DeserializeObject<MessageStruct>(content);
-                    ViewLoadAllocations(_CurrentMUId);
+                    ViewLoadAllocations(_CurrentUserId);
                     await DisplayAlert("ATISMobile", myMS.Message1, "OK");
                 }
             }
@@ -102,7 +105,7 @@ namespace ATISMobile
                 {
                     var content = await response.Content.ReadAsStringAsync();
                     var myMS = JsonConvert.DeserializeObject<MessageStruct>(content);
-                    ViewLoadAllocations(_CurrentMUId);
+                    ViewLoadAllocations(_CurrentUserId);
                     await DisplayAlert("ATISMobile", myMS.Message1, "OK");
                 }
             }

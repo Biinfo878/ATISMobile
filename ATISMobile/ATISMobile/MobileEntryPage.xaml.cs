@@ -31,7 +31,7 @@ namespace ATISMobile
                 string myMobileNumber = _EntryMobileNumber.Text.Trim();
                 string myNameFamily = _EntryNameFamily.Text.Trim();
                 HttpClient _Client = new HttpClient();
-                var response = await _Client.GetAsync(Properties.Resources.RestfulWebServiceURL + "/api/MobileUsers/RegisterMobileUser/?YourMobileNumber=" + myMobileNumber + "&YourNameFamily=" + myNameFamily);
+                var response = await _Client.GetAsync(Properties.Resources.RestfulWebServiceURL + "/api/SoftwareUsers/RegisterMobileNumber/?YourMobileNumber=" + myMobileNumber + "");
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();
