@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Net.Http;
 using System.Diagnostics;
 using Newtonsoft.Json;
+using ATISMobile.PublicProcedures;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -31,7 +32,7 @@ namespace ATISMobile
                 string myMobileNumber = _EntryMobileNumber.Text.Trim();
                 string myNameFamily = _EntryNameFamily.Text.Trim();
                 HttpClient _Client = new HttpClient();
-                var response = await _Client.GetAsync(Properties.Resources.RestfulWebServiceURL + "/api/SoftwareUsers/RegisterMobileNumber/?YourMobileNumber=" + myMobileNumber + "");
+                var response = await _Client.GetAsync(ATISMobileMClassPublicProcedures.ATISHostURL + "/api/SoftwareUsers/RegisterMobileNumber/?YourMobileNumber=" + myMobileNumber + "");
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();
@@ -47,7 +48,7 @@ namespace ATISMobile
                 }
             }
             catch (Exception ex)
-            { Debug.WriteLine("\t\tERROR {0}", ex.Message); }
+            { await DisplayAlert("ATISMobile", ex.Message, "OK"); }
             _ButtonSend.IsEnabled = true; _ButtonSend.BackgroundColor = Color.Green;
         }
 

@@ -61,7 +61,7 @@ namespace ATISMobile.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ftp://192.168.1.2:21/ATISMobile.apk.
+        ///   Looks up a localized string similar to ftp://37.255.209.4:21/ATISMobile.apk.
         /// </summary>
         public static string APKFtpURL {
             get {
@@ -70,11 +70,38 @@ namespace ATISMobile.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to http://192.168.1.2:3001.
+        ///   Looks up a localized string similar to 3001.
         /// </summary>
-        public static string RestfulWebServiceURL {
+        public static string RestfulWebServicePortNumber {
             get {
-                return ResourceManager.GetString("RestfulWebServiceURL", resourceCulture);
+                return ResourceManager.GetString("RestfulWebServicePortNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Http.
+        /// </summary>
+        public static string RestfulWebServiceProtocol {
+            get {
+                return ResourceManager.GetString("RestfulWebServiceProtocol", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 192.168.1.2.
+        /// </summary>
+        public static string RestfulWebServiceURLFirst {
+            get {
+                return ResourceManager.GetString("RestfulWebServiceURLFirst", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to www.ATISMobile.ir.
+        /// </summary>
+        public static string RestfulWebServiceURLSecond {
+            get {
+                return ResourceManager.GetString("RestfulWebServiceURLSecond", resourceCulture);
             }
         }
     }

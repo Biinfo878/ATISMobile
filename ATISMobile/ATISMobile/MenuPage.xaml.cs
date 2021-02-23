@@ -33,7 +33,7 @@ namespace ATISMobile
             {
                 List<MobileProcess> _Lst = new List<MobileProcess>();
                 HttpClient _Client = new HttpClient();
-                var response = await _Client.GetAsync(Properties.Resources.RestfulWebServiceURL + "/api/MobileProcesses/GetMobileProcesses/?YourSoftwareUserId=" + ATISMobileMClassPublicProcedures.GetCurrentSoftwareUserId());
+                var response = await _Client.GetAsync(ATISMobileMClassPublicProcedures.ATISHostURL + "/api/MobileProcesses/GetMobileProcesses/?YourSoftwareUserId=" + ATISMobileMClassPublicProcedures.GetCurrentSoftwareUserId());
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();
@@ -45,7 +45,7 @@ namespace ATISMobile
                 }
             }
             catch (Exception ex)
-            { Debug.WriteLine("\t\tERROR {0}", ex.Message); }
+            { await DisplayAlert("ATISMobile", ex.Message, "OK"); }
         }
 
         async void OnTapGestureRecognizerTapped(object sender, EventArgs args)
@@ -55,7 +55,7 @@ namespace ATISMobile
                 string TargetMobileProcess = (((Label)sender).Parent.FindByName("_TargetMobileProcess") as Label).Text;
                 string TargetMobileProcessId = (((Label)sender).Parent.FindByName("_TargetMobileProcessId") as Label).Text;
                 HttpClient _Client = new HttpClient();
-                var response = await _Client.GetAsync(Properties.Resources.RestfulWebServiceURL + "/api/Permissions/ExistPermission/?YourPermissionTypeId=1&YourEntityIdFirst=" + ATISMobileMClassPublicProcedures.GetCurrentSoftwareUserId().ToString() + "&YourEntityIdSecond=" + TargetMobileProcessId.ToString() + "");
+                var response = await _Client.GetAsync(ATISMobileMClassPublicProcedures.ATISHostURL + "/api/Permissions/ExistPermission/?YourPermissionTypeId=1&YourEntityIdFirst=" + ATISMobileMClassPublicProcedures.GetCurrentSoftwareUserId().ToString() + "&YourEntityIdSecond=" + TargetMobileProcessId.ToString() + "");
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();
@@ -72,11 +72,11 @@ namespace ATISMobile
                         { await DisplayAlert("ATISMobile", "مجوز دسترسی به این فرآیند را ندارید", "OK"); }
                     }
                     else
-                    { await DisplayAlert("ATISMobile",myMS.Message1 , "OK"); }
+                    { await DisplayAlert("ATISMobile", myMS.Message1, "OK"); }
                 }
             }
             catch (Exception ex)
-            { Debug.WriteLine("\t\tERROR {0}", ex.Message); }
+            { await DisplayAlert("ATISMobile", ex.Message, "OK"); }
         }
 
         protected override bool OnBackButtonPressed()

@@ -29,7 +29,7 @@ namespace ATISMobile
             try
             {
                 HttpClient _Client = new HttpClient();
-                var response = await _Client.GetAsync(Properties.Resources.RestfulWebServiceURL + "/api/TruckDrivers/GetTruckDriver/?YourUserId=" + YourUserId + "");
+                var response = await _Client.GetAsync(ATISMobileMClassPublicProcedures.ATISHostURL + "/api/TruckDrivers/GetTruckDriver/?YourUserId=" + YourUserId + "");
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();
@@ -43,10 +43,10 @@ namespace ATISMobile
                     LblDriverId.Text = myTruckDriver.DriverId;
                 }
                 else
-                { LblNameFamily.Text = "اطلاعاتی یافت نشد"; }
+                { LblErrorMessage.Text = "اطلاعاتی یافت نشد"; }
             }
             catch (Exception ex)
-            { Debug.WriteLine("\t\tERROR {0}", ex.Message); }
+            { LblErrorMessage.Text = ex.Message; }
         }
     }
 }

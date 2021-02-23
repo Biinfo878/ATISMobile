@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
 using System.Net.Http;
-using System.Diagnostics;
+using System.Net.NetworkInformation;
 using Newtonsoft.Json;
 using System.Net;
 using System.IO;
@@ -30,16 +30,53 @@ namespace ATISMobile
     {
         public class ATISMobileMClassPublicProcedures
         {
-            public static Int64  GetCurrentSoftwareUserId()
+            public static bool IsThisIPAvailable(String YourIP)
+            {
+                try
+                {
+                    Ping p = new Ping();
+                    if (p.Send(YourIP).Status == IPStatus.Success) { return true; } else { return false; }
+                }
+                catch (Exception ex)
+                { throw ex; }
+            }
+
+            public static bool IsInternetAvailable()
+            {
+                try { return IsThisIPAvailable("www.google.com"); }
+                catch (Exception ex) { throw ex; }
+            }
+
+            private static string _ATISHostURL = string.Empty;
+            public static string ATISHostURL
+            {
+                get
+                {
+                    if (_ATISHostURL == string.Empty)
+                    {
+                        if (IsThisIPAvailable(Properties.Resources.RestfulWebServiceURLFirst))
+                        { _ATISHostURL = Properties.Resources.RestfulWebServiceProtocol + "://" + Properties.Resources.RestfulWebServiceURLFirst + ":" + Properties.Resources.RestfulWebServicePortNumber; }
+                        else if (IsThisIPAvailable(Properties.Resources.RestfulWebServiceURLSecond))
+                        { _ATISHostURL = Properties.Resources.RestfulWebServiceProtocol + "://" + Properties.Resources.RestfulWebServiceURLSecond + ":" + Properties.Resources.RestfulWebServicePortNumber; }
+                        else
+                        { throw new Exception(); }
+                        return _ATISHostURL;
+                    }
+                    else
+                    { return _ATISHostURL; }
+                }
+            }
+
+            public static Int64 GetCurrentSoftwareUserId()
             {
                 try
                 {
                     String TargetPath = System.Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
                     TargetPath = Path.Combine(TargetPath, "AMUStatus.txt");
                     if (System.IO.File.Exists(TargetPath) == false)
-                    { throw new AMUStatusFileNotFoundException(null);  }
+                    { throw new AMUStatusFileNotFoundException(null); }
                     else
-                    { return Convert.ToInt64( System.IO.File.ReadAllText(TargetPath).Split(';')[1]); }
+                    { return Convert.ToInt64(System.IO.File.ReadAllText(TargetPath).Split(';')[1]); }
                 }
                 catch (AMUStatusFileNotFoundException ex)
                 { throw ex; }
@@ -82,7 +119,7 @@ namespace ATISMobile
                     //string VersionNumber = Xamarin.Essentials.VersionTracking.CurrentVersion;
                     //string VersionName = Xamarin.Essentials.VersionTracking.CurrentBuild;
 
-                    //var responseVersion = await _Client.GetAsync(ATISMobile.Properties.Resources.RestfulWebServiceURL + "/api/VersionControl?YourVersionNumber=" + VersionNumber + "&YourVersionName=" + VersionName);
+                    //var responseVersion = await _Client.GetAsync(ATISMobileMClassPublicProcedures.ATISHostURL + "/api/VersionControl?YourVersionNumber=" + VersionNumber + "&YourVersionName=" + VersionName);
                     //if (responseVersion.IsSuccessStatusCode)
                     //{
                     //    var content = await responseVersion.Content.ReadAsStringAsync();
@@ -144,13 +181,11 @@ namespace ATISMobile
     {
         public class AMUStatusFileNotFoundException : Exception
         {
-            public  AMUStatusFileNotFoundException(string message) : base(message)
+            public AMUStatusFileNotFoundException(string message) : base(message)
             {
                 message = "خطای اساسی - مجددا تلاش نمایید";
             }
         }
     }
-
-
 
 }

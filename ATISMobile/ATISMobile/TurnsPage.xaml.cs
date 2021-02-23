@@ -30,26 +30,19 @@ namespace ATISMobile
             {
                 List<Turns> _List = new List<Turns>();
                 HttpClient _Client = new HttpClient();
-                var response = await _Client.GetAsync(Properties.Resources.RestfulWebServiceURL + "/api/Turns/GetTurns/?YourUserId=" + YourUserId + "");
+                var response = await _Client.GetAsync(ATISMobileMClassPublicProcedures.ATISHostURL + "/api/Turns/GetTurns/?YourUserId=" + YourUserId + "");
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();
                     _List = JsonConvert.DeserializeObject<List<Turns>>(content);
                     if (_List.Count == 0)
-                    {
-                        _ListView.IsVisible = false;
-                        _StackLayoutEmptyTurns.IsVisible = true;
-                    }
+                    { _ListView.IsVisible = false; _StackLayoutEmptyTurns.IsVisible = true; }
                     else
-                    {
-                        _ListView.ItemsSource = _List;
-
-                    }
+                    { _ListView.ItemsSource = _List; }
                 }
-
             }
             catch (Exception ex)
-            { Debug.WriteLine("\t\tERROR {0}", ex.Message); }
+            { await DisplayAlert("ATISMobile", ex.Message, "OK"); }
         }
 
     }

@@ -30,21 +30,22 @@ namespace ATISMobile
             try
             {
                 HttpClient _Client = new HttpClient();
-                var response = await _Client.GetAsync(Properties.Resources.RestfulWebServiceURL + "/api/Trucks/GetTruck/?YourUserId=" + YourUserId + "");
+                var response = await _Client.GetAsync(ATISMobileMClassPublicProcedures.ATISHostURL + "/api/Trucks/GetTruck/?YourUserId=" + YourUserId + "");
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();
-                    var myTruck = JsonConvert.DeserializeObject<Truck>(content);
-                    LblTruckId .Text = myTruck.TruckId ;
-                    LblLPString .Text = myTruck.LPString ;
-                    LblLoaderTitle .Text = myTruck.LoaderTitle ;
-                    LblSmartCardNo .Text = myTruck.SmartCardNo ;
+                    Truck myTruck = JsonConvert.DeserializeObject<Truck>(content);
+                    LblTruckId.Text = myTruck.TruckId;
+                    LblLPString.Text = myTruck.LPString;
+                    LblLoaderTitle.Text = myTruck.LoaderTitle;
+                    LblSmartCardNo.Text = myTruck.SmartCardNo;
+                    LblAnnouncementHallSubGroups.Text = myTruck.AnnouncementHallSubGroups;
                 }
                 else
-                { LblLPString .Text = "اطلاعاتی یافت نشد"; }
+                { LblErrorMessage.Text = "اطلاعاتی یافت نشد"; }
             }
             catch (Exception ex)
-            { Debug.WriteLine("\t\tERROR {0}", ex.Message); }
+            { LblErrorMessage.Text = ex.Message; }
         }
 
     }

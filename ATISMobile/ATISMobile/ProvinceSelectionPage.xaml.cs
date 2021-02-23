@@ -12,6 +12,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 using ATISMobile.Models;
+using ATISMobile.PublicProcedures;
 
 namespace ATISMobile
 {
@@ -35,7 +36,7 @@ namespace ATISMobile
             {
                 List<Province> _List = new List<Province>();
                 HttpClient _Client = new HttpClient();
-                var response = await _Client.GetAsync(Properties.Resources.RestfulWebServiceURL + "/api/Provinces/GetProvinces/?YourAHId=" + YourAHId.ToString() + "&YourAHSGId=" + YourAHSGId.ToString()+ "&YourLoadCapacitorLoadsListType=" + YourLoadCapacitorLoadsListType.ToString());
+                var response = await _Client.GetAsync(ATISMobileMClassPublicProcedures.ATISHostURL + "/api/Provinces/GetProvinces/?YourAHId=" + YourAHId.ToString() + "&YourAHSGId=" + YourAHSGId.ToString() + "&YourLoadCapacitorLoadsListType=" + YourLoadCapacitorLoadsListType.ToString());
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();
@@ -48,10 +49,9 @@ namespace ATISMobile
                     else
                     { _ListView.ItemsSource = _List; }
                 }
-
             }
             catch (Exception ex)
-            { Debug.WriteLine("\t\tERROR {0}", ex.Message); }
+            { await DisplayAlert("ATISMobile", ex.Message, "OK"); }
         }
 
         async void OnTapGestureRecognizerTapped(object sender, EventArgs args)

@@ -30,7 +30,7 @@ namespace ATISMobile
             {
                 List<MoneyWalletAccounting> _List = new List<MoneyWalletAccounting>();
                 HttpClient _Client = new HttpClient();
-                var response = await _Client.GetAsync(Properties.Resources.RestfulWebServiceURL + "/api/MoneyWalletAccounting/GetMoneyWalletAccounting/?YourUserId=" + YourUserId + "");
+                var response = await _Client.GetAsync(ATISMobileMClassPublicProcedures.ATISHostURL + "/api/MoneyWalletAccounting/GetMoneyWalletAccounting/?YourUserId=" + YourUserId + "");
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();
@@ -40,10 +40,9 @@ namespace ATISMobile
                     else
                     { _ListView.ItemsSource = _List; }
                 }
-                else { Debug.WriteLine(response.RequestMessage); }
             }
             catch (Exception ex)
-            { Debug.WriteLine("\t\tERROR {0}", ex.Message); }
+            { await DisplayAlert("ATISMobile", ex.Message, "OK"); }
         }
 
 

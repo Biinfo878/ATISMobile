@@ -36,19 +36,20 @@ namespace ATISMobile
             try
             {
                 HttpClient _Client = new HttpClient();
-                var response = await _Client.GetAsync(Properties.Resources.RestfulWebServiceURL + "/api/VersionControl/GetLastVersionNumber");
+                var response = await _Client.GetAsync(ATISMobileMClassPublicProcedures.ATISHostURL + "/api/VersionControl/GetLastVersionNumber");
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();
                     MessageStruct _Version = JsonConvert.DeserializeObject<MessageStruct>(content);
                     if (_Version.ErrorCode == false)
                     {
-                        _ApplicationVersion.Text = "نسخه اپلیکیشن : " + _Version.Message1; _ApplicationVersion.BackgroundColor = Color.Green; _StartApplication.BackgroundColor = Color.Green; _StartApplication.BorderColor = Color.GreenYellow;
+                        ViewSuccessMessage("نسخه اپلیکیشن : " + _Version.Message1);
+                        Enable_StartApplicationButton();
                         Xamarin.Essentials.VersionTracking.Track();
                         string VersionNumber = Xamarin.Essentials.VersionTracking.CurrentVersion;
                         string VersionName = Xamarin.Essentials.VersionTracking.CurrentBuild;
 
-                        var responseVersion = await _Client.GetAsync(ATISMobile.Properties.Resources.RestfulWebServiceURL + "/api/VersionControl?YourVersionNumber=" + VersionNumber + "&YourVersionName=" + VersionName);
+                        var responseVersion = await _Client.GetAsync(ATISMobileMClassPublicProcedures.ATISHostURL + "/api/VersionControl?YourVersionNumber=" + VersionNumber + "&YourVersionName=" + VersionName);
                         if (responseVersion.IsSuccessStatusCode)
                         {
                             var contentt = await responseVersion.Content.ReadAsStringAsync();
@@ -58,14 +59,38 @@ namespace ATISMobile
                         await Browser.OpenAsync("http://ATISMobile.ir/Downloads.aspx", BrowserLaunchMode.SystemPreferred);
                     }
                     else
-                    { _ApplicationVersion.Text = "ارتباط با سرور آتیس برقرار نیست"; _ApplicationVersion.BackgroundColor = Color.Red; _StartApplication.IsEnabled = false; _StartApplication.BorderColor = Color.Gray; }
+                    { ViewATISErrorMessage(); Disable_StartApplicationButton(); }
                 }
                 else
-                { _ApplicationVersion.Text = "ارتباط با سرور آتیس برقرار نیست"; _ApplicationVersion.BackgroundColor = Color.Red; _StartApplication.IsEnabled = false; _StartApplication.BorderColor = Color.Gray; }
+                { ViewATISErrorMessage(); Disable_StartApplicationButton(); }
             }
             catch (Exception ex)
-            { _ApplicationVersion.Text = "ارتباط با سرور آتیس برقرار نیست"; _ApplicationVersion.BackgroundColor = Color.Red; _StartApplication.IsEnabled = false; _StartApplication.BorderColor = Color.Gray; }
+            { ViewATISErrorMessage(); Disable_StartApplicationButton(); }
         }
+
+        private void ViewInternetErrorMessage()
+        { _MessageBox.Text = "اتصال اینترنتی برقرار نیست"; _MessageBox.BackgroundColor = Color.Red; }
+
+        private void ViewATISErrorMessage()
+        {
+            try
+            {
+                if (!ATISMobileMClassPublicProcedures.IsInternetAvailable())
+                { ViewInternetErrorMessage(); return; }
+            }
+            catch (Exception ex)
+            { ViewInternetErrorMessage(); return; }
+            _MessageBox.Text = "ارتباط با سرور آتیس برقرار نیست"; _MessageBox.BackgroundColor = Color.Red;
+        }
+
+        private void ViewSuccessMessage(string YourMessage)
+        { _MessageBox.Text = YourMessage; _MessageBox.BackgroundColor = Color.Green; }
+
+        private void Enable_StartApplicationButton()
+        { _StartApplication.IsEnabled = true; _StartApplication.BackgroundColor = Color.Green; _StartApplication.TextColor = Color.White; }
+
+        private void Disable_StartApplicationButton()
+        { _StartApplication.IsEnabled = false; _StartApplication.BackgroundColor = Color.Transparent; _StartApplication.TextColor = Color.Transparent; }
 
         private void Manage_ExitApplicationButton()
         {
@@ -100,9 +125,9 @@ namespace ATISMobile
                 { await DisplayAlert("ATISMobile", "بروز خطا - مجددا تلاش نمایید", "OK"); }
                 else
                 {
-                    string myMUId = System.IO.File.ReadAllText(TargetPath).Split(';')[1];
+                    string myUserId = System.IO.File.ReadAllText(TargetPath).Split(';')[1];
                     HttpClient _Client = new HttpClient();
-                    var response = await _Client.GetAsync(Properties.Resources.RestfulWebServiceURL + "/api/MobileUsers/UnRegisterMobileUser/?YourMUId=" + myMUId);
+                    var response = await _Client.GetAsync(ATISMobileMClassPublicProcedures.ATISHostURL + "/api/MobileUsers/UnRegisterMobileUser/?YourUserId=" + myUserId);
                     if (response.IsSuccessStatusCode)
                     {
                         var content = await response.Content.ReadAsStringAsync();

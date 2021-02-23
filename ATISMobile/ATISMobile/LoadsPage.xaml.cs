@@ -16,6 +16,7 @@ using Xamarin.Essentials;
 using Xamarin.Forms.Internals;
 
 using ATISMobile.Models;
+using ATISMobile.PublicProcedures;
 
 namespace ATISMobile
 {
@@ -33,7 +34,7 @@ namespace ATISMobile
             {
                 List<LoadCapacitorLoad> _List = new List<LoadCapacitorLoad>();
                 HttpClient _Client = new HttpClient();
-                var response = await _Client.GetAsync(Properties.Resources.RestfulWebServiceURL + "/api/LoadCapacitor/GetLoadCapacitorLoads/?YourAHId=" + YourAHId.ToString() + "&YourAHSGId=" + YourAHSGId.ToString());
+                var response = await _Client.GetAsync(ATISMobileMClassPublicProcedures.ATISHostURL + "/api/LoadCapacitor/GetLoadCapacitorLoads/?YourAHId=" + YourAHId.ToString() + "&YourAHSGId=" + YourAHSGId.ToString());
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();
@@ -61,7 +62,7 @@ namespace ATISMobile
             {
                 List<LoadCapacitorLoad> _List = new List<LoadCapacitorLoad>();
                 HttpClient _Client = new HttpClient();
-                var response = await _Client.GetAsync(Properties.Resources.RestfulWebServiceURL + "/api/LoadCapacitor/GetLoadCapacitorLoads/?YourAHId=" + YourAHId.ToString() + "&YourAHSGId=" + YourAHSGId.ToString() + "&YourProvinceId=" + YourProvinceId.ToString() + "&YourLoadCapacitorLoadsListType=" + YourLoadCapacitorLoadsListType.ToString());
+                var response = await _Client.GetAsync(ATISMobileMClassPublicProcedures.ATISHostURL + "/api/LoadCapacitor/GetLoadCapacitorLoads/?YourAHId=" + YourAHId.ToString() + "&YourAHSGId=" + YourAHSGId.ToString() + "&YourProvinceId=" + YourProvinceId.ToString() + "&YourLoadCapacitorLoadsListType=" + YourLoadCapacitorLoadsListType.ToString());
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();
@@ -88,10 +89,10 @@ namespace ATISMobile
         {
             try
             {
-                var MUId = PublicProcedures.ATISMobileMClassPublicProcedures.GetCurrentSoftwareUserId();
+                var UserId = PublicProcedures.ATISMobileMClassPublicProcedures.GetCurrentSoftwareUserId();
                 var nEstelamId = ((Label)sender).Text.Split(':')[1].Trim();
                 HttpClient _Client = new HttpClient();
-                var response = await _Client.GetAsync(Properties.Resources.RestfulWebServiceURL + "/api/LoadAllocations/LoadAllocationAgent/?YourMUId=" + MUId + "&YournEstelamId=" + nEstelamId);
+                var response = await _Client.GetAsync(ATISMobileMClassPublicProcedures.ATISHostURL + "/api/LoadAllocations/LoadAllocationAgent/?YourUserId=" + UserId + "&YournEstelamId=" + nEstelamId);
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();
@@ -100,7 +101,7 @@ namespace ATISMobile
                 }
             }
             catch (Exception ex)
-            { Debug.WriteLine("\t\tERROR {0}", ex.Message); }
+            { await DisplayAlert("ATISMobile", ex.Message, "OK"); }
         }
     }
 }

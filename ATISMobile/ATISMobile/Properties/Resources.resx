@@ -118,9 +118,18 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="APKFtpURL" xml:space="preserve">
-    <value>ftp://192.168.1.2:21/ATISMobile.apk</value>
+    <value>ftp://37.255.209.4:21/ATISMobile.apk</value>
   </data>
-  <data name="RestfulWebServiceURL" xml:space="preserve">
-    <value>http://192.168.1.2:3001</value>
+  <data name="RestfulWebServicePortNumber" xml:space="preserve">
+    <value>3001</value>
+  </data>
+  <data name="RestfulWebServiceProtocol" xml:space="preserve">
+    <value>Http</value>
+  </data>
+  <data name="RestfulWebServiceURLFirst" xml:space="preserve">
+    <value>192.168.1.2</value>
+  </data>
+  <data name="RestfulWebServiceURLSecond" xml:space="preserve">
+    <value>www.ATISMobile.ir</value>
   </data>
 </root>

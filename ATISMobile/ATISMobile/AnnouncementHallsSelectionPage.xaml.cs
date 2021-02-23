@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ATISMobile.Enums;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+
+using ATISMobile.Enums;
 
 namespace ATISMobile
 {
@@ -25,28 +26,28 @@ namespace ATISMobile
         private async void _Warehouse_ClickedEvent(Object sender, EventArgs e)
         {
             ProvinceSelectionPage _ProvinceSelectionPage = new ProvinceSelectionPage();
-            _ProvinceSelectionPage.ViewInformation(3,Int64.MinValue,LoadCapacitorLoadsListType.Sedimented  );
+            _ProvinceSelectionPage.ViewInformation(3,Int64.MinValue,LoadCapacitorLoadsListType.NotSedimented   );
             await Navigation.PushAsync(_ProvinceSelectionPage);
         }
 
         private async void _RoomyKhavar_ClickedEvent(Object sender, EventArgs e)
         {
             ProvinceSelectionPage _ProvinceSelectionPage = new ProvinceSelectionPage();
-            _ProvinceSelectionPage.ViewInformation(4, 1, LoadCapacitorLoadsListType.Sedimented);
+            _ProvinceSelectionPage.ViewInformation(4, 1, LoadCapacitorLoadsListType.NotSedimented );
             await Navigation.PushAsync(_ProvinceSelectionPage);
         }
 
         private async void _Roomy6Wheel_ClickedEvent(Object sender, EventArgs e)
         {
             ProvinceSelectionPage _ProvinceSelectionPage = new ProvinceSelectionPage();
-            _ProvinceSelectionPage.ViewInformation(4, 2, LoadCapacitorLoadsListType.Sedimented);
+            _ProvinceSelectionPage.ViewInformation(4, 2, LoadCapacitorLoadsListType.NotSedimented );
             await Navigation.PushAsync(_ProvinceSelectionPage);
         }
 
         private async void _Roomy10Wheel_ClickedEvent(Object sender, EventArgs e)
         {
             ProvinceSelectionPage _ProvinceSelectionPage = new ProvinceSelectionPage();
-            _ProvinceSelectionPage.ViewInformation(4, 3, LoadCapacitorLoadsListType.Sedimented);
+            _ProvinceSelectionPage.ViewInformation(4, 3, LoadCapacitorLoadsListType.NotSedimented );
             await Navigation.PushAsync(_ProvinceSelectionPage);
         }
 

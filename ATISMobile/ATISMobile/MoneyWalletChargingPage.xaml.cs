@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using ATISMobile.Models;
+using ATISMobile.PublicProcedures;
 using Newtonsoft.Json;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -45,7 +46,7 @@ namespace ATISMobile
                 Int64 Amount = System.Convert.ToInt64(_LblAmount.Text.Replace(",", string.Empty));
                 var UserId = PublicProcedures.ATISMobileMClassPublicProcedures.GetCurrentSoftwareUserId();
                 HttpClient _Client = new HttpClient();
-                var response = await _Client.GetAsync(Properties.Resources.RestfulWebServiceURL + "/api/MoneyWalletChargingAPI/PaymentRequest/?YourUserId=" + UserId + "&YourAmount=" + Amount.ToString());
+                var response = await _Client.GetAsync(ATISMobileMClassPublicProcedures.ATISHostURL + "/api/MoneyWalletChargingAPI/PaymentRequest/?YourUserId=" + UserId + "&YourAmount=" + Amount.ToString());
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();
@@ -55,11 +56,11 @@ namespace ATISMobile
                     if (myMS.ErrorCode == false)
                     { Device.OpenUri(new Uri(myMS.Message2 + myMS.Message1)); }
                     else
-                    { await DisplayAlert("ATISMobile", myMS.Message1, "OK"); }
+                    {  }
                 }
             }
             catch (Exception ex)
-            { Debug.WriteLine("\t\tERROR {0}", ex.Message); }
+            { await DisplayAlert("ATISMobile", ex.Message, "OK"); }
 
         }
 

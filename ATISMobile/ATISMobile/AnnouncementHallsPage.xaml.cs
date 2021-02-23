@@ -27,7 +27,7 @@ namespace ATISMobile
                 await Navigation.PushAsync(_LoadCapacitorLoadsListTypeSelectionPage);
             }
             catch (Exception ex)
-            { Debug.WriteLine("\t\tERROR {0}", ex.Message); }
+            { await DisplayAlert("ATISMobile", ex.Message, "OK"); }
         }
 
         private void RoadIron_ClickedEvent(Object sender, EventArgs e)

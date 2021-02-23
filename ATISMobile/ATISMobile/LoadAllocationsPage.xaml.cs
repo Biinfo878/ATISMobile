@@ -19,7 +19,7 @@ namespace ATISMobile
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class LoadAllocationsPage : ContentPage
     {
-        private Int64 _CurrentUserId; 
+        private Int64 _CurrentUserId;
 
         public LoadAllocationsPage()
         {
@@ -27,32 +27,26 @@ namespace ATISMobile
             ViewLoadAllocations(ATISMobileMClassPublicProcedures.GetCurrentSoftwareUserId());
         }
 
-        public async void ViewLoadAllocations(Int64  YourUserId)
+        public async void ViewLoadAllocations(Int64 YourUserId)
         {
             try
             {
-                _CurrentUserId = YourUserId; 
+                _CurrentUserId = YourUserId;
                 List<LoadAllocationsforTruckDriver> _List = new List<LoadAllocationsforTruckDriver>();
                 HttpClient _Client = new HttpClient();
-                var response = await _Client.GetAsync(Properties.Resources.RestfulWebServiceURL + "/api/LoadAllocations/GetLoadAllocationsforTruckDriver/?YourUserId=" + YourUserId + "");
+                var response = await _Client.GetAsync(ATISMobileMClassPublicProcedures.ATISHostURL + "/api/LoadAllocations/GetLoadAllocationsforTruckDriver/?YourUserId=" + YourUserId + "");
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();
                     _List = JsonConvert.DeserializeObject<List<LoadAllocationsforTruckDriver>>(content);
                     if (_List.Count == 0)
-                    {
-                        _ListView.IsVisible = false;
-                        _StackLayoutEmptyAllocations.IsVisible = true;
-                    }
+                    { _ListView.IsVisible = false; _StackLayoutEmptyAllocations.IsVisible = true; }
                     else
-                    {
-                        _ListView.ItemsSource = _List;
-                    }
+                    { _ListView.ItemsSource = _List; }
                 }
-
             }
             catch (Exception ex)
-            { Debug.WriteLine("\t\tERROR {0}", ex.Message); }
+            { await DisplayAlert("ATISMobile", ex.Message, "OK"); }
         }
 
         async void OnClicked_DeleteLoadAllocation(object sender, EventArgs args)
@@ -61,18 +55,17 @@ namespace ATISMobile
             {
                 var LoadAllocationId = (((StackLayout)((ImageButton)sender).Parent.Parent.FindByName("_StackLayoutInformation")).FindByName("_LabelLAId") as Label).Text.Split('-')[0].Split(':')[1].Trim();
                 HttpClient _Client = new HttpClient();
-                var response = await _Client.GetAsync(Properties.Resources.RestfulWebServiceURL + "/api/LoadAllocations/LoadAllocationCancelling/?YourUserId="+ ATISMobileMClassPublicProcedures.GetCurrentSoftwareUserId().ToString() + "&YourLoadAllocationId=" + LoadAllocationId + "");
+                var response = await _Client.GetAsync(ATISMobileMClassPublicProcedures.ATISHostURL + "/api/LoadAllocations/LoadAllocationCancelling/?YourUserId=" + ATISMobileMClassPublicProcedures.GetCurrentSoftwareUserId().ToString() + "&YourLoadAllocationId=" + LoadAllocationId + "");
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();
                     var myMS = JsonConvert.DeserializeObject<MessageStruct>(content);
                     ViewLoadAllocations(_CurrentUserId);
                     await DisplayAlert("ATISMobile", myMS.Message1, "OK");
-
                 }
             }
             catch (Exception ex)
-            { Debug.WriteLine("\t\tERROR {0}", ex.Message); }
+            { await DisplayAlert("ATISMobile", ex.Message, "OK"); }
         }
 
         async void OnClicked_InreasePriority(object sender, EventArgs args)
@@ -81,7 +74,8 @@ namespace ATISMobile
             {
                 var LoadAllocationId = (((StackLayout)((ImageButton)sender).Parent.Parent.FindByName("_StackLayoutInformation")).FindByName("_LabelLAId") as Label).Text.Split('-')[0].Split(':')[1].Trim();
                 HttpClient _Client = new HttpClient();
-                var response = await _Client.GetAsync(Properties.Resources.RestfulWebServiceURL + "/api/LoadAllocations/IncreasePriority/?YourLoadAllocationId=" + LoadAllocationId + ""); if (response.IsSuccessStatusCode)
+                var response = await _Client.GetAsync(ATISMobileMClassPublicProcedures.ATISHostURL + "/api/LoadAllocations/IncreasePriority/?YourLoadAllocationId=" + LoadAllocationId + "");
+                if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();
                     var myMS = JsonConvert.DeserializeObject<MessageStruct>(content);
@@ -90,7 +84,7 @@ namespace ATISMobile
                 }
             }
             catch (Exception ex)
-            { Debug.WriteLine("\t\tERROR {0}", ex.Message); }
+            { await DisplayAlert("ATISMobile", ex.Message, "OK"); }
 
         }
 
@@ -100,7 +94,7 @@ namespace ATISMobile
             {
                 var LoadAllocationId = (((StackLayout)((ImageButton)sender).Parent.Parent.FindByName("_StackLayoutInformation")).FindByName("_LabelLAId") as Label).Text.Split('-')[0].Split(':')[1].Trim();
                 HttpClient _Client = new HttpClient();
-                var response = await _Client.GetAsync(Properties.Resources.RestfulWebServiceURL + "/api/LoadAllocations/DecreasePriority/?YourLoadAllocationId=" + LoadAllocationId + "");
+                var response = await _Client.GetAsync(ATISMobileMClassPublicProcedures.ATISHostURL + "/api/LoadAllocations/DecreasePriority/?YourLoadAllocationId=" + LoadAllocationId + "");
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();
@@ -110,12 +104,12 @@ namespace ATISMobile
                 }
             }
             catch (Exception ex)
-            { Debug.WriteLine("\t\tERROR {0}", ex.Message); }
+            { await DisplayAlert("ATISMobile", ex.Message, "OK"); }
         }
 
 
 
-        
+
 
 
     }
