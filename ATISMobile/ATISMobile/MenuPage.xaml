@@ -18,8 +18,8 @@
         </StackLayout>
     </NavigationPage.TitleView>
     <ContentPage.Content>
-        <StackLayout BackgroundColor="Transparent" Padding="20" >
-            <ListView x:Name="_ListView" BackgroundColor="Transparent"   Margin="30" HasUnevenRows = "True"   >
+        <StackLayout BackgroundColor="Transparent" Padding="15" >
+            <ListView x:Name="_ListView" BackgroundColor="Transparent"   Margin="20" HasUnevenRows = "True"   >
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell >
