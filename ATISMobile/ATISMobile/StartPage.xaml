@@ -31,7 +31,7 @@
                     </OnPlatform>
                 </Button.FontFamily>
             </Button>
-            <Button x:Name="_MessageBox" BorderWidth="1" BorderColor="RED"   CornerRadius="15" FontSize="Medium"  Text="ارتباط با سرور آتیس برقرار نیست" BackgroundColor="Red"      TextColor="White"    HorizontalOptions="CenterAndExpand"   VerticalOptions="End"   >
+            <Button x:Name="_MessageBox" BorderWidth="1" BorderColor="RED"   CornerRadius="15" FontSize="Medium"  Text="" BackgroundColor="Transparent"       TextColor="White"    HorizontalOptions="CenterAndExpand"   VerticalOptions="End"   >
                 <Button.FontFamily>
                     <OnPlatform x:TypeArguments="x:String">
                         <On Platform="iOS" Value="Samim" />

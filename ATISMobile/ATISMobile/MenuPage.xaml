@@ -23,9 +23,9 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell >
-                            <Frame HasShadow="true" BorderColor="{Binding PBackColor}" Margin="0,20,0,20"  CornerRadius="15" BackgroundColor="Transparent"  >
+                            <Frame HasShadow="true" BorderColor="{Binding PBackColor}" Margin="0,5,0,5"  CornerRadius="15" BackgroundColor="Transparent"  >
                                 <StackLayout Orientation="Vertical" BackgroundColor="Transparent"  >
-                                    <Label  BackgroundColor="{Binding PBackColor}"   TextColor="{Binding PForeColor}"   FontSize="Large"   FontAttributes="Bold" Text = "{Binding PTitle}" >
+                                    <Label  BackgroundColor="{Binding PBackColor}"   TextColor="{Binding PForeColor}"   FontSize="Medium"   FontAttributes="Bold" Text = "{Binding PTitle}" >
                                         <Label.FontFamily>
                                             <OnPlatform x:TypeArguments="x:String">
                                                 <On Platform="iOS" Value="Samim" />
