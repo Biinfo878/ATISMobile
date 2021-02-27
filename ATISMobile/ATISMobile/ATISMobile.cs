@@ -38,13 +38,13 @@ namespace ATISMobile
                     if (p.Send(YourIP).Status == IPStatus.Success) { return true; } else { return false; }
                 }
                 catch (Exception ex)
-                { throw ex; }
+                { return false; }
             }
 
             public static bool IsInternetAvailable()
             {
                 try { return IsThisIPAvailable("www.google.com"); }
-                catch (Exception ex) { throw ex; }
+                catch (Exception ex) { return false; }
             }
 
             private static string _ATISHostURL = string.Empty;

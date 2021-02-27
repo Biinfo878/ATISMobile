@@ -88,7 +88,7 @@ namespace ATISMobile.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 192.168.1.2.
+        ///   Looks up a localized string similar to www.ATISMobile.ir.
         /// </summary>
         public static string RestfulWebServiceURLFirst {
             get {
@@ -97,7 +97,7 @@ namespace ATISMobile.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to www.ATISMobile.ir.
+        ///   Looks up a localized string similar to www.EsfTerminals.ir.
         /// </summary>
         public static string RestfulWebServiceURLSecond {
             get {

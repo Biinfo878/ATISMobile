@@ -26,7 +26,7 @@ namespace ATISMobile
         {
             InitializeComponent();
             try
-            { ShowPublicMessage(); Manage_ExitApplicationButton(); ShowApplicationVersion(); }
+            { Manage_ExitApplicationButton(); ShowApplicationVersion(); ShowPublicMessage(); }
             catch (Exception ex)
             { Debug.WriteLine(ex.Message); }
         }
@@ -36,7 +36,7 @@ namespace ATISMobile
             try
             {
                 HttpClient _Client = new HttpClient();
-                var response = await _Client.GetAsync(ATISMobileMClassPublicProcedures.ATISHostURL + "/api/PublicMessages/GetPublicMessage/?YourUserId=" + ATISMobileMClassPublicProcedures.GetCurrentSoftwareUserId().ToString() + "");
+                var response = await _Client.GetAsync(ATISMobileMClassPublicProcedures.ATISHostURL + "/api/PublicMessages/GetPublicMessage");
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();
