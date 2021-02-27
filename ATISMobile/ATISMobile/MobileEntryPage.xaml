@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ATISMobile.MobileEntryPage"
              BackgroundColor="White"
-             BackgroundImage="@drawable/TruckDark"
+             BackgroundImage="@drawable/CDark"
              NavigationPage.HasNavigationBar="false">
     <NavigationPage.TitleView>
         <StackLayout>

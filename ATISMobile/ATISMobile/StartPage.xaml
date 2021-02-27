@@ -4,7 +4,7 @@
              x:Class="ATISMobile.StartPage"
              FlowDirection="RightToLeft"
              BackgroundColor="White"
-             BackgroundImage="@drawable/Truck"
+             BackgroundImage="@drawable/C"
              Padding="30">
     <NavigationPage.TitleView>
         <StackLayout>
