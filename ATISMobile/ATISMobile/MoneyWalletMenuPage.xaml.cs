@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using ATISMobile.PublicProcedures;
+using ATISMobile.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Newtonsoft.Json;
 
 namespace ATISMobile
 {
@@ -15,6 +18,28 @@ namespace ATISMobile
         public MoneyWalletMenuPage()
         {
             InitializeComponent();
+            try { ViewMoneyWalletIDandReminderCharge(); }
+            catch (Exception ex) { DisplayAlert("ATISMobile", ex.Message, "OK"); }
+        }
+
+        private async void ViewMoneyWalletIDandReminderCharge()
+        {
+            try
+            {
+                HttpClient _Client = new HttpClient();
+                var response = await _Client.GetAsync(ATISMobileMClassPublicProcedures.ATISHostURL + "/api/MoneyWalletAccounting/GetMoneyWalletIDandReminderCharge/?YourUserId=" + ATISMobileMClassPublicProcedures.GetCurrentSoftwareUserId().ToString() + "");
+                if (response.IsSuccessStatusCode)
+                {
+                    var content = await response.Content.ReadAsStringAsync();
+                    MessageStruct Result = JsonConvert.DeserializeObject<MessageStruct>(content);
+                    _LblMoneyWalletId.Text = Result.Message1;
+                    _LblReminderCharge.Text = Result.Message2;
+                    _LblMoneyWalletIdHeader.IsVisible = true;
+                    _LblReminderChargeHeader.IsVisible = true;
+                }
+            }
+            catch (Exception ex)
+            { await DisplayAlert("ATISMobile", ex.Message, "OK"); }
         }
 
         private async void _BtnMoneyWalletTransactions_ClickedEvent(object sender, EventArgs e)

@@ -117,8 +117,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="APKFtpURL" xml:space="preserve">
-    <value>ftp://37.255.209.4:21/ATISMobile.apk</value>
+  <data name="DownloadLinkURL" xml:space="preserve">
+    <value>www.ATISMobile.ir/Downloads.aspx</value>
   </data>
   <data name="RestfulWebServicePortNumber" xml:space="preserve">
     <value>3001</value>

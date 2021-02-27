@@ -42,7 +42,7 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell >
-                            <Frame HasShadow="true" Margin="1" BorderColor="Red"   CornerRadius="15" BackgroundColor="{Binding DescriptionColor}" >
+                            <Frame HasShadow="true" Margin="1" BorderColor="Transparent"    CornerRadius="15" BackgroundColor="{Binding DescriptionColor}" >
                                 <StackLayout Orientation="Vertical" Padding="1,0,1,0"  BackgroundColor="{Binding DescriptionColor}">
                                     <Grid  x:Name="_Grid">
                                         <Grid.RowDefinitions>

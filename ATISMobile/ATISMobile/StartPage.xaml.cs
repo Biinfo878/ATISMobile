@@ -26,9 +26,37 @@ namespace ATISMobile
         {
             InitializeComponent();
             try
-            { Manage_ExitApplicationButton(); ShowApplicationVersion(); }
+            { ShowPublicMessage(); Manage_ExitApplicationButton(); ShowApplicationVersion(); }
             catch (Exception ex)
-            { Debug.WriteLine("\t\tERROR {0}", ex.Message); }
+            { Debug.WriteLine(ex.Message); }
+        }
+
+        private async void ShowPublicMessage()
+        {
+            try
+            {
+                HttpClient _Client = new HttpClient();
+                var response = await _Client.GetAsync(ATISMobileMClassPublicProcedures.ATISHostURL + "/api/PublicMessages/GetPublicMessage/?YourUserId=" + ATISMobileMClassPublicProcedures.GetCurrentSoftwareUserId().ToString() + "");
+                if (response.IsSuccessStatusCode)
+                {
+                    var content = await response.Content.ReadAsStringAsync();
+                    MessageStruct PublicMessage = JsonConvert.DeserializeObject<MessageStruct>(content);
+                    if (PublicMessage.ErrorCode == false)
+                    {
+                        if (PublicMessage.Message1.Trim() != string.Empty)
+                        {
+                            Device.BeginInvokeOnMainThread(() =>
+                            {
+                                DisplayAlert("ATISMobile", PublicMessage.Message1.Trim(), "Ok");
+                            });
+                        }
+                    }
+                    else
+                    { await DisplayAlert("ATISMobile", PublicMessage.Message1.Trim(), "OK"); }
+                }
+            }
+            catch (Exception ex)
+            { return; }
         }
 
         private async void ShowApplicationVersion()
@@ -87,7 +115,7 @@ namespace ATISMobile
         { _MessageBox.Text = YourMessage; _MessageBox.BackgroundColor = Color.Green; }
 
         private void Enable_StartApplicationButton()
-        { _StartApplication.IsEnabled = true; _StartApplication.BackgroundColor = Color.Green; _StartApplication.TextColor = Color.White; }
+        { _StartApplication.IsEnabled = true; _StartApplication.BackgroundColor = Color.Green; _StartApplication.TextColor = Color.White; _StartApplication.BorderColor = Color.White; }
 
         private void Disable_StartApplicationButton()
         { _StartApplication.IsEnabled = false; _StartApplication.BackgroundColor = Color.Transparent; _StartApplication.TextColor = Color.Transparent; }

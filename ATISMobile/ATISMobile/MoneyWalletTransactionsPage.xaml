@@ -96,7 +96,7 @@
                                 <StackLayout Orientation="Vertical" Padding="1,0,1,0"  BackgroundColor="{Binding BackGroundColorName}">
                                     <Grid  x:Name="_Grid" BackgroundColor="{Binding BackGroundColorName}" >
                                         <Grid.RowDefinitions>
-                                            <RowDefinition Height="60" />
+                                            <RowDefinition Height="*" />
                                         </Grid.RowDefinitions>
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="*" />

@@ -34,7 +34,7 @@ namespace ATISMobile
             {
                 List<LoadCapacitorLoad> _List = new List<LoadCapacitorLoad>();
                 HttpClient _Client = new HttpClient();
-                var response = await _Client.GetAsync(ATISMobileMClassPublicProcedures.ATISHostURL + "/api/LoadCapacitor/GetLoadCapacitorLoads/?YourAHId=" + YourAHId.ToString() + "&YourAHSGId=" + YourAHSGId.ToString());
+                var response = await _Client.GetAsync(ATISMobileMClassPublicProcedures.ATISHostURL + "/api/LoadCapacitor/GetLoadCapacitorLoads/?YourUserId="+ATISMobileMClassPublicProcedures.GetCurrentSoftwareUserId().ToString()+"&YourAHId=" + YourAHId.ToString() + "&YourAHSGId=" + YourAHSGId.ToString());
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();
@@ -53,7 +53,7 @@ namespace ATISMobile
 
             }
             catch (Exception ex)
-            { Debug.WriteLine("\t\tERROR {0}", ex.Message); }
+            { await DisplayAlert("ATISMobile", ex.Message, "OK"); }
         }
 
         public async void ViewLoads(Int64 YourAHId, Int64 YourAHSGId, Int64 YourProvinceId, string YourProvinceTitle, LoadCapacitorLoadsListType YourLoadCapacitorLoadsListType)
@@ -62,7 +62,7 @@ namespace ATISMobile
             {
                 List<LoadCapacitorLoad> _List = new List<LoadCapacitorLoad>();
                 HttpClient _Client = new HttpClient();
-                var response = await _Client.GetAsync(ATISMobileMClassPublicProcedures.ATISHostURL + "/api/LoadCapacitor/GetLoadCapacitorLoads/?YourAHId=" + YourAHId.ToString() + "&YourAHSGId=" + YourAHSGId.ToString() + "&YourProvinceId=" + YourProvinceId.ToString() + "&YourLoadCapacitorLoadsListType=" + YourLoadCapacitorLoadsListType.ToString());
+                var response = await _Client.GetAsync(ATISMobileMClassPublicProcedures.ATISHostURL + "/api/LoadCapacitor/GetLoadCapacitorLoads/?YourUserId="+ATISMobileMClassPublicProcedures.GetCurrentSoftwareUserId().ToString()+"&YourAHId=" + YourAHId.ToString() + "&YourAHSGId=" + YourAHSGId.ToString() + "&YourProvinceId=" + YourProvinceId.ToString() + "&YourLoadCapacitorLoadsListType=" + YourLoadCapacitorLoadsListType.ToString());
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();
@@ -82,7 +82,7 @@ namespace ATISMobile
 
             }
             catch (Exception ex)
-            { Debug.WriteLine("\t\tERROR {0}", ex.Message); }
+            { await DisplayAlert("ATISMobile", ex.Message, "OK"); }
         }
 
         async void OnTapGestureRecognizerTapped(object sender, EventArgs args)

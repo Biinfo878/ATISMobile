@@ -21,7 +21,8 @@
     </NavigationPage.TitleView>
     <ContentPage.Content>
         <StackLayout Padding="20,10,20,10" BackgroundColor="Transparent" >
-            <Button x:Name="_StartApplication"  IsEnabled="False"      FontSize="Large"   Text="ورود" BackgroundColor="Transparent"  TextColor="Transparent"     HorizontalOptions="CenterAndExpand"  VerticalOptions="CenterAndExpand"     WidthRequest="200" HeightRequest="200" BorderRadius="100" Clicked="_StartApplication_ClickedEvent" >
+            <Image Source="@drawable/iconicon"/>
+            <Button x:Name="_StartApplication"  IsEnabled="False" BorderColor="Transparent" BorderWidth="2"  FontSize="Large"   Text="ورود" BackgroundColor="Transparent"  TextColor="Transparent"     HorizontalOptions="CenterAndExpand"  VerticalOptions="CenterAndExpand"     WidthRequest="200" HeightRequest="200" BorderRadius="100" Clicked="_StartApplication_ClickedEvent" >
                 <Button.FontFamily>
                     <OnPlatform x:TypeArguments="x:String">
                         <On Platform="iOS" Value="Samim" />

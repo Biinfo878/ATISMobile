@@ -33,7 +33,7 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell  >
-                            <Frame HasShadow="true" Margin="1" BorderColor="Red" CornerRadius="15" BackgroundColor="DodgerBlue" >
+                            <Frame HasShadow="true" Margin="1" BorderColor="BlueViolet"   CornerRadius="15" BackgroundColor="DodgerBlue" >
                                 <StackLayout Orientation="Vertical" BackgroundColor="DodgerBlue"  Padding="1,0,1,0"  >
                                     <Label  BackgroundColor="DodgerBlue"  TextColor="GreenYellow"   FontSize="Large" FontAttributes="Bold" Text = "{Binding OtaghdarTurnNumber}" >
                                         <Label.FontFamily>
