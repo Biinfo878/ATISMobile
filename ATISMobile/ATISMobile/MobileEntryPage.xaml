@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ATISMobile.MobileEntryPage"
              BackgroundColor="White"
-             BackgroundImage="@drawable/BG42108"
+             BackgroundImage="@drawable/TruckDark"
              NavigationPage.HasNavigationBar="false">
     <NavigationPage.TitleView>
         <StackLayout>
@@ -21,8 +21,7 @@
     <ContentPage.Content>
         <StackLayout Padding="20,10,20,10" BackgroundColor="Transparent" >
             <Label Text="" TextColor="Yellow"   HorizontalOptions="CenterAndExpand"  VerticalOptions="CenterAndExpand"   FontSize="Large" />
-            <Label Text="" TextColor="Yellow"   HorizontalOptions="CenterAndExpand"  VerticalOptions="CenterAndExpand"   FontSize="Large" />
-            <Label Text="نام و نام خانوادگی" TextColor="Yellow"   HorizontalOptions="Center" VerticalOptions="Start"  FontSize="Large" >
+            <Label Text="نام و نام خانوادگی" TextColor="White"    HorizontalOptions="Center" VerticalOptions="Start"  FontSize="Large" >
                 <Label.FontFamily>
                     <OnPlatform x:TypeArguments="x:String">
                         <On Platform="iOS" Value="Samim" />
@@ -31,7 +30,7 @@
                     </OnPlatform>
                 </Label.FontFamily>
             </Label>
-            <Entry x:Name="_EntryNameFamily"  IsPassword="False"  Placeholder="نام و نام خانوادگی را وارد کنید" TextColor="White"  HorizontalTextAlignment="Center"  HorizontalOptions="Center" VerticalOptions="Start" FontSize="Medium"   >
+            <Entry x:Name="_EntryNameFamily"  IsPassword="False"  Placeholder="نام و نام خانوادگی را وارد کنید" TextColor="Yellow"  HorizontalTextAlignment="Center"  HorizontalOptions="Center" VerticalOptions="Start" FontSize="Medium"   >
                 <Entry.FontFamily>
                     <OnPlatform x:TypeArguments="x:String">
                         <On Platform="iOS" Value="Samim" />
@@ -40,7 +39,7 @@
                     </OnPlatform>
                 </Entry.FontFamily>
             </Entry>
-            <Label Text="شماره موبایل" TextColor="Yellow"  HorizontalOptions="Center" VerticalOptions="Start" FontSize="Large" >
+            <Label Text="شماره موبایل" TextColor="White"  HorizontalOptions="Center" VerticalOptions="Start" FontSize="Large" >
                 <Label.FontFamily>
                     <OnPlatform x:TypeArguments="x:String">
                         <On Platform="iOS" Value="Samim" />
@@ -49,7 +48,7 @@
                     </OnPlatform>
                 </Label.FontFamily>
             </Label>
-            <Entry x:Name="_EntryMobileNumber"  IsPassword="False"  Placeholder="شماره موبایل را وارد کنید" TextColor="White" HorizontalTextAlignment="Center"  HorizontalOptions="Center"  VerticalOptions="Start" FontSize="Large"   >
+            <Entry x:Name="_EntryMobileNumber"  IsPassword="False"  Placeholder="شماره موبایل را وارد کنید" TextColor="Yellow" HorizontalTextAlignment="Center"  HorizontalOptions="Center"  VerticalOptions="Start" FontSize="Large"   >
                 <Entry.FontFamily>
                     <OnPlatform x:TypeArguments="x:String">
                         <On Platform="iOS" Value="Samim" />
