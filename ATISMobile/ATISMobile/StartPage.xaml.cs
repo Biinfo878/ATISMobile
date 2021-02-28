@@ -115,7 +115,7 @@ namespace ATISMobile
         { _MessageBox.Text = YourMessage; _MessageBox.BackgroundColor = Color.Green; }
 
         private void Enable_StartApplicationButton()
-        { _StartApplication.IsEnabled = true; _StartApplication.BackgroundColor = Color.Green; _StartApplication.TextColor = Color.White; _StartApplication.BorderColor = Color.White; }
+        { _StartApplication.IsEnabled = true; _StartApplication.BackgroundColor = Color.Green; _StartApplication.TextColor = Color.White; _StartApplication.BorderColor = Color.Red ; }
 
         private void Disable_StartApplicationButton()
         { _StartApplication.IsEnabled = false; _StartApplication.BackgroundColor = Color.Transparent; _StartApplication.TextColor = Color.Transparent; }

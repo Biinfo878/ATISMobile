@@ -4,7 +4,7 @@
              x:Class="ATISMobile.StartPage"
              FlowDirection="RightToLeft"
              BackgroundColor="White"
-             BackgroundImage="@drawable/C"
+             BackgroundImage="@drawable/TruckNewLight"
              Padding="30">
     <NavigationPage.TitleView>
         <StackLayout>
@@ -22,7 +22,7 @@
     <ContentPage.Content>
         <StackLayout Padding="20,10,20,10" BackgroundColor="Transparent" >
             <Image Source="@drawable/iconicon"/>
-            <Button x:Name="_StartApplication"  IsEnabled="False" BorderColor="Transparent" BorderWidth="2"  FontSize="Large"   Text="ورود" BackgroundColor="Transparent"  TextColor="Transparent"     HorizontalOptions="CenterAndExpand"  VerticalOptions="CenterAndExpand"     WidthRequest="150" HeightRequest="150" BorderRadius="75" Clicked="_StartApplication_ClickedEvent" >
+            <Button x:Name="_StartApplication"  IsEnabled="False" BorderColor="RED" BorderWidth="1"  FontSize="Large"   Text="ورود" BackgroundColor="Transparent"  TextColor="Transparent"     HorizontalOptions="CenterAndExpand"  VerticalOptions="CenterAndExpand"     WidthRequest="150" HeightRequest="150" BorderRadius="75" Clicked="_StartApplication_ClickedEvent" >
                 <Button.FontFamily>
                     <OnPlatform x:TypeArguments="x:String">
                         <On Platform="iOS" Value="Samim" />

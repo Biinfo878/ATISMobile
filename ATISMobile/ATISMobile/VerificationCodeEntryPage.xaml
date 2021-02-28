@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ATISMobile.VerificationCodeEntryPage"      
              BackgroundColor="White"
-             BackgroundImage="@drawable/CDark"
+             BackgroundImage="@drawable/TruckNewLightDark"
              NavigationPage.HasNavigationBar="false">
     <NavigationPage.TitleView>
         <StackLayout>
