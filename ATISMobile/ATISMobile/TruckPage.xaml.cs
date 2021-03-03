@@ -29,8 +29,7 @@ namespace ATISMobile
         {
             try
             {
-                HttpClient _Client = new HttpClient();
-                var response = await _Client.GetAsync(ATISMobileMClassPublicProcedures.ATISHostURL + "/api/Trucks/GetTruck/?YourUserId=" + YourUserId + "");
+                HttpResponseMessage response = await ATISMobileMClassPublicProcedures.GetResponse("/api/Trucks/GetTruck/?YourUserId=" + YourUserId + "");
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();

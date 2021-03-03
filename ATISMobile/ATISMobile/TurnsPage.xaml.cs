@@ -29,8 +29,7 @@ namespace ATISMobile
             try
             {
                 List<Turns> _List = new List<Turns>();
-                HttpClient _Client = new HttpClient();
-                var response = await _Client.GetAsync(ATISMobileMClassPublicProcedures.ATISHostURL + "/api/Turns/GetTurns/?YourUserId=" + YourUserId + "");
+                HttpResponseMessage response = await ATISMobileMClassPublicProcedures.GetResponse("/api/Turns/GetTurns/?YourUserId=" + YourUserId + "");
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();

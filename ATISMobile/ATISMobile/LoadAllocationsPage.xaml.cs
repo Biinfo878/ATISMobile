@@ -33,8 +33,7 @@ namespace ATISMobile
             {
                 _CurrentUserId = YourUserId;
                 List<LoadAllocationsforTruckDriver> _List = new List<LoadAllocationsforTruckDriver>();
-                HttpClient _Client = new HttpClient();
-                var response = await _Client.GetAsync(ATISMobileMClassPublicProcedures.ATISHostURL + "/api/LoadAllocations/GetLoadAllocationsforTruckDriver/?YourUserId=" + YourUserId + "");
+                HttpResponseMessage response = await ATISMobileMClassPublicProcedures.GetResponse("/api/LoadAllocations/GetLoadAllocationsforTruckDriver/?YourUserId=" + YourUserId + "");
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();
@@ -54,8 +53,7 @@ namespace ATISMobile
             try
             {
                 var LoadAllocationId = (((StackLayout)((ImageButton)sender).Parent.Parent.FindByName("_StackLayoutInformation")).FindByName("_LabelLAId") as Label).Text.Split('-')[0].Split(':')[1].Trim();
-                HttpClient _Client = new HttpClient();
-                var response = await _Client.GetAsync(ATISMobileMClassPublicProcedures.ATISHostURL + "/api/LoadAllocations/LoadAllocationCancelling/?YourUserId=" + ATISMobileMClassPublicProcedures.GetCurrentSoftwareUserId().ToString() + "&YourLoadAllocationId=" + LoadAllocationId + "");
+                HttpResponseMessage response = await ATISMobileMClassPublicProcedures.GetResponse("/api/LoadAllocations/LoadAllocationCancelling/?YourUserId=" + ATISMobileMClassPublicProcedures.GetCurrentSoftwareUserId().ToString() + "&YourLoadAllocationId=" + LoadAllocationId + "");
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();
@@ -73,8 +71,7 @@ namespace ATISMobile
             try
             {
                 var LoadAllocationId = (((StackLayout)((ImageButton)sender).Parent.Parent.FindByName("_StackLayoutInformation")).FindByName("_LabelLAId") as Label).Text.Split('-')[0].Split(':')[1].Trim();
-                HttpClient _Client = new HttpClient();
-                var response = await _Client.GetAsync(ATISMobileMClassPublicProcedures.ATISHostURL + "/api/LoadAllocations/IncreasePriority/?YourLoadAllocationId=" + LoadAllocationId + "");
+                HttpResponseMessage response = await ATISMobileMClassPublicProcedures.GetResponse("/api/LoadAllocations/IncreasePriority/?YourLoadAllocationId=" + LoadAllocationId + "");
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();
@@ -93,8 +90,7 @@ namespace ATISMobile
             try
             {
                 var LoadAllocationId = (((StackLayout)((ImageButton)sender).Parent.Parent.FindByName("_StackLayoutInformation")).FindByName("_LabelLAId") as Label).Text.Split('-')[0].Split(':')[1].Trim();
-                HttpClient _Client = new HttpClient();
-                var response = await _Client.GetAsync(ATISMobileMClassPublicProcedures.ATISHostURL + "/api/LoadAllocations/DecreasePriority/?YourLoadAllocationId=" + LoadAllocationId + "");
+                HttpResponseMessage response = await ATISMobileMClassPublicProcedures.GetResponse("/api/LoadAllocations/DecreasePriority/?YourLoadAllocationId=" + LoadAllocationId + "");
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();

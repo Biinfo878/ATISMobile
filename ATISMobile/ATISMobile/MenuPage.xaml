@@ -23,8 +23,8 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell >
-                            <Frame HasShadow="true" BorderColor="{Binding PBackColor}" Margin="0,5,0,5"  CornerRadius="15" BackgroundColor="Transparent"  >
-                                <StackLayout Orientation="Vertical" BackgroundColor="Transparent"  >
+                            <Frame HasShadow="true" BorderColor="{Binding PBackColor}" Margin="0,5,0,5"  CornerRadius="15" BackgroundColor="{Binding PBackColor}"  >
+                                <StackLayout Orientation="Vertical" BackgroundColor="{Binding PBackColor}"  >
                                     <Label  BackgroundColor="{Binding PBackColor}"   TextColor="{Binding PForeColor}"   FontSize="Medium"   FontAttributes="Bold" Text = "{Binding PTitle}" >
                                         <Label.FontFamily>
                                             <OnPlatform x:TypeArguments="x:String">
@@ -37,7 +37,7 @@
                                             <TapGestureRecognizer Tapped="OnTapGestureRecognizerTapped"/>
                                         </Label.GestureRecognizers>
                                     </Label>
-                                    <Label  BackgroundColor="Transparent"  TextColor="White"  FontSize="Small"   FontAttributes="Bold" Text = "{Binding Description}" >
+                                    <Label  BackgroundColor="{Binding PBackColor}"  TextColor="{Binding PForeColor}"  FontSize="Small"   FontAttributes="Bold" Text = "{Binding Description}" >
                                         <Label.FontFamily>
                                             <OnPlatform x:TypeArguments="x:String">
                                                 <On Platform="iOS" Value="Samim" />

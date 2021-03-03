@@ -37,8 +37,7 @@ namespace ATISMobile
                 _ButtonSend.IsEnabled = false; _ButtonSend.BackgroundColor = Color.Gray;
                 string myMobileNumber = _LabelMobileNumber.Text.Trim();
                 string myVerificationCode = _EntryVerificatinCode.Text.Trim();
-                HttpClient _Client = new HttpClient();
-                var response = await _Client.GetAsync(ATISMobileMClassPublicProcedures.ATISHostURL + "/api/SoftwareUsers/LoginSoftwareUser/?YourMobileNumber=" + myMobileNumber + "&YourVerificationCode=" + myVerificationCode);
+                HttpResponseMessage response = await ATISMobileMClassPublicProcedures.GetResponse("/api/SoftwareUsers/LoginSoftwareUser/?YourMobileNumber=" + myMobileNumber + "&YourVerificationCode=" + myVerificationCode);
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();

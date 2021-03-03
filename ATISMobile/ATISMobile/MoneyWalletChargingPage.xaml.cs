@@ -45,8 +45,7 @@ namespace ATISMobile
             {
                 Int64 Amount = System.Convert.ToInt64(_LblAmount.Text.Replace(",", string.Empty));
                 var UserId = PublicProcedures.ATISMobileMClassPublicProcedures.GetCurrentSoftwareUserId();
-                HttpClient _Client = new HttpClient();
-                var response = await _Client.GetAsync(ATISMobileMClassPublicProcedures.ATISHostURL + "/api/MoneyWalletChargingAPI/PaymentRequest/?YourUserId=" + UserId + "&YourAmount=" + Amount.ToString());
+                HttpResponseMessage response = await ATISMobileMClassPublicProcedures.GetResponse("/api/MoneyWalletChargingAPI/PaymentRequest/?YourUserId=" + UserId + "&YourAmount=" + Amount.ToString());
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();

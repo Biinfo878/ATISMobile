@@ -31,8 +31,7 @@ namespace ATISMobile
                 _ButtonSend.IsEnabled = false; _ButtonSend.BackgroundColor = Color.Gray;
                 string myMobileNumber = _EntryMobileNumber.Text.Trim();
                 string myNameFamily = _EntryNameFamily.Text.Trim();
-                HttpClient _Client = new HttpClient();
-                var response = await _Client.GetAsync(ATISMobileMClassPublicProcedures.ATISHostURL + "/api/SoftwareUsers/RegisterMobileNumber/?YourMobileNumber=" + myMobileNumber + "");
+                HttpResponseMessage response = await ATISMobileMClassPublicProcedures.GetResponse("/api/SoftwareUsers/RegisterMobileNumber/?YourMobileNumber=" + myMobileNumber + "");
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();

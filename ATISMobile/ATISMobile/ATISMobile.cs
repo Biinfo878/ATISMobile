@@ -11,6 +11,7 @@ using System.IO;
 using Xamarin.Essentials;
 
 using ATISMobile.Exceptions;
+using System.Threading.Tasks;
 
 namespace ATISMobile
 {
@@ -47,24 +48,36 @@ namespace ATISMobile
                 catch (Exception ex) { return false; }
             }
 
-            private static string _ATISHostURL = string.Empty;
-            public static string ATISHostURL
+            public static async Task<HttpResponseMessage> GetResponse(string YourapiString)
             {
-                get
+                try
                 {
-                    if (_ATISHostURL == string.Empty)
+                    try
                     {
-                        if (IsThisIPAvailable(Properties.Resources.RestfulWebServiceURLFirst))
-                        { _ATISHostURL = Properties.Resources.RestfulWebServiceProtocol + "://" + Properties.Resources.RestfulWebServiceURLFirst + ":" + Properties.Resources.RestfulWebServicePortNumber; }
-                        else if (IsThisIPAvailable(Properties.Resources.RestfulWebServiceURLSecond))
-                        { _ATISHostURL = Properties.Resources.RestfulWebServiceProtocol + "://" + Properties.Resources.RestfulWebServiceURLSecond + ":" + Properties.Resources.RestfulWebServicePortNumber; }
-                        else
-                        { throw new Exception(); }
-                        return _ATISHostURL;
+                        HttpClient _Client = new HttpClient();
+                        var response = await _Client.GetAsync(ATISMobileMClassPublicProcedures.ATISHostURL(1) + YourapiString);
+                        return response;
                     }
-                    else
-                    { return _ATISHostURL; }
+                    catch (Exception ex)
+                    {
+                        HttpClient _Client = new HttpClient();
+                        var response = await _Client.GetAsync(ATISMobileMClassPublicProcedures.ATISHostURL(2) + YourapiString);
+                        return response;
+                    }
+                    throw new Exception();
                 }
+                catch (Exception ex)
+                { throw ex; }
+            }
+
+            private static string ATISHostURL(Int64 YourIndex)
+            {
+                if (YourIndex == 1)
+                { return Properties.Resources.RestfulWebServiceProtocol + "://" + Properties.Resources.RestfulWebServiceURLFirst + ":" + Properties.Resources.RestfulWebServicePortNumber; }
+                else if (YourIndex == 2)
+                { return Properties.Resources.RestfulWebServiceProtocol + "://" + Properties.Resources.RestfulWebServiceURLSecond + ":" + Properties.Resources.RestfulWebServicePortNumber; }
+                else
+                { throw new Exception("اندیس ارسالی برای اختصاص آی پی سرور نادرست است"); }
             }
 
             public static Int64 GetCurrentSoftwareUserId()
@@ -119,7 +132,7 @@ namespace ATISMobile
                     //string VersionNumber = Xamarin.Essentials.VersionTracking.CurrentVersion;
                     //string VersionName = Xamarin.Essentials.VersionTracking.CurrentBuild;
 
-                    //var responseVersion = await _Client.GetAsync(ATISMobileMClassPublicProcedures.ATISHostURL + "/api/VersionControl?YourVersionNumber=" + VersionNumber + "&YourVersionName=" + VersionName);
+                    //var responseVersion = await _Client.GetAsync(ATISMobileMClassPublicProcedures.ATISHostURL() + "/api/VersionControl?YourVersionNumber=" + VersionNumber + "&YourVersionName=" + VersionName);
                     //if (responseVersion.IsSuccessStatusCode)
                     //{
                     //    var content = await responseVersion.Content.ReadAsStringAsync();

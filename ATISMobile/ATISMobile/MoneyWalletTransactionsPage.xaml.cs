@@ -29,8 +29,7 @@ namespace ATISMobile
             try
             {
                 List<MoneyWalletAccounting> _List = new List<MoneyWalletAccounting>();
-                HttpClient _Client = new HttpClient();
-                var response = await _Client.GetAsync(ATISMobileMClassPublicProcedures.ATISHostURL + "/api/MoneyWalletAccounting/GetMoneyWalletAccounting/?YourUserId=" + YourUserId + "");
+                HttpResponseMessage response = await ATISMobileMClassPublicProcedures.GetResponse("/api/MoneyWalletAccounting/GetMoneyWalletAccounting/?YourUserId=" + YourUserId + "");
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();

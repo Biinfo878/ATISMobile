@@ -9,13 +9,13 @@ using System.Net;
 using System.Net.Http;
 using System.Diagnostics;
 using Newtonsoft.Json;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 using ATISMobile.Models;
 using ATISMobile.PublicProcedures;
-using Xamarin.Essentials;
+
 
 namespace ATISMobile
 {
@@ -28,15 +28,14 @@ namespace ATISMobile
             try
             { Manage_ExitApplicationButton(); ShowApplicationVersion(); ShowPublicMessage(); }
             catch (Exception ex)
-            { Debug.WriteLine(ex.Message); }
+            { _MessageBox.Text = ex.Message; }
         }
 
         private async void ShowPublicMessage()
         {
             try
             {
-                HttpClient _Client = new HttpClient();
-                var response = await _Client.GetAsync(ATISMobileMClassPublicProcedures.ATISHostURL + "/api/PublicMessages/GetPublicMessage");
+                HttpResponseMessage response = await ATISMobileMClassPublicProcedures.GetResponse("/api/PublicMessages/GetPublicMessage");
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();
@@ -63,21 +62,20 @@ namespace ATISMobile
         {
             try
             {
-                HttpClient _Client = new HttpClient();
-                var response = await _Client.GetAsync(ATISMobileMClassPublicProcedures.ATISHostURL + "/api/VersionControl/GetLastVersionNumber");
+                HttpResponseMessage response = await ATISMobileMClassPublicProcedures.GetResponse("/api/VersionControl/GetLastVersionNumber");
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();
                     MessageStruct _Version = JsonConvert.DeserializeObject<MessageStruct>(content);
                     if (_Version.ErrorCode == false)
                     {
-                        ViewSuccessMessage("نسخه اپلیکیشن : " + _Version.Message1);
                         Enable_StartApplicationButton();
                         Xamarin.Essentials.VersionTracking.Track();
                         string VersionNumber = Xamarin.Essentials.VersionTracking.CurrentVersion;
                         string VersionName = Xamarin.Essentials.VersionTracking.CurrentBuild;
+                        ViewSuccessMessage("نسخه اپلیکیشن : " + _Version.Message1);
 
-                        var responseVersion = await _Client.GetAsync(ATISMobileMClassPublicProcedures.ATISHostURL + "/api/VersionControl?YourVersionNumber=" + VersionNumber + "&YourVersionName=" + VersionName);
+                        HttpResponseMessage responseVersion = await ATISMobileMClassPublicProcedures.GetResponse("/api/VersionControl?YourVersionNumber=" + VersionNumber + "&YourVersionName=" + VersionName);
                         if (responseVersion.IsSuccessStatusCode)
                         {
                             var contentt = await responseVersion.Content.ReadAsStringAsync();
@@ -87,35 +85,44 @@ namespace ATISMobile
                         await Browser.OpenAsync("http://ATISMobile.ir/Downloads.aspx", BrowserLaunchMode.SystemPreferred);
                     }
                     else
-                    { ViewATISErrorMessage(); Disable_StartApplicationButton(); }
+                    { ViewATISGetVersionErrorMessage(); Disable_StartApplicationButton(); }
                 }
                 else
-                { ViewATISErrorMessage(); Disable_StartApplicationButton(); }
+                { ViewATISresponseErrorMessage(response.StatusCode.ToString()); Disable_StartApplicationButton(); }
             }
             catch (Exception ex)
             { ViewATISErrorMessage(); Disable_StartApplicationButton(); }
         }
 
-        private void ViewInternetErrorMessage()
-        { _MessageBox.Text = "اتصال اینترنتی برقرار نیست"; _MessageBox.BackgroundColor = Color.Red; }
-
         private void ViewATISErrorMessage()
         {
             try
-            {
-                if (!ATISMobileMClassPublicProcedures.IsInternetAvailable())
-                { ViewInternetErrorMessage(); return; }
-            }
+            { _MessageBox.Text = "ارتباط با آتیس امکان پذیر نیست"; _MessageBox.BackgroundColor = Color.Red; }
             catch (Exception ex)
-            { ViewInternetErrorMessage(); return; }
-            _MessageBox.Text = "ارتباط با سرور آتیس برقرار نیست"; _MessageBox.BackgroundColor = Color.Red;
+            { return; }
+        }
+
+        private void ViewATISGetVersionErrorMessage()
+        {
+            try
+            { _MessageBox.Text = "درخواست ورژن آخرین تغییرات آتیس با خطا مواجه شد"; _MessageBox.BackgroundColor = Color.Red; }
+            catch (Exception ex)
+            { return; }
+        }
+
+        private void ViewATISresponseErrorMessage(string YourStatusCode)
+        {
+            try
+            { _MessageBox.Text = "responseErrorCode:" + YourStatusCode; _MessageBox.BackgroundColor = Color.Red; }
+            catch (Exception ex)
+            { return; }
         }
 
         private void ViewSuccessMessage(string YourMessage)
         { _MessageBox.Text = YourMessage; _MessageBox.BackgroundColor = Color.Green; }
 
         private void Enable_StartApplicationButton()
-        { _StartApplication.IsEnabled = true; _StartApplication.BackgroundColor = Color.Green; _StartApplication.TextColor = Color.White; _StartApplication.BorderColor = Color.Red ; }
+        { _StartApplication.IsEnabled = true; _StartApplication.BackgroundColor = Color.Green; _StartApplication.TextColor = Color.White; _StartApplication.BorderColor = Color.Red; }
 
         private void Disable_StartApplicationButton()
         { _StartApplication.IsEnabled = false; _StartApplication.BackgroundColor = Color.Transparent; _StartApplication.TextColor = Color.Transparent; }
@@ -130,7 +137,7 @@ namespace ATISMobile
                 //{ _ExitApplication.IsEnabled = true; }
             }
             catch (Exception ex)
-            { Debug.WriteLine("\t\tERROR {0}", ex.Message); }
+            { _MessageBox.Text = ex.Message; }
 
         }
 
@@ -140,7 +147,7 @@ namespace ATISMobile
             try
             { Manage_ExitApplicationButton(); }
             catch (Exception ex)
-            { Debug.WriteLine("\t\tERROR {0}", ex.Message); }
+            { _MessageBox.Text=ex.Message ; }
         }
 
         private async void _ExitApplication_ClickedEvent(Object sender, EventArgs e)
@@ -155,7 +162,8 @@ namespace ATISMobile
                 {
                     string myUserId = System.IO.File.ReadAllText(TargetPath).Split(';')[1];
                     HttpClient _Client = new HttpClient();
-                    var response = await _Client.GetAsync(ATISMobileMClassPublicProcedures.ATISHostURL + "/api/MobileUsers/UnRegisterMobileUser/?YourUserId=" + myUserId);
+
+                    HttpResponseMessage response = await ATISMobileMClassPublicProcedures.GetResponse("/api/MobileUsers/UnRegisterMobileUser/?YourUserId=" + myUserId);
                     if (response.IsSuccessStatusCode)
                     {
                         var content = await response.Content.ReadAsStringAsync();
@@ -173,7 +181,7 @@ namespace ATISMobile
                 }
             }
             catch (Exception ex)
-            { System.Diagnostics.Debug.WriteLine("\t\tERROR {0}", ex.Message); }
+            { _MessageBox.Text = ex.Message; }
         }
 
         private void _UpdateApplication_ClickedEvent(Object sender, EventArgs e)
@@ -207,7 +215,7 @@ namespace ATISMobile
                 }
             }
             catch (Exception ex)
-            { System.Diagnostics.Debug.WriteLine("\t\tERROR {0}", ex.Message); }
+            { _MessageBox.Text = ex.Message; }
         }
 
     }

@@ -35,8 +35,7 @@ namespace ATISMobile
             try
             {
                 List<Province> _List = new List<Province>();
-                HttpClient _Client = new HttpClient();
-                var response = await _Client.GetAsync(ATISMobileMClassPublicProcedures.ATISHostURL + "/api/Provinces/GetProvinces/?YourAHId=" + YourAHId.ToString() + "&YourAHSGId=" + YourAHSGId.ToString() + "&YourLoadCapacitorLoadsListType=" + YourLoadCapacitorLoadsListType.ToString());
+                HttpResponseMessage response = await ATISMobileMClassPublicProcedures.GetResponse("/api/Provinces/GetProvinces/?YourAHId=" + YourAHId.ToString() + "&YourAHSGId=" + YourAHSGId.ToString() + "&YourLoadCapacitorLoadsListType=" + YourLoadCapacitorLoadsListType.ToString());
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();

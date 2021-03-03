@@ -32,8 +32,7 @@ namespace ATISMobile
             try
             {
                 List<MobileProcess> _Lst = new List<MobileProcess>();
-                HttpClient _Client = new HttpClient();
-                var response = await _Client.GetAsync(ATISMobileMClassPublicProcedures.ATISHostURL + "/api/MobileProcesses/GetMobileProcesses/?YourSoftwareUserId=" + ATISMobileMClassPublicProcedures.GetCurrentSoftwareUserId());
+                HttpResponseMessage response = await ATISMobileMClassPublicProcedures.GetResponse("/api/MobileProcesses/GetMobileProcesses/?YourSoftwareUserId=" + ATISMobileMClassPublicProcedures.GetCurrentSoftwareUserId());
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();
@@ -54,8 +53,7 @@ namespace ATISMobile
             {
                 string TargetMobileProcess = (((Label)sender).Parent.FindByName("_TargetMobileProcess") as Label).Text;
                 string TargetMobileProcessId = (((Label)sender).Parent.FindByName("_TargetMobileProcessId") as Label).Text;
-                HttpClient _Client = new HttpClient();
-                var response = await _Client.GetAsync(ATISMobileMClassPublicProcedures.ATISHostURL + "/api/Permissions/ExistPermission/?YourPermissionTypeId=1&YourEntityIdFirst=" + ATISMobileMClassPublicProcedures.GetCurrentSoftwareUserId().ToString() + "&YourEntityIdSecond=" + TargetMobileProcessId.ToString() + "");
+                HttpResponseMessage response = await ATISMobileMClassPublicProcedures.GetResponse("/api/Permissions/ExistPermission/?YourPermissionTypeId=1&YourEntityIdFirst=" + ATISMobileMClassPublicProcedures.GetCurrentSoftwareUserId().ToString() + "&YourEntityIdSecond=" + TargetMobileProcessId.ToString() + "");
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();
