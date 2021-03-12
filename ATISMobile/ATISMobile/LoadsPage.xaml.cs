@@ -26,6 +26,7 @@ namespace ATISMobile
         public LoadsPage()
         {
             InitializeComponent();
+            
         }
 
         public async void ViewLoads(int YourAHId, int YourAHSGId)
@@ -83,13 +84,12 @@ namespace ATISMobile
             { await DisplayAlert("ATISMobile", ex.Message, "OK"); }
         }
 
-        async void OnTapGestureRecognizerTapped(object sender, EventArgs args)
+        private async void BtnSelect_ClickedEvent(Object sender, EventArgs e)
         {
             try
             {
                 var UserId = PublicProcedures.ATISMobileMClassPublicProcedures.GetCurrentSoftwareUserId();
-                var nEstelamId =((Label)((Label)sender).Parent.FindByName("LblnEstelamId")).Text.Split(':')[1].Trim();
-                //var nEstelamId = ((Label)sender).Text.Split(':')[1].Trim();
+                var nEstelamId = ((Label)((Button)sender).Parent.FindByName("LblnEstelamId")).Text.Split(':')[1].Trim();
                 HttpResponseMessage response = await ATISMobileMClassPublicProcedures.GetResponse("/api/LoadAllocations/LoadAllocationAgent/?YourUserId=" + UserId + "&YournEstelamId=" + nEstelamId);
                 if (response.IsSuccessStatusCode)
                 {
@@ -101,5 +101,6 @@ namespace ATISMobile
             catch (Exception ex)
             { await DisplayAlert("ATISMobile", ex.Message, "OK"); }
         }
+
     }
 }

@@ -47,7 +47,7 @@
                                     <Grid  x:Name="_Grid">
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="1" />
-                                            <RowDefinition Height="400" />
+                                            <RowDefinition Height="*" />
                                             <RowDefinition Height="1" />
                                         </Grid.RowDefinitions>
                                         <Grid.ColumnDefinitions>
@@ -77,9 +77,9 @@
                                             </Label>
                                         </StackLayout>
                                         <StackLayout x:Name="s3"  Grid.Row="1" Grid.Column="1" BackgroundColor="{Binding DescriptionColor}"  >
-                                            <ImageButton Source="ScrollUp.png"  BackgroundColor="{Binding DescriptionColor}"  VerticalOptions="StartAndExpand"   Clicked="OnClicked_InreasePriority"  />
-                                            <ImageButton Source="Delete.png"  BackgroundColor="{Binding DescriptionColor}"  VerticalOptions="CenterAndExpand"   Clicked="OnClicked_DeleteLoadAllocation"  />
-                                            <ImageButton Source="ScrollDown.png"  BackgroundColor="{Binding DescriptionColor}"  VerticalOptions="EndAndExpand" Clicked="OnClicked_DecreasePriority"  />
+                                            <ImageButton Source="LAIncreasePriority.ico"  BackgroundColor="{Binding DescriptionColor}"  VerticalOptions="StartAndExpand"   Clicked="OnClicked_InreasePriority"  />
+                                            <ImageButton Source="LACancelling.ico"  BackgroundColor="{Binding DescriptionColor}"  VerticalOptions="CenterAndExpand"   Clicked="OnClicked_DeleteLoadAllocation"  />
+                                            <ImageButton Source="LADecreasePriority.ico"  BackgroundColor="{Binding DescriptionColor}"  VerticalOptions="EndAndExpand" Clicked="OnClicked_DecreasePriority"  />
                                         </StackLayout>
                                         <Label Grid.Row="2" Grid.Column="0" BackgroundColor="{Binding DescriptionColor}"  TextColor="Blue"   FontSize="Medium"  FontAttributes="Bold" Text = "" VerticalOptions="CenterAndExpand"    HorizontalOptions="CenterAndExpand" />
                                         <Label Grid.Row="2" Grid.Column="1" BackgroundColor="{Binding DescriptionColor}"  TextColor="Blue"   FontSize="Medium"  FontAttributes="Bold" Text = "" VerticalOptions="CenterAndExpand"    HorizontalOptions="CenterAndExpand" />

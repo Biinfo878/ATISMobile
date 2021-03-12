@@ -16,10 +16,6 @@
         </StackLayout>
     </NavigationPage.TitleView>
 
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Icon="@drawable/BG4" Text="Search" />
-    </ContentPage.ToolbarItems>
-
     <ContentPage.Content>
         <StackLayout BackgroundColor="White" >
             <Frame HasShadow="true" Margin="20" CornerRadius="15" BackgroundColor="YellowGreen" >
@@ -69,9 +65,6 @@
                                                 <On Platform="UWP" Value="Assets/Fonts/Lobster-Regular.ttf#Lobster" />
                                             </OnPlatform>
                                         </Label.FontFamily>
-                                        <Label.GestureRecognizers>
-                                            <TapGestureRecognizer Tapped="OnTapGestureRecognizerTapped"/>
-                                        </Label.GestureRecognizers>
                                     </Label>
                                     <Label  BackgroundColor="OrangeRed"  TextColor="White"  FontSize="Large" FontAttributes="Bold" Text = "{Binding LoadCapacitorLoadTitleTargetCityTotalAmount}" >
                                         <Label.FontFamily>
@@ -81,9 +74,6 @@
                                                 <On Platform="UWP" Value="Assets/Fonts/Lobster-Regular.ttf#Lobster" />
                                             </OnPlatform>
                                         </Label.FontFamily>
-                                        <Label.GestureRecognizers>
-                                            <TapGestureRecognizer Tapped="OnTapGestureRecognizerTapped"/>
-                                        </Label.GestureRecognizers>
                                     </Label>
                                     <Label   BackgroundColor="OrangeRed"  TextColor="Yellow" FontSize="Small" FontAttributes="Bold"   Text = "{Binding TransportCompanyTarrifPrice}">
                                         <Label.FontFamily>
@@ -93,9 +83,6 @@
                                                 <On Platform="UWP" Value="Assets/Fonts/Lobster-Regular.ttf#Lobster" />
                                             </OnPlatform>
                                         </Label.FontFamily>
-                                        <Label.GestureRecognizers>
-                                            <TapGestureRecognizer Tapped="OnTapGestureRecognizerTapped"/>
-                                        </Label.GestureRecognizers>
                                     </Label>
                                     <Label   BackgroundColor="OrangeRed"  TextColor="Blue"  FontSize="Medium" FontAttributes="Bold"  Text = "{Binding Description}" >
                                         <Label.FontFamily>
@@ -105,10 +92,16 @@
                                                 <On Platform="UWP" Value="Assets/Fonts/Lobster-Regular.ttf#Lobster" />
                                             </OnPlatform>
                                         </Label.FontFamily>
-                                        <Label.GestureRecognizers>
-                                            <TapGestureRecognizer Tapped="OnTapGestureRecognizerTapped"/>
-                                        </Label.GestureRecognizers>
                                     </Label>
+                                    <Button x:Name="BtnSelect" BorderWidth="2"  WidthRequest="150" BorderColor="Yellow"   CornerRadius="13" FontSize="Medium"  Text="انتخاب" BackgroundColor="OrangeRed" TextColor="Yellow" HorizontalOptions="Start"   Clicked="BtnSelect_ClickedEvent" >
+                                        <Button.FontFamily>
+                                            <OnPlatform x:TypeArguments="x:String">
+                                                <On Platform="iOS" Value="Samim" />
+                                                <On Platform="Android" Value="Samim-Bold.otf#Samim" />
+                                                <On Platform="UWP" Value="Assets/Fonts/Lobster-Regular.ttf#Lobster" />
+                                            </OnPlatform>
+                                        </Button.FontFamily>
+                                    </Button>
                                 </StackLayout>
                             </Frame>
                         </ViewCell>

@@ -12,6 +12,7 @@ using Xamarin.Essentials;
 
 using ATISMobile.Exceptions;
 using System.Threading.Tasks;
+using Xamarin.Forms.PlatformConfiguration;
 
 namespace ATISMobile
 {
@@ -48,21 +49,44 @@ namespace ATISMobile
                 catch (Exception ex) { return false; }
             }
 
+            private static string _RestfullPath = "1";
             public static async Task<HttpResponseMessage> GetResponse(string YourapiString)
             {
                 try
                 {
-                    try
+                    if (_RestfullPath == "1")
                     {
-                        HttpClient _Client = new HttpClient();
-                        var response = await _Client.GetAsync(ATISMobileMClassPublicProcedures.ATISHostURL(1) + YourapiString);
-                        return response;
+                        try
+                        {
+                            HttpClient _Client = new HttpClient();
+                            var response = await _Client.GetAsync(ATISMobileMClassPublicProcedures.ATISHostURL(1) + YourapiString);
+                            _RestfullPath = "1";
+                            return response;
+                        }
+                        catch (Exception ex)
+                        {
+                            HttpClient _Client = new HttpClient();
+                            var response = await _Client.GetAsync(ATISMobileMClassPublicProcedures.ATISHostURL(2) + YourapiString);
+                            _RestfullPath = "2";
+                            return response;
+                        }
                     }
-                    catch (Exception ex)
+                    else if (_RestfullPath == "2")
                     {
-                        HttpClient _Client = new HttpClient();
-                        var response = await _Client.GetAsync(ATISMobileMClassPublicProcedures.ATISHostURL(2) + YourapiString);
-                        return response;
+                        try
+                        {
+                            HttpClient _Client = new HttpClient();
+                            var response = await _Client.GetAsync(ATISMobileMClassPublicProcedures.ATISHostURL(2) + YourapiString);
+                            _RestfullPath = "2";
+                            return response;
+                        }
+                        catch (Exception ex)
+                        {
+                            HttpClient _Client = new HttpClient();
+                            var response = await _Client.GetAsync(ATISMobileMClassPublicProcedures.ATISHostURL(1) + YourapiString);
+                            _RestfullPath = "1";
+                            return response;
+                        }
                     }
                     throw new Exception();
                 }
@@ -127,57 +151,57 @@ namespace ATISMobile
             {
                 try
                 {
-                    //HttpClient _Client = new HttpClient();
-                    //Xamarin.Essentials.VersionTracking.Track();
-                    //string VersionNumber = Xamarin.Essentials.VersionTracking.CurrentVersion;
-                    //string VersionName = Xamarin.Essentials.VersionTracking.CurrentBuild;
+                    //    HttpClient _Client = new HttpClient();
+                    //    Xamarin.Essentials.VersionTracking.Track();
+                    //    string VersionNumber = Xamarin.Essentials.VersionTracking.CurrentVersion;
+                    //    string VersionName = Xamarin.Essentials.VersionTracking.CurrentBuild;
 
-                    //var responseVersion = await _Client.GetAsync(ATISMobileMClassPublicProcedures.ATISHostURL() + "/api/VersionControl?YourVersionNumber=" + VersionNumber + "&YourVersionName=" + VersionName);
-                    //if (responseVersion.IsSuccessStatusCode)
-                    //{
-                    //    var content = await responseVersion.Content.ReadAsStringAsync();
-                    //    if (!JsonConvert.DeserializeObject<bool>(content)) return;
-                    //}
-                    //bool answer = await DisplayAlert("بروز رسانی آتیس موبایل", "آتیس موبایل اخیرا تغییراتی داشته است","OK");
-
-                    //ATISMobile.Droid.PublicProcedures.ATISMobileMClassPublicProcedures.ViewMessage(this, "آپدیت اپلیکیشن - لطفا تا پایان آپدیت ورژن جدید اپلیکیشن منتظر بمانید");
-
-                    //String RemoteFtpPath = ATISMobile.Properties.Resources.APKFtpURL;
-                    ////String TargetPath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments), "ATISMobile.apk");
-                    //String TargetPath = Path.Combine(Android.OS.Environment.GetExternalStoragePublicDirectory(Android.OS.Environment.DirectoryDownloads).ToString(), "ATISMobile.apk");
-                    ////String TargetPath = System.Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-                    //FtpWebRequest request = (FtpWebRequest)WebRequest.Create(RemoteFtpPath);
-                    //request.Method = WebRequestMethods.Ftp.DownloadFile;
-                    //request.KeepAlive = false; request.UsePassive = true; request.UseBinary = true;
-                    //request.Credentials = new NetworkCredential(string.Empty, string.Empty);
-                    //FtpWebResponse response = (FtpWebResponse)request.GetResponse();
-                    //Stream responseStream = response.GetResponseStream();
-                    //using (FileStream writer = new FileStream(TargetPath, FileMode.Create))
-                    //{
-                    //    int bufferSize = 2048;
-                    //    int readCount;
-                    //    byte[] buffer = new byte[2048];
-
-                    //    readCount = responseStream.Read(buffer, 0, bufferSize);
-                    //    while (readCount > 0)
+                    //    var responseVersion = await _Client.GetAsync(ATISMobileMClassPublicProcedures.ATISHostURL() + "/api/VersionControl?YourVersionNumber=" + VersionNumber + "&YourVersionName=" + VersionName);
+                    //    if (responseVersion.IsSuccessStatusCode)
                     //    {
-                    //        writer.Write(buffer, 0, readCount);
-                    //        readCount = responseStream.Read(buffer, 0, bufferSize);
+                    //        var content = await responseVersion.Content.ReadAsStringAsync();
+                    //        if (!JsonConvert.DeserializeObject<bool>(content)) return;
                     //    }
-                    //}
-                    //response.Close();
-                    //responseStream.Close();
+                    //    bool answer = await DisplayAlert("بروز رسانی آتیس موبایل", "آتیس موبایل اخیرا تغییراتی داشته است", "OK");
 
-                    ////var destination = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments ), "ATISMobile.apk");
-                    //var destination = Path.Combine(Android.OS.Environment.GetExternalStoragePublicDirectory(Android.OS.Environment.DirectoryDownloads).ToString(), "ATISMobile.apk");
-                    //Intent install = new Intent(Intent.ActionInstallPackage);
-                    //install.SetDataAndType(Android.Net.Uri.FromFile(new Java.IO.File(destination)), "application/vnd.android.package-archive");
-                    //install.SetFlags(ActivityFlags.ClearTask | ActivityFlags.NewTask);
-                    //install.AddFlags(ActivityFlags.GrantReadUriPermission);
-                    //this.StartActivity(install);
+                    //    ATISMobile.Droid.PublicProcedures.ATISMobileMClassPublicProcedures.ViewMessage(this, "آپدیت اپلیکیشن - لطفا تا پایان آپدیت ورژن جدید اپلیکیشن منتظر بمانید");
 
-                    ////var activity = (Activity)this;
-                    ////activity.FinishAffinity();
+                    //    String RemoteFtpPath = ATISMobile.Properties.Resources.APKFtpURL;
+                    //    //String TargetPath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments), "ATISMobile.apk");
+                    //    String TargetPath = Path.Combine(Android.OS.Environment.GetExternalStoragePublicDirectory(Android.OS.Environment.DirectoryDownloads).ToString(), "ATISMobile.apk");
+                    //    //String TargetPath = System.Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+                    //    FtpWebRequest request = (FtpWebRequest)WebRequest.Create(RemoteFtpPath);
+                    //    request.Method = WebRequestMethods.Ftp.DownloadFile;
+                    //    request.KeepAlive = false; request.UsePassive = true; request.UseBinary = true;
+                    //    request.Credentials = new NetworkCredential(string.Empty, string.Empty);
+                    //    FtpWebResponse response = (FtpWebResponse)request.GetResponse();
+                    //    Stream responseStream = response.GetResponseStream();
+                    //    using (FileStream writer = new FileStream(TargetPath, FileMode.Create))
+                    //    {
+                    //        int bufferSize = 2048;
+                    //        int readCount;
+                    //        byte[] buffer = new byte[2048];
+
+                    //        readCount = responseStream.Read(buffer, 0, bufferSize);
+                    //        while (readCount > 0)
+                    //        {
+                    //            writer.Write(buffer, 0, readCount);
+                    //            readCount = responseStream.Read(buffer, 0, bufferSize);
+                    //        }
+                    //    }
+                    //    response.Close();
+                    //    responseStream.Close();
+
+                    //    //var destination = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments ), "ATISMobile.apk");
+                    //    var destination = Path.Combine(Android.OS.Environment.GetExternalStoragePublicDirectory(Android.OS.Environment.DirectoryDownloads).ToString(), "ATISMobile.apk");
+                    //    Intent install = new Intent(Intent.ActionInstallPackage);
+                    //    install.SetDataAndType(Android.Net.Uri.FromFile(new Java.IO.File(destination)), "application/vnd.android.package-archive");
+                    //    install.SetFlags(ActivityFlags.ClearTask | ActivityFlags.NewTask);
+                    //    install.AddFlags(ActivityFlags.GrantReadUriPermission);
+                    //    this.StartActivity(install);
+
+                    //    //var activity = (Activity)this;
+                    //    //activity.FinishAffinity();
 
                 }
                 catch (Exception ex)

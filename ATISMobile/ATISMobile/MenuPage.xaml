@@ -45,6 +45,9 @@
                                                 <On Platform="UWP" Value="Assets/Fonts/Lobster-Regular.ttf#Lobster" />
                                             </OnPlatform>
                                         </Label.FontFamily>
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="OnTapGestureRecognizerTapped"/>
+                                        </Label.GestureRecognizers>
                                     </Label>
                                     <Label x:Name="_TargetMobileProcess" IsVisible="False"     BackgroundColor="Transparent"  TextColor="Yellow" FontSize="Small" FontAttributes="Bold"   Text = "{Binding TargetMobilePage}">
                                         <Label.FontFamily>
