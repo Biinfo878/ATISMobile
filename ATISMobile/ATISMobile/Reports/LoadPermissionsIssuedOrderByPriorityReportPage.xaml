@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ATISMobile.Reports.LoadPermissionsIssuedOrderByPriorityReportPage">
+    <NavigationPage.TitleView>
+        <StackLayout>
+            <Label Text="گزارش مجوزهای صادر شده" TextColor="White" HorizontalTextAlignment="Center">
+                <Label.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="iOS" Value="Samim" />
+                        <On Platform="Android" Value="Samim-Bold.otf#Samim" />
+                        <On Platform="UWP" Value="Assets/Fonts/Lobster-Regular.ttf#Lobster" />
+                    </OnPlatform>
+                </Label.FontFamily>
+            </Label>
+        </StackLayout>
+    </NavigationPage.TitleView>
+
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="White" >
+            <StackLayout BackgroundColor="White" >
+                <Picker x:Name="_PickerAnnouncementHallSubGroups"   Margin="10" Title="گروه اعلام بار را انتخاب کنید ..." TitleColor="Red" HorizontalOptions="CenterAndExpand">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+            </StackLayout>
+            <StackLayout BackgroundColor="White" >
+                <StackLayout x:Name="_StackLayoutEmptyPermissions" IsVisible="False"  BackgroundColor="White" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" >
+                    <Label Text="موردی در سامانه یافت نشد" TextColor="Red" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontSize="Large" >
+                        <Label.FontFamily>
+                            <OnPlatform x:TypeArguments="x:String">
+                                <On Platform="iOS" Value="Samim" />
+                                <On Platform="Android" Value="Samim-Bold.otf#Samim" />
+                                <On Platform="UWP" Value="Assets/Fonts/Lobster-Regular.ttf#Lobster" />
+                            </OnPlatform>
+                        </Label.FontFamily>
+                    </Label>
+                </StackLayout>
+                <ListView x:Name="_ListView" BackgroundColor="White"  Margin="15" HasUnevenRows = "True"  >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell  >
+                                <Frame HasShadow="true" Margin="1" BorderColor="GreenYellow"   CornerRadius="15" BackgroundColor="Green" >
+                                    <StackLayout Orientation="Vertical" BackgroundColor="Green"  Padding="1,0,1,0"  >
+                                        <Label x:Name="ReportItemHeader" BackgroundColor="Green"  TextColor="White"   FontSize="Large"  FontAttributes="Bold" Text="{Binding ReportItemHeader}">
+                                            <Label.FontFamily>
+                                                <OnPlatform x:TypeArguments="x:String">
+                                                    <On Platform="iOS" Value="Samim" />
+                                                    <On Platform="Android" Value="Samim-Bold.otf#Samim" />
+                                                    <On Platform="UWP" Value="Assets/Fonts/Lobster-Regular.ttf#Lobster" />
+                                                </OnPlatform>
+                                            </Label.FontFamily>
+                                        </Label>
+                                        <Label x:Name="ReportItemDetails" BackgroundColor="Green"  TextColor="White"   FontSize="Medium"  FontAttributes="Bold" Text="{Binding ReportItemDetails}">
+                                            <Label.FontFamily>
+                                                <OnPlatform x:TypeArguments="x:String">
+                                                    <On Platform="iOS" Value="Samim" />
+                                                    <On Platform="Android" Value="Samim-Bold.otf#Samim" />
+                                                    <On Platform="UWP" Value="Assets/Fonts/Lobster-Regular.ttf#Lobster" />
+                                                </OnPlatform>
+                                            </Label.FontFamily>
+                                        </Label>
+                                    </StackLayout>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

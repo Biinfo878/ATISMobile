@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ATISMobile.StartPage"
+             FlowDirection="RightToLeft"
+             BackgroundColor="White"
+             BackgroundImage="@drawable/TruckNewLight"
+             Padding="30">
+    <NavigationPage.TitleView>
+        <StackLayout>
+            <Label Text="سامانه اطلاع رسانی بار آتیس - استان اصفهان" TextColor="White" HorizontalTextAlignment="Center" FontSize="Medium">
+                <Label.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="iOS" Value="Samim" />
+                        <On Platform="Android" Value="Samim-Bold.otf#Samim" />
+                        <On Platform="UWP" Value="Assets/Fonts/Lobster-Regular.ttf#Lobster" />
+                    </OnPlatform>
+                </Label.FontFamily>
+            </Label>
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <StackLayout Padding="20,10,20,10" BackgroundColor="Transparent" >
+            <Image Source="@drawable/iconicon" VerticalOptions="Start" />
+            <Label x:Name="_LblExpander" Text="" IsVisible="False"  TextColor="White"  HorizontalOptions="CenterAndExpand"  VerticalOptions="StartAndExpand"      FontSize="Small"  />
+            <Button x:Name="_StartApplication"  IsVisible="False"    BorderColor="RED" BorderWidth="1"  FontSize="Large"   Text="ورود" BackgroundColor="Green"  TextColor="White"     HorizontalOptions="CenterAndExpand"  VerticalOptions="CenterAndExpand"     WidthRequest="150" HeightRequest="150" BorderRadius="75" Clicked="_StartApplication_ClickedEvent" >
+                <Button.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="iOS" Value="Samim" />
+                        <On Platform="Android" Value="Samim-Bold.otf#Samim" />
+                        <On Platform="UWP" Value="Assets/Fonts/Lobster-Regular.ttf#Lobster" />
+                    </OnPlatform>
+                </Button.FontFamily>
+            </Button>
+            <Button x:Name="_MessageBox" BorderWidth="1" IsVisible="False"    BorderColor="RED"   CornerRadius="15" FontSize="Medium"  Text="" BackgroundColor="Green"  TextColor="White"    HorizontalOptions="CenterAndExpand"   VerticalOptions="End"    >
+                <Button.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="iOS" Value="Samim" />
+                        <On Platform="Android" Value="Samim-Bold.otf#Samim" />
+                        <On Platform="UWP" Value="Assets/Fonts/Lobster-Regular.ttf#Lobster" />
+                    </OnPlatform>
+                </Button.FontFamily>
+            </Button>
+            <Label x:Name="_LblHelper" Text="راهنمای استفاده از اپلیکیشن" IsVisible="False"  TextColor="White"    HorizontalOptions="CenterAndExpand"  VerticalOptions="End"     FontSize="Small"  >
+                <Label.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="iOS" Value="Samim" />
+                        <On Platform="Android" Value="Samim-Bold.otf#Samim" />
+                        <On Platform="UWP" Value="Assets/Fonts/Lobster-Regular.ttf#Lobster" />
+                    </OnPlatform>
+                </Label.FontFamily>
+            </Label>
+            <Button x:Name="_BtnAppUpdateChecker" BorderWidth="1" BorderColor="RED" IsVisible="False"     CornerRadius="15" FontSize="Medium"  Text="بروز رسانی اپلیکیشن" BackgroundColor="Blue"   TextColor="White"  HorizontalOptions="CenterAndExpand"   VerticalOptions="End"    >
+                <Button.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="iOS" Value="Samim" />
+                        <On Platform="Android" Value="Samim-Bold.otf#Samim" />
+                        <On Platform="UWP" Value="Assets/Fonts/Lobster-Regular.ttf#Lobster" />
+                    </OnPlatform>
+                </Button.FontFamily>
+            </Button>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

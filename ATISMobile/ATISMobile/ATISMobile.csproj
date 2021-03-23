@@ -19,65 +19,78 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Reports\LoadPermissionsIssuedOrderByPriorityReportPage.xaml~RF294e015.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="Xamarin.Forms" Version="3.6.0.264807" />
     <PackageReference Include="Xamarin.Essentials" Version="1.0.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="AnnouncementHallsPage.xaml">
+    <EmbeddedResource Update="AdvertisingManagement\AdvertisingPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="AnnouncementHallsSelectionPage.xaml">
+    <EmbeddedResource Update="AnnouncementHallsManagement\AnnouncementHallsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="LoadCapacitorLoadsListTypeSelectionPage.xaml">
+    <EmbeddedResource Update="AnnouncementHallsManagement\AnnouncementHallsSelectionPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="LoadsPage.xaml">
+    <EmbeddedResource Update="LoadCapacitorManagement\LoadCapacitorLoadsListTypeSelectionPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="MenuPage.xaml">
+    <EmbeddedResource Update="LoadCapacitorManagement\LoadsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="MobileEntryPage.xaml">
+    <EmbeddedResource Update="MenuManagement\MenuPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="MoneyWalletChargingPage.xaml">
+    <EmbeddedResource Update="Reports\LoadPermissionsIssuedOrderByPriorityReportPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="MoneyWalletMenuPage.xaml">
+    <EmbeddedResource Update="SecurityManagement\Last5DigitEntryPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="MoneyWalletTransactionsPage.xaml">
+    <EmbeddedResource Update="StartingManagement\MobileEntryPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="MoneyWalletManagement\MoneyWalletChargingPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="MoneyWalletManagement\MoneyWalletMenuPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="MoneyWalletManagement\MoneyWalletTransactionsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Update="ProvinceSelectionPage.xaml">
+    <EmbeddedResource Update="ProvincesManagement\ProvinceSelectionPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="StartPage.xaml">
+    <EmbeddedResource Update="StartingManagement\StartPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="TruckDriverPage.xaml">
+    <EmbeddedResource Update="TruckDriverManagement\TruckDriverPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="TruckPage.xaml">
+    <EmbeddedResource Update="TruckManagement\TruckPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="TurnsPage.xaml">
+    <EmbeddedResource Update="TurnsManagement\TurnsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="VerificationCodeEntryPage.xaml">
+    <EmbeddedResource Update="StartingManagement\VerificationCodeEntryPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="MenuPage.xaml.cs">
+    <Compile Update="MenuManagement\MenuPage.xaml.cs">
       <DependentUpon>MenuPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="Properties\Resources.Designer.cs">
@@ -85,9 +98,5 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Reports\" />
   </ItemGroup>
 </Project>
