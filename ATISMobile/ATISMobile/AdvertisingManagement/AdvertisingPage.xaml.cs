@@ -44,7 +44,7 @@ namespace ATISMobile.AdvertisingManagement
                 Image img = new Image();
                 img.Source = ImageSource.FromStream(() => stream);
                 ImgAdvertising.Source = img.Source;
-                ImgAdvertising.HeightRequest = (int)Math.Truncate(Xamarin.Forms.Application.Current.MainPage.Width / 1.41);
+                //ImgAdvertising.HeightRequest = (int)Math.Truncate(Xamarin.Forms.Application.Current.MainPage.Width / 1.41);
             }
             catch (System.Net.WebException ex)
             { await DisplayAlert("ATISMobile-Error",ATISMobilePredefinedMessages.ATISWebApiNotReachedMessage, "OK"); }

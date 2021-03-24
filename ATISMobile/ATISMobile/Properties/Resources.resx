@@ -127,7 +127,7 @@
     <value>Http</value>
   </data>
   <data name="RestfulWebServiceURLFirst" xml:space="preserve">
-    <value>www.ATISMobile.ir</value>
+    <value>192.168.1.2</value>
   </data>
   <data name="RestfulWebServiceURLSecond" xml:space="preserve">
     <value>www.EsfTerminals.ir</value>

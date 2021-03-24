@@ -93,7 +93,7 @@
                                             </OnPlatform>
                                         </Label.FontFamily>
                                     </Label>
-                                    <Button x:Name="BtnSelect" BorderWidth="2"  WidthRequest="150" BorderColor="Yellow"   CornerRadius="13" FontSize="Medium"  Text="انتخاب" BackgroundColor="OrangeRed" TextColor="Yellow" HorizontalOptions="Start"   Clicked="BtnSelect_ClickedEvent" >
+                                    <Button x:Name="BtnSelect" BorderWidth="2"  WidthRequest="150" BorderColor="Yellow"   CornerRadius="13" FontSize="Medium"  Text="انتخاب" BackgroundColor="YellowGreen" TextColor="Black" HorizontalOptions="Start"   Clicked="BtnSelect_ClickedEvent" >
                                         <Button.FontFamily>
                                             <OnPlatform x:TypeArguments="x:String">
                                                 <On Platform="iOS" Value="Samim" />

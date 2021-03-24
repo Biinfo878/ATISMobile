@@ -77,7 +77,7 @@ namespace ATISMobile.LoadCapacitorManagement
                 request.Headers.Add("ApiKey", ATISMobileWebApiMClassManagement.GetApiKey());
                 request.Headers.Add("AHId", YourAHId.ToString());
                 request.Headers.Add("AHSGId", YourAHSGId.ToString());
-                request.Headers.Add("ProvinceId", Int64.MinValue.ToString());
+                request.Headers.Add("ProvinceId",YourProvinceId.ToString());
                 request.Headers.Add("ListType", ((int)LoadCapacitorLoadsListType.NotSedimented).ToString());
                 HttpResponseMessage response = await HttpClientOnlyInstance.HttpClientInstance().SendAsync(request);
                 if (response.IsSuccessStatusCode)
