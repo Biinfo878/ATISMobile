@@ -51,8 +51,8 @@ namespace ATISMobile.TruckDriverManagement
                     LblDriverId.Text = myTruckDriver.DriverId;
                     LblThisSoftwareUserInformation.Text = "مشخصات کاربری راننده";
                     LblSoftwareUserId.Text = "شناسه کاربری: " + ATISMobileWebApiMClassManagement.GetCurrentSoftwareUserId().ToString();
-                    LblRegisteredMobileNumberIntoWebApi.Text = "موبایل فعال شده: " + ATISMobileWebApiMClassManagement.GetRegisteredMobileNumberIntoWebApi();
-                    LblCurrentUserStatus.Text = "وضعیت: " + ATISMobileWebApiMClassManagement.GetAMUStatus();
+                    LblRegisteredMobileNumberIntoWebApi.Text = "شماره موبایل فعال شده: " + ATISMobileWebApiMClassManagement.GetRegisteredMobileNumberIntoWebApi();
+                    LblCurrentUserStatus.Text = "وضعیت کاربر: " + ATISMobileWebApiMClassManagement.GetAMUStatus();
                 }
                 else
                 { await DisplayAlert("ATISMobile-Failed", JsonConvert.DeserializeObject<string>(response.Content.ReadAsStringAsync().Result), "تایید"); }

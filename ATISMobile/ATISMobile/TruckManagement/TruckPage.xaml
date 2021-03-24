@@ -59,7 +59,7 @@
                     </OnPlatform>
                 </Label.FontFamily>
             </Label>
-            <Label x:Name="LblAnnouncementHallSubGroups" BackgroundColor="White"  TextColor="Black"    FontSize="Medium"  FontAttributes="Bold" Text = "" VerticalOptions="Center"  HorizontalOptions="CenterAndExpand" >
+            <Label x:Name="LblAnnouncementHallSubGroups" Margin="10,0,10,0" BackgroundColor="White"  TextColor="Black"    FontSize="Medium"  FontAttributes="Bold" Text = "" VerticalOptions="Center"  HorizontalOptions="CenterAndExpand" >
                 <Label.FontFamily>
                     <OnPlatform x:TypeArguments="x:String">
                         <On Platform="iOS" Value="Samim" />

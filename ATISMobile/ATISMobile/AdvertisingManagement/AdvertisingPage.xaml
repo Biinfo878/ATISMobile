@@ -3,25 +3,28 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ATISMobile.AdvertisingManagement.AdvertisingPage"
               BackgroundColor="White">
+    <NavigationPage.TitleView>
+        <StackLayout>
+            <Label Text="اعلانات آتیس" TextColor="White" HorizontalTextAlignment="Center">
+                <Label.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="iOS" Value="Samim" />
+                        <On Platform="Android" Value="Samim-Bold.otf#Samim" />
+                        <On Platform="UWP" Value="Assets/Fonts/Lobster-Regular.ttf#Lobster" />
+                    </OnPlatform>
+                </Label.FontFamily>
+            </Label>
+        </StackLayout>
+    </NavigationPage.TitleView>
+
     <ContentPage.Content>
         <ScrollView>
             <StackLayout >
                 <Grid VerticalOptions="FillAndExpand">
                     <Image x:Name="ImgAdvertising" Aspect="AspectFill"  Source="TruckNewLightDark.jpg" VerticalOptions="FillAndExpand"   HorizontalOptions="FillAndExpand"  />
                 </Grid>
-                <StackLayout  Padding="40,10,40,10" HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand">
-                    <Button x:Name="BtnDownloadATISMobileLastVersion" Margin="10,0,10,0" BorderWidth="1" BorderColor="Black"  CornerRadius="10" FontSize="Medium" TextColor="White" BackgroundColor="DodgerBlue" Text="دانلود آخرین نسخه آتیس موبایل" >
-                        <Button.FontFamily>
-                            <OnPlatform x:TypeArguments="x:String">
-                                <On Platform="iOS" Value="Samim" />
-                                <On Platform="Android" Value="Samim-Bold.otf#Samim" />
-                                <On Platform="UWP" Value="Assets/Fonts/Lobster-Regular.ttf#Lobster" />
-                            </OnPlatform>
-                        </Button.FontFamily>
-                    </Button>
-                </StackLayout>
-                <StackLayout VerticalOptions="End" Margin="10,0,10,10">
-                    <Label TextColor="ForestGreen" FontSize="Medium"  Text="عضویت در کانال واتساپ آتیس موبایل" BackgroundColor="White" VerticalOptions="Start" HorizontalOptions="CenterAndExpand">
+                <StackLayout VerticalOptions="EndAndExpand" Margin="10,0,10,0">
+                    <Label TextColor="ForestGreen" FontSize="Medium"  Text="عضویت در گروه واتساپ آتیس موبایل" BackgroundColor="White" VerticalOptions="Start" HorizontalOptions="CenterAndExpand">
                         <Label.FontFamily>
                             <OnPlatform x:TypeArguments="x:String">
                                 <On Platform="iOS" Value="Samim" />
@@ -31,6 +34,17 @@
                         </Label.FontFamily>
                     </Label>
                     <Button x:Name="BtnWhastAppLink" Image="WhatsAppLink.jpg" BackgroundColor="White" VerticalOptions="Center" HorizontalOptions="CenterAndExpand"  />
+                </StackLayout>
+                <StackLayout  Margin="30,0,30,20" HorizontalOptions="CenterAndExpand" VerticalOptions="End">
+                    <Button x:Name="BtnDownloadATISMobileLastVersion" BorderWidth="1" BorderColor="Black"  CornerRadius="10" FontSize="Medium" TextColor="White" BackgroundColor="DodgerBlue" Text="دانلود آخرین نسخه آتیس موبایل" >
+                        <Button.FontFamily>
+                            <OnPlatform x:TypeArguments="x:String">
+                                <On Platform="iOS" Value="Samim" />
+                                <On Platform="Android" Value="Samim-Bold.otf#Samim" />
+                                <On Platform="UWP" Value="Assets/Fonts/Lobster-Regular.ttf#Lobster" />
+                            </OnPlatform>
+                        </Button.FontFamily>
+                    </Button>
                 </StackLayout>
             </StackLayout>
         </ScrollView>
