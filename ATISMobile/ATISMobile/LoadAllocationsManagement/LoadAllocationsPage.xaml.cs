@@ -30,9 +30,6 @@ namespace ATISMobile.LoadAllocationsManagement
         {
             try
             {
-                //HttpClient _Client = new HttpClient();
-                //_Client.BaseAddress = new Uri(ATISMobileWebApiMClassManagement.GetATISMobileWebApiHostUrl());
-                //_Client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, "/api/LoadAllocations/GetLoadAllocationsforTruckDriver");
                 request.Headers.Add("AuthCode", ATISMobileWebApiMClassManagement.GetAuthCode3PartHashed());
                 request.Headers.Add("ApiKey", ATISMobileWebApiMClassManagement.GetApiKey());

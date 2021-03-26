@@ -40,8 +40,6 @@ namespace ATISMobile
                 _ButtonSend.IsEnabled = false; _ButtonSend.BackgroundColor = Color.Gray;
                 string myMobileNumber = _EntryMobileNumber.Text.Trim();
                 string myNameFamily = _EntryNameFamily.Text.Trim();
-                //HttpClient _Client = new HttpClient();
-                //_Client.BaseAddress = new Uri(ATISMobileWebApiMClassManagement.GetATISMobileWebApiHostUrl());
                 HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, new Uri("/api/SoftwareUsers/RegisterMobileNumber"));
                 request.Headers.Add("AuthCode", ATISMobileWebApiMClassManagement.GetAuthCode2PartHashed());
                 request.Content = new StringContent(JsonConvert.SerializeObject(myMobileNumber), Encoding.UTF8, "application/json");

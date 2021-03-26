@@ -11,6 +11,7 @@ using System.Net;
 using System.Net.Http.Headers;
 using ATISMobile.PublicProcedures;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace ATISMobile
 {
@@ -83,24 +84,32 @@ namespace ATISMobile
             private static string GetATISMobileWebApiHostUrlSecond()
             { return Properties.Resources.RestfulWebServiceProtocol + "://" + Properties.Resources.RestfulWebServiceURLSecond + ":" + Properties.Resources.RestfulWebServicePortNumber; }
 
-            private static string _ATISMobileWebApiHostUrl = string.Empty;
-            public static string GetATISMobileWebApiHostUrl()
+            public static string ATISMobileWebApiHostUrlHolder = string.Empty;
+            public static async Task<HttpResponseMessage> SetATISMobileWebApiHostUrl()
             {
-                if (!(_ATISMobileWebApiHostUrl == string.Empty)) { return _ATISMobileWebApiHostUrl; }
                 try
                 {
-                    if (ATISMobileMClassPublicProcedures.IsThisIPAvailable(GetATISMobileWebApiHostUrlFirstWithoutPortNumber()))
-                    { _ATISMobileWebApiHostUrl = GetATISMobileWebApiHostUrlFirst(); return _ATISMobileWebApiHostUrl; }
+                    HttpClient _HttpClient = new HttpClient();
+                    HttpResponseMessage response = await _HttpClient.GetAsync(GetATISMobileWebApiHostUrlFirst() + "/api/ATISMobileWebApi/ISWebApiLive");
+                    if (response.IsSuccessStatusCode)
+                    { ATISMobileWebApiHostUrlHolder = GetATISMobileWebApiHostUrlFirst(); return response; }
                     else
+                    { throw new Exception(); }
+                }
+                catch (Exception ex)
+                {
+                    try
                     {
-                        if (ATISMobileMClassPublicProcedures.IsThisIPAvailable(GetATISMobileWebApiHostUrlSecondWithoutPortNumber()))
-                        { _ATISMobileWebApiHostUrl = GetATISMobileWebApiHostUrlSecond(); return _ATISMobileWebApiHostUrl; }
+                        HttpClient _HttpClient = new HttpClient();
+                        HttpResponseMessage response = await _HttpClient.GetAsync(GetATISMobileWebApiHostUrlSecond() + "/api/ATISMobileWebApi/ISWebApiLive");
+                        if (response.IsSuccessStatusCode)
+                        { ATISMobileWebApiHostUrlHolder = GetATISMobileWebApiHostUrlSecond(); return response; }
                         else
                         { throw new Exception(); }
                     }
+                    catch(Exception exx)
+                    { throw new Exception(ATISMobilePredefinedMessages.ATISWebApiNotReachedMessage); }
                 }
-                catch (Exception ex)
-                { throw new Exception(ATISMobilePredefinedMessages.ATISWebApiNotReachedMessage); }
             }
 
             private static string GetAPPId()
@@ -302,15 +311,19 @@ namespace ATISMobile
             {
                 try
                 {
+
                     if (_HttpClient is null)
                     {
-                        Uri baseUri = new Uri(ATISMobileWebApiMClassManagement.GetATISMobileWebApiHostUrl());
+                        Uri baseUri = new Uri(ATISMobileWebApiMClassManagement.ATISMobileWebApiHostUrlHolder);
                         _HttpClient = new HttpClient();
                         _HttpClient.BaseAddress = baseUri;
                         _HttpClient.DefaultRequestHeaders.Clear();
                         _HttpClient.DefaultRequestHeaders.ConnectionClose = false;
                         _HttpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                        try { ServicePointManager.FindServicePoint(baseUri).ConnectionLeaseTimeout = 60 * 1000; }
+                        try
+                        {
+                            ServicePointManager.FindServicePoint(baseUri).ConnectionLeaseTimeout = 60 * 1000;
+                        }
                         catch (Exception ex)
                         {; }
                         ServicePointManager.DnsRefreshTimeout = 100;

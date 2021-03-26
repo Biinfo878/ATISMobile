@@ -36,8 +36,9 @@ namespace ATISMobile
         {
             try
             {
-                //HttpClient _Client = new HttpClient();
-                //_Client.BaseAddress = new Uri(ATISMobileWebApiMClassManagement.GetATISMobileWebApiHostUrl());
+                //این تابع فقط یکبار فراخوانی می کردد تا متغیر پابلیک اتصال تنظیم گردد
+                await ATISMobileWebApiMClassManagement.SetATISMobileWebApiHostUrl();
+
                 HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, "/api/VersionControl/HaveNewerVersion");
                 request.Headers.Add("AuthCode", ATISMobileWebApiMClassManagement.GetAuthCode2PartHashed());
                 Xamarin.Essentials.VersionTracking.Track();

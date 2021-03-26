@@ -18,17 +18,17 @@
 
     <ContentPage.Content>
         <StackLayout BackgroundColor="White" >
-            <StackLayout BackgroundColor="White" >
-                <Picker x:Name="_PickerAnnouncementHallSubGroups"   Margin="10" Title="گروه اعلام بار را انتخاب کنید ..." TitleColor="Red" HorizontalOptions="CenterAndExpand">
+            <StackLayout BackgroundColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="Start">
+                <Picker x:Name="_PickerAnnouncementHallSubGroups"   Margin="10" Title="گروه اعلام بار را انتخاب کنید ..." TitleColor="Red" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
                     <Picker.ItemsSource>
                         <x:Array Type="{x:Type x:String}">
                         </x:Array>
                     </Picker.ItemsSource>
                 </Picker>
             </StackLayout>
-            <StackLayout BackgroundColor="White" >
+            <StackLayout BackgroundColor="White" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
                 <StackLayout x:Name="_StackLayoutEmptyPermissions" IsVisible="False"  BackgroundColor="White" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" >
-                    <Label Text="موردی در سامانه یافت نشد" TextColor="Red" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontSize="Large" >
+                    <Label Text="موردی در سامانه یافت نشد" TextColor="Red" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontSize="Medium" >
                         <Label.FontFamily>
                             <OnPlatform x:TypeArguments="x:String">
                                 <On Platform="iOS" Value="Samim" />
@@ -38,7 +38,7 @@
                         </Label.FontFamily>
                     </Label>
                 </StackLayout>
-                <ListView x:Name="_ListView" BackgroundColor="White"  Margin="15" HasUnevenRows = "True"  >
+                <ListView x:Name="_ListView" BackgroundColor="White"  Margin="15" HasUnevenRows = "True"  HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell  >
