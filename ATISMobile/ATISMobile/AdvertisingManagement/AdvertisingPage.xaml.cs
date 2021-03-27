@@ -28,10 +28,18 @@ namespace ATISMobile.AdvertisingManagement
         public AdvertisingPage()
         {
             InitializeComponent();
-            BtnWhastAppLink.Clicked += BtnWhastAppLink_Clicked;
-            BtnDownloadATISMobileLastVersion.Clicked += BtnDownloadATISMobileLastVersion_Clicked;
+            //BtnDownloadATISMobileLastVersion.Clicked += BtnDownloadATISMobileLastVersion_Clicked;
+            ImgWhatsAppGroup1.Clicked += ImgWhatsAppGroup1_Clicked;
+            ImgWhatsAppGroup2.Clicked += ImgWhatsAppGroup2_Clicked;
+            ImgWhatsAppGroup3.Clicked += ImgWhatsAppGroup3_Clicked;
+            ImgWhatsAppGroup4.Clicked += ImgWhatsAppGroup4_Clicked;
+            ImgWhatsAppGroup5.Clicked += ImgWhatsAppGroup5_Clicked;
+            ImgWhatsAppGroup6.Clicked += ImgWhatsAppGroup6_Clicked;
             DownloadAndViewAdvertisingImg();
         }
+
+        private void OnBtnWhastAppLink(string YourLink)
+        { try { Device.OpenUri(new Uri(YourLink)); } catch (Exception ex) { throw ex; } }
 
         private async void DownloadAndViewAdvertisingImg()
         {
@@ -47,7 +55,7 @@ namespace ATISMobile.AdvertisingManagement
                 //ImgAdvertising.HeightRequest = (int)Math.Truncate(Xamarin.Forms.Application.Current.MainPage.Width / 1.41);
             }
             catch (System.Net.WebException ex)
-            { await DisplayAlert("ATISMobile-Error",ATISMobilePredefinedMessages.ATISWebApiNotReachedMessage, "OK"); }
+            { await DisplayAlert("ATISMobile-Error", ATISMobilePredefinedMessages.ATISWebApiNotReachedMessage, "OK"); }
             catch (Exception ex)
             { await DisplayAlert("ATISMobile-Error", ex.Message, "OK"); }
         }
@@ -59,21 +67,27 @@ namespace ATISMobile.AdvertisingManagement
         #endregion
 
         #region "Event Handlers"
-        private async void BtnDownloadATISMobileLastVersion_Clicked(object sender, EventArgs e)
-        {
-            try
-            { await Browser.OpenAsync(Properties.Resources.DownloadLinkURL, BrowserLaunchMode.SystemPreferred); }
-            catch (Exception ex)
-            { await DisplayAlert("ATISMobile-Error", ex.Message, "OK"); }
-        }
+        //private async void BtnDownloadATISMobileLastVersion_Clicked(object sender, EventArgs e)
+        //{
+        //    try
+        //    { await Browser.OpenAsync(Properties.Resources.DownloadLinkURL, BrowserLaunchMode.SystemPreferred); }
+        //    catch (Exception ex)
+        //    { await DisplayAlert("ATISMobile-Error", ex.Message, "OK"); }
+        //}
 
-        private void BtnWhastAppLink_Clicked(object sender, EventArgs e)
-        {
-            try
-            { Device.OpenUri(new Uri("https://chat.whatsapp.com/IY1f7COQ9YV62Mkynf4AdJ")); }
-            catch (Exception ex)
-            { DisplayAlert("ATISMobile-Error", ex.Message, "OK"); }
-        }
+        private void ImgWhatsAppGroup6_Clicked(object sender, EventArgs e)
+        { try { OnBtnWhastAppLink("https://chat.whatsapp.com/ES7zELExevM8O2nuwfYsgK"); } catch (Exception ex) { DisplayAlert("ATISMobile-Error", ex.Message, "OK"); } }
+        private void ImgWhatsAppGroup5_Clicked(object sender, EventArgs e)
+        { try { OnBtnWhastAppLink("https://chat.whatsapp.com/C01QNQhTUysKB405GYFKXx"); } catch (Exception ex) { DisplayAlert("ATISMobile-Error", ex.Message, "OK"); } }
+        private void ImgWhatsAppGroup4_Clicked(object sender, EventArgs e)
+        { try { OnBtnWhastAppLink("https://chat.whatsapp.com/Ef0iSG5KedAAHlgwRSZ6tQ"); } catch (Exception ex) { DisplayAlert("ATISMobile-Error", ex.Message, "OK"); } }
+        private void ImgWhatsAppGroup3_Clicked(object sender, EventArgs e)
+        { try { OnBtnWhastAppLink("https://chat.whatsapp.com/HO16u7VXTga6iGPR8hgOao"); } catch (Exception ex) { DisplayAlert("ATISMobile-Error", ex.Message, "OK"); } }
+        private void ImgWhatsAppGroup2_Clicked(object sender, EventArgs e)
+        { try { OnBtnWhastAppLink("https://chat.whatsapp.com/ENt7KpOmYyL8BjJBHfUeru"); } catch (Exception ex) { DisplayAlert("ATISMobile-Error", ex.Message, "OK"); } }
+        private void ImgWhatsAppGroup1_Clicked(object sender, EventArgs e)
+        { try { OnBtnWhastAppLink("https://chat.whatsapp.com/IY1f7COQ9YV62Mkynf4AdJ"); } catch (Exception ex) { DisplayAlert("ATISMobile-Error", ex.Message, "OK"); } }
+
 
         #endregion
 

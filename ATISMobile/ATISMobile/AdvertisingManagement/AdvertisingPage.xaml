@@ -20,22 +20,10 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout >
-                <Grid VerticalOptions="FillAndExpand">
+                <Grid VerticalOptions="Start">
                     <Image x:Name="ImgAdvertising" Aspect="AspectFill"  Source="TruckNewLightDark.jpg" VerticalOptions="FillAndExpand"   HorizontalOptions="FillAndExpand"  />
                 </Grid>
-                <StackLayout VerticalOptions="EndAndExpand" Margin="10,0,10,0">
-                    <Label TextColor="ForestGreen" FontSize="Medium"  Text="عضویت در گروه واتساپ آتیس موبایل" BackgroundColor="White" VerticalOptions="Start" HorizontalOptions="CenterAndExpand">
-                        <Label.FontFamily>
-                            <OnPlatform x:TypeArguments="x:String">
-                                <On Platform="iOS" Value="Samim" />
-                                <On Platform="Android" Value="Samim-Bold.otf#Samim" />
-                                <On Platform="UWP" Value="Assets/Fonts/Lobster-Regular.ttf#Lobster" />
-                            </OnPlatform>
-                        </Label.FontFamily>
-                    </Label>
-                    <Button x:Name="BtnWhastAppLink" Image="WhatsAppLink.jpg" BackgroundColor="White" VerticalOptions="Center" HorizontalOptions="CenterAndExpand"  />
-                </StackLayout>
-                <StackLayout  Margin="30,0,30,20" HorizontalOptions="CenterAndExpand" VerticalOptions="End">
+                <StackLayout  Margin="30,0,30,20" HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand">
                     <Button x:Name="BtnDownloadATISMobileLastVersion" BorderWidth="1" BorderColor="Black"  CornerRadius="10" FontSize="Medium" TextColor="White" BackgroundColor="DodgerBlue" Text="دانلود آخرین نسخه آتیس موبایل" >
                         <Button.FontFamily>
                             <OnPlatform x:TypeArguments="x:String">
@@ -45,6 +33,48 @@
                             </OnPlatform>
                         </Button.FontFamily>
                     </Button>
+                </StackLayout>
+                <StackLayout VerticalOptions="End" Margin="10,0,10,0">
+                    <Label TextColor="Green" Margin="20,0,20,0" FontSize="Medium"  Text="برای عضویت در گروه واتساپ آتیس موبایل فقط یکی از تصاویر زیر را لمس کنید" BackgroundColor="White" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand">
+                        <Label.FontFamily>
+                            <OnPlatform x:TypeArguments="x:String">
+                                <On Platform="iOS" Value="Samim" />
+                                <On Platform="Android" Value="Samim-Bold.otf#Samim" />
+                                <On Platform="UWP" Value="Assets/Fonts/Lobster-Regular.ttf#Lobster" />
+                            </OnPlatform>
+                        </Label.FontFamily>
+                    </Label>
+                    <Grid  x:Name="_GridWhatsApp" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" VerticalOptions="End" >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <StackLayout Grid.Row="0" Grid.Column="0" BackgroundColor="White"  >
+                            <ImageButton x:Name="ImgWhatsAppGroup1" Source="ATISWhatsAppGroupsIcon.jpg"  BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"  />
+                        </StackLayout>
+                        <StackLayout Grid.Row="0" Grid.Column="1" BackgroundColor="White"  >
+                            <ImageButton  x:Name="ImgWhatsAppGroup2" Source="ATISWhatsAppGroupsIcon.jpg"  BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"  />
+                        </StackLayout>
+                        <StackLayout Grid.Row="0" Grid.Column="2" BackgroundColor="White"  >
+                            <ImageButton  x:Name="ImgWhatsAppGroup3" Source="ATISWhatsAppGroupsIcon.jpg"  BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"  />
+                        </StackLayout>
+                        <StackLayout Grid.Row="0" Grid.Column="3" BackgroundColor="White"  >
+                            <ImageButton  x:Name="ImgWhatsAppGroup4" Source="ATISWhatsAppGroupsIcon.jpg"  BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"  />
+                        </StackLayout>
+                        <StackLayout Grid.Row="0" Grid.Column="4" BackgroundColor="White"  >
+                            <ImageButton  x:Name="ImgWhatsAppGroup5" Source="ATISWhatsAppGroupsIcon.jpg"  BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"  />
+                        </StackLayout>
+                        <StackLayout Grid.Row="0" Grid.Column="5" BackgroundColor="White"  >
+                            <ImageButton  x:Name="ImgWhatsAppGroup6" Source="ATISWhatsAppGroupsIcon.jpg"  BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand"  VerticalOptions="CenterAndExpand"  />
+                        </StackLayout>
+                    </Grid>
                 </StackLayout>
             </StackLayout>
         </ScrollView>
