@@ -53,7 +53,7 @@ namespace ATISMobile
                     { _ListView.ItemsSource = _Lst; }
                 }
                 else
-                { await DisplayAlert("ATISMobile-Failed", "HttpStatusCode:" + response.StatusCode.ToString(), "OK"); }
+                { await DisplayAlert("ATISMobile-Failed", JsonConvert.DeserializeObject<string>(response.Content.ReadAsStringAsync().Result), "تایید"); }
             }
             catch (System.Net.WebException ex)
             { await DisplayAlert("ATISMobile-Error", ATISMobilePredefinedMessages.ATISWebApiNotReachedMessage, "OK"); }

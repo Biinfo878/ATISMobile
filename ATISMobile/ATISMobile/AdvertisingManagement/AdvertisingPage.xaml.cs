@@ -28,7 +28,7 @@ namespace ATISMobile.AdvertisingManagement
         public AdvertisingPage()
         {
             InitializeComponent();
-            //BtnDownloadATISMobileLastVersion.Clicked += BtnDownloadATISMobileLastVersion_Clicked;
+            BtnDownloadATISMobileLastVersion.Clicked += BtnDownloadATISMobileLastVersion_Clicked;
             ImgWhatsAppGroup1.Clicked += ImgWhatsAppGroup1_Clicked;
             ImgWhatsAppGroup2.Clicked += ImgWhatsAppGroup2_Clicked;
             ImgWhatsAppGroup3.Clicked += ImgWhatsAppGroup3_Clicked;
@@ -68,13 +68,13 @@ namespace ATISMobile.AdvertisingManagement
         #endregion
 
         #region "Event Handlers"
-        //private async void BtnDownloadATISMobileLastVersion_Clicked(object sender, EventArgs e)
-        //{
-        //    try
-        //    { await Browser.OpenAsync(Properties.Resources.DownloadLinkURL, BrowserLaunchMode.SystemPreferred); }
-        //    catch (Exception ex)
-        //    { await DisplayAlert("ATISMobile-Error", ex.Message, "OK"); }
-        //}
+        private async void BtnDownloadATISMobileLastVersion_Clicked(object sender, EventArgs e)
+        {
+            try
+            { await Browser.OpenAsync(Properties.Resources.DownloadLinkURL, BrowserLaunchMode.SystemPreferred); }
+            catch (Exception ex)
+            { await DisplayAlert("ATISMobile-Error", ex.Message, "OK"); }
+        }
 
         private void ImgWhatsAppGroup6_Clicked(object sender, EventArgs e)
         { try { OnBtnWhastAppLink("https://chat.whatsapp.com/ES7zELExevM8O2nuwfYsgK"); } catch (Exception ex) { DisplayAlert("ATISMobile-Error", ex.Message, "OK"); } }

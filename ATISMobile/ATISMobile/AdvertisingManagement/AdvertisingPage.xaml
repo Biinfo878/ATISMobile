@@ -21,7 +21,7 @@
         <ScrollView>
             <StackLayout  BackgroundColor="White">
                 <Image x:Name="ImgAdvertising"  Aspect="Fill"   Source="TruckNewLightDark.jpg" VerticalOptions="FillAndExpand"   HorizontalOptions="FillAndExpand"  />
-                <StackLayout  Margin="30,0,30,20" HorizontalOptions="CenterAndExpand" VerticalOptions="End">
+                <StackLayout  Margin="30,0,30,5" HorizontalOptions="CenterAndExpand" VerticalOptions="End">
                     <Button x:Name="BtnDownloadATISMobileLastVersion" BorderWidth="1" BorderColor="Black"  CornerRadius="10" FontSize="Medium" TextColor="White" BackgroundColor="DodgerBlue" Text="دانلود آخرین نسخه آتیس موبایل" >
                         <Button.FontFamily>
                             <OnPlatform x:TypeArguments="x:String">
@@ -33,7 +33,16 @@
                     </Button>
                 </StackLayout>
                 <StackLayout VerticalOptions="End" Margin="10,0,10,0">
-                    <Label TextColor="Green" Margin="20,0,20,0" FontSize="Medium"  Text="برای عضویت در گروه واتساپ آتیس موبایل فقط یکی از تصاویر زیر را لمس کنید" BackgroundColor="White" VerticalOptions="End" HorizontalOptions="CenterAndExpand">
+                    <Label TextColor="Green" Margin="20,0,20,0" FontSize="Medium"  Text="عضویت در گروه واتساپ آتیس موبایل" BackgroundColor="White" VerticalOptions="End" HorizontalOptions="CenterAndExpand">
+                        <Label.FontFamily>
+                            <OnPlatform x:TypeArguments="x:String">
+                                <On Platform="iOS" Value="Samim" />
+                                <On Platform="Android" Value="Samim-Bold.otf#Samim" />
+                                <On Platform="UWP" Value="Assets/Fonts/Lobster-Regular.ttf#Lobster" />
+                            </OnPlatform>
+                        </Label.FontFamily>
+                    </Label>
+                    <Label TextColor="Green" Margin="20,0,20,0" FontSize="Small"  Text="فقط یکی از تصاویر زیر را لمس کنید" BackgroundColor="White" VerticalOptions="End" HorizontalOptions="CenterAndExpand">
                         <Label.FontFamily>
                             <OnPlatform x:TypeArguments="x:String">
                                 <On Platform="iOS" Value="Samim" />
